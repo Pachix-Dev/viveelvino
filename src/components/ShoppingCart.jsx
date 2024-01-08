@@ -1,5 +1,4 @@
-import React from 'react';
-import useCartStore from '../store/cartStore';
+import useCartStore from "../store/cartStore";
 
 const ShoppingCart = () => {
   const { items, total, addToCart, removeFromCart, clearCart } = useCartStore();
@@ -10,7 +9,7 @@ const ShoppingCart = () => {
       <ul>
         {items.map((item) => (
           <li key={item.id}>
-            {item.name} - ${item.price}{' '}
+            {item.name} - ${item.price}{" "}
             <button onClick={() => removeFromCart(item.id)}>Eliminar</button>
           </li>
         ))}
