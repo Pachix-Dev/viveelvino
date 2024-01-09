@@ -1,13 +1,12 @@
-import { useState } from "react";
 import useCartStore from "../store/cartStore";
 
 const ShoppingCart = () => {
-  const { items, total, removeFromCart } = useCartStore();
-  const [isCartOpen, setIsCartOpen] = useState(false);
+  const { items, total, show, removeFromCart, showCart } = useCartStore();
 
   const handleToggleCart = () => {
     document.body.classList.toggle("overflow-hidden");
-    setIsCartOpen(!isCartOpen);
+    console.log(show);
+    showCart(!show);
   };
 
   return (
@@ -39,7 +38,7 @@ const ShoppingCart = () => {
         </button>
       </div>
 
-      {isCartOpen && (
+      {show && (
         <div className="relative z-50">
           <div className="fixed inset-0 bg-slate-400/50 backdrop-blur-sm transition-opacity"></div>
           <div className="fixed inset-0 overflow-hidden">

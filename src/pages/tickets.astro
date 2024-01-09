@@ -1,0 +1,87 @@
+---
+import { Products } from '../components/Products'
+import Layout from '../layouts/Layout.astro'
+
+const products = [
+  {
+    id: 1,
+    name: 'Acceso General',
+    price: 450.0,
+    include: {
+      items: [
+        'Acceso a la feria',
+        'Acceso a conferencias y talleres',
+        'Degustaciones',
+        'Copa de regalo',
+        'Catálogo de expositores',
+        'Estacionamiento gratuito',
+      ],
+    },
+    notInclude: {
+      items: [
+        'Cata VIP',
+        'Eventos especiales',
+        'Networking',
+        'Concierto Black eyed peas',
+      ],
+    },
+  },
+  {
+    id: 2,
+    name: 'Menor de edad',
+    price: 250.0,
+    include: {
+      items: [
+        'Acceso a la feria',
+        'Acceso a conferencias y talleres',
+        'Degustaciones',
+        'Copa de regalo',
+        'Catálogo de expositores',
+        'Estacionamiento gratuito',
+      ],
+    },
+    notInclude: {
+      items: [
+        'Cata VIP',
+        'Eventos especiales',
+        'Networking',
+        'Concierto Black eyed peas',
+      ],
+    },
+  },
+  {
+    id: 3,
+    name: 'Invitados especiales',
+    price: 300.0,
+    include: {
+      items: [
+        'Acceso a la feria',
+        'Acceso a conferencias y talleres',
+        'Degustaciones',
+        'Copa de regalo',
+        'Catálogo de expositores',
+        'Estacionamiento gratuito',
+      ],
+    },
+    notInclude: {
+      items: [
+        'Cata VIP',
+        'Eventos especiales',
+        'Networking',
+        'Concierto Black eyed peas',
+      ],
+    },
+  },
+]
+---
+
+<Layout
+  title='Vive el Vino | Tickets'
+  description='Descubre una oportunidad única para destacar tu producto en la segunda región de consumo más relevante del país. Sumérgete en las últimas tendencias del sector participando en nuestro programa de conferencias y talleres. Amplía tu red de negocios mediante encuentros B2B y B2C exclusivos. Aprovecha la oportunidad de promover tu marca a través de la difusión y cobertura mediática del evento. ¡Potencia tu presencia y conecta con oportunidades sin igual!'
+>
+  <main>
+    <section>
+      <Products client:visible products={products} />
+    </section>
+  </main>
+</Layout>
