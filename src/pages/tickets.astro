@@ -1,5 +1,5 @@
 ---
-import { Products } from '../components/Products'
+import { Products } from '../components/Product'
 import Layout from '../layouts/Layout.astro'
 
 const products = [
@@ -7,70 +7,58 @@ const products = [
     id: 1,
     name: 'Acceso General',
     price: 450.0,
-    include: {
-      items: [
-        'Acceso a la feria',
-        'Acceso a conferencias y talleres',
-        'Degustaciones',
-        'Copa de regalo',
-        'Catálogo de expositores',
-        'Estacionamiento gratuito',
-      ],
-    },
-    notInclude: {
-      items: [
-        'Cata VIP',
-        'Eventos especiales',
-        'Networking',
-        'Concierto Black eyed peas',
-      ],
-    },
+    include: [
+      'Acceso a la feria',
+      'Acceso a conferencias y talleres',
+      'Degustaciones',
+      'Copa de regalo',
+      'Catálogo de expositores',
+      'Estacionamiento gratuito',
+    ],
+    notInclude: [
+      'Cata VIP',
+      'Eventos especiales',
+      'Networking',
+      'Concierto Black eyed peas',
+    ],
   },
   {
     id: 2,
     name: 'Menor de edad',
     price: 250.0,
-    include: {
-      items: [
-        'Acceso a la feria',
-        'Acceso a conferencias y talleres',
-        'Degustaciones',
-        'Copa de regalo',
-        'Catálogo de expositores',
-        'Estacionamiento gratuito',
-      ],
-    },
-    notInclude: {
-      items: [
-        'Cata VIP',
-        'Eventos especiales',
-        'Networking',
-        'Concierto Black eyed peas',
-      ],
-    },
+    include: [
+      'Acceso a la feria',
+      'Acceso a conferencias y talleres',
+      'Degustaciones',
+      'Copa de regalo',
+      'Catálogo de expositores',
+      'Estacionamiento gratuito',
+    ],
+    notInclude: [
+      'Cata VIP',
+      'Eventos especiales',
+      'Networking',
+      'Concierto Black eyed peas',
+    ],
   },
   {
     id: 3,
     name: 'Invitados especiales',
     price: 300.0,
-    include: {
-      items: [
-        'Acceso a la feria',
-        'Acceso a conferencias y talleres',
-        'Degustaciones',
-        'Copa de regalo',
-        'Catálogo de expositores',
-        'Estacionamiento gratuito',
-      ],
-    },
-    notInclude: {
-      items: [
-        'Cata VIP',
-        'Eventos especiales',
-        'Networking',
-        'Concierto Black eyed peas',
-      ],
-    },
+    include: [
+      'Acceso a la feria',
+      'Acceso a conferencias y talleres',
+      'Degustaciones',
+      'Copa de regalo',
+      'Catálogo de expositores',
+      'Estacionamiento gratuito',
+    ],
+    notInclude: [
+      'Cata VIP',
+      'Eventos especiales',
+      'Networking',
+      'Concierto Black eyed peas',
+    ],
   },
 ]
 ---
@@ -81,7 +69,16 @@ const products = [
 >
   <main>
     <section>
-      <Products client:visible products={products} />
+      <div class='mt-5 container mx-auto'>
+        <h2 class='font-bold text-black text-2xl'>Productos</h2>
+        <div class='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
+          {
+            products.map((product) => (
+              <Products client:visible product={product} />
+            ))
+          }
+        </div>
+      </div>
     </section>
   </main>
 </Layout>

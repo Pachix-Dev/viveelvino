@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import {persist} from 'zustand/middleware';
+import { persist } from 'zustand/middleware';
 
 const useCartStore = create(
   persist((set) => {
@@ -8,17 +8,55 @@ const useCartStore = create(
       total: 0,
       show: false,
 
-      addToCart: (product) => {
-        set((state) => ({
-          items: [...state.items, product],
-          total: state.total + product.price,
-        }));
+      addToCart: (product, quantity = 1) => {
+        set((state) => {
+          const existingItem = state.items.find((item) => item.id === product.id);
+      
+          if (existingItem) {
+            const newQuantity = Math.min(existingItem.quantity + quantity, 8); // Limit to 8
+            const updatedItems = state.items.map((item) =>
+              item.id === product.id ? { ...item, quantity: newQuantity } : item
+            );
+      
+            const updatedTotal = updatedItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+      
+            return {
+              items: updatedItems,
+              total: updatedTotal,
+            };
+          } else {
+            const newItem = {
+              ...product,
+              quantity: Math.min(quantity, 8), // Limit to 8
+            };
+      
+            return {
+              items: [...state.items, newItem],
+              total: state.total + newItem.price * newItem.quantity,
+            };
+          }
+        });
+      },
+
+      updateQuantity: (productId, newQuantity) => {
+        set((state) => {
+          const updatedItems = state.items.map((item) =>
+            item.id === productId ? { ...item, quantity: newQuantity } : item
+          );
+
+          const updatedTotal = updatedItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
+          return {
+            items: updatedItems,
+            total: updatedTotal,
+          };
+        });
       },
 
       removeFromCart: (productId) => {
         set((state) => {
           const updatedItems = state.items.filter((item) => item.id !== productId);
-          const updatedTotal = updatedItems.reduce((acc, item) => acc + item.price, 0);
+          const updatedTotal = updatedItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
           return {
             items: updatedItems,
             total: updatedTotal,
@@ -33,11 +71,11 @@ const useCartStore = create(
         });
       },
 
-      showCart: (value ) => {
+      showCart: (value) => {
         set({ show: value });
-      },  
-    }
-  }, 
+      },
+    };
+  },
   {
     name: 'cart-storage',
   })
