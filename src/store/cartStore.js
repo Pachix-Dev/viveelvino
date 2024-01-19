@@ -39,6 +39,9 @@ const useCartStore = create(
       },
 
       updateQuantity: (productId, newQuantity) => {
+        if (newQuantity < 1 || newQuantity > 8) { 
+          return;
+        }
         set((state) => {
           const updatedItems = state.items.map((item) =>
             item.id === productId ? { ...item, quantity: newQuantity } : item

@@ -1,7 +1,11 @@
 import useCartStore from '../store/cartStore'
 
 export function ItemCart({ item }) {
-  const { removeFromCart } = useCartStore()
+  const { updateQuantity, removeFromCart } = useCartStore()
+
+  const handleQuantity = (e) => {
+    updateQuantity(item.id, e)
+  }
 
   return (
     <li className='grid py-8 grid-cols-2 gap-3'>
@@ -9,6 +13,7 @@ export function ItemCart({ item }) {
         {item.name}
         <div className='mt-2'>
           <button
+            onClick={() => handleQuantity(item.quantity - 1)}
             alt={`Decrease ${item.name}`}
             aria-label={`Decrease ${item.name}`}
             type='button'
@@ -21,6 +26,7 @@ export function ItemCart({ item }) {
             {item.quantity}
           </span>
           <button
+            onClick={() => handleQuantity(item.quantity + 1)}
             alt={`Increase ${item.name}`}
             aria-label={`Increase ${item.name}`}
             type='button'

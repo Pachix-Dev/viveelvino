@@ -1,25 +1,29 @@
 ---
-import { Menu } from "../components/Menu";
+import { Menu } from '../components/Menu'
+import ShoppingCart from '../components/ShoppingCart'
 interface Props {
-  title: string;
-  description: string;
+  title: string
+  description: string
 }
 
-const { title, description } = Astro.props;
+const { title, description } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta charset='UTF-8' />
+    <meta name='description' content={description} />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <title>{title}</title>
   </head>
   <body>
-    <header class="sticky top-0">
-      <Menu client:visible />
+    <header class='sticky top-0'>
+      <div>
+        <Menu client:visible />
+        <ShoppingCart client:visible />
+      </div>
     </header>
     <slot />
   </body>
