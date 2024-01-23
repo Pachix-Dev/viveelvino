@@ -74,7 +74,7 @@ const products = [
         <div class='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
           {
             products.map((product) => (
-              <Products client:visible product={product} />
+              <Products client:only product={product} />
             ))
           }
         </div>

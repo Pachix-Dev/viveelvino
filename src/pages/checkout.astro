@@ -9,8 +9,6 @@ import { CheckoutPaypal } from '../components/CheckoutPaypal'
 >
   <div class='mt-20 container mx-auto'>
     <p class='font-bold text-3xl text-center'>Checkout</p>
-    <div class='relative mt-5 z-1'>
-      <CheckoutPaypal client:visible />
-    </div>
+    <CheckoutPaypal client:only />
   </div>
 </Layout>

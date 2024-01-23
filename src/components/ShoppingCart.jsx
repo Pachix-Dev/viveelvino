@@ -3,11 +3,9 @@ import useCartStore from '../store/cartStore'
 import { ItemCart } from './ItemCart'
 
 const ShoppingCart = () => {
-  const { items, total, showCart } = useCartStore()
-  const [show, setShow] = useState(false)
+  const { items, total, showCart, show } = useCartStore()
 
   useEffect(() => {
-    // Add this useEffect to handle the body class and show/hide logic
     if (show) {
       document.body.classList.add('overflow-hidden')
     } else {
@@ -16,12 +14,20 @@ const ShoppingCart = () => {
   }, [show])
 
   const handleToggleCart = () => {
-    setShow(!show)
+    showCart(!show)
   }
 
+  const handleCheckout = () => {
+    showCart(!show)
+    window.location.href = '/checkout'
+  }
+  const handleBackToStore = () => {
+    showCart(!show)
+    window.location.href = '/tickets'
+  }
   return (
     <>
-      <div className='flex flex-shrink-0 items-center'>
+      <div className='flex flex-shrink-0 items-center pe-4'>
         <button className='relative' onClick={handleToggleCart}>
           <span className='sr-only'>Open your cart</span>
           <svg
@@ -49,15 +55,9 @@ const ShoppingCart = () => {
       </div>
 
       {show && (
-        <div className='relative' style={{ zIndex: '150' }}>
-          <div
-            className='fixed inset-0 bg-slate-400/50 backdrop-blur-sm transition-opacity'
-            style={{ zIndex: '150' }}
-          ></div>
-          <div
-            className='fixed inset-0 overflow-hidden'
-            style={{ zIndex: '200' }}
-          >
+        <div className='relative z-50'>
+          <div className='fixed inset-0 bg-slate-400/50 backdrop-blur-sm transition-opacity'></div>
+          <div className='fixed inset-0 overflow-hidden'>
             <div className='absolute right-0 h-screen w-8/12 bg-gray-900 text-white overflow-hidden'>
               <div className='flex flex-col min-h-full max-h-screen'>
                 <div className='flex justify-between border-b-2 border-gray-400 py-4 px-4'>
@@ -94,24 +94,24 @@ const ShoppingCart = () => {
                       </div>
                       <p>Impuestos incluidos.</p>
                       <div className='mt-5'>
-                        <a
-                          href='/checkout'
+                        <button
                           className=' w-full bg-[#002C5B] rounded-lg p-4 flex items-center justify-center'
+                          onClick={handleCheckout}
                         >
                           Checkout
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </>
                 ) : (
                   <div className='flex-1 flex flex-col justify-center items-center'>
                     <p className='text-2xl font-bold'>Tu carrito está vacío</p>
-                    <a
+                    <button
                       className='bg-[#002C5B] rounded-lg p-4 mt-5'
-                      href='/tickets'
+                      onClick={handleBackToStore}
                     >
                       Volver a la tienda
-                    </a>
+                    </button>
                   </div>
                 )}
               </div>
