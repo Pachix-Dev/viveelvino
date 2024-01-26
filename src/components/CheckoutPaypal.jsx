@@ -4,6 +4,7 @@ import {
   usePayPalScriptReducer,
 } from '@paypal/react-paypal-js'
 import useCartStore from '../store/cartStore'
+import { ResumeCart } from './ResumeCart'
 
 export function CheckoutPaypal() {
   const { items, total } = useCartStore()
@@ -85,10 +86,26 @@ export function CheckoutPaypal() {
   }
 
   return (
-    <>
-      <PayPalScriptProvider options={initialOptions}>
-        <ButtonWrapper showSpinner={false} />
-      </PayPalScriptProvider>
-    </>
+    <main className='mx-auto md:flex grid h-s'>
+      <section className='p-10 w-3/5'>
+        <p className='font-bold text-2xl'>Sus Productos</p>
+        <hr />
+        <p className='py-4 font-bold'>Mejore Su Experiencia Con Zoom</p>
+        <div className=''>
+          <PayPalScriptProvider options={initialOptions}>
+            <ButtonWrapper showSpinner={false} />
+          </PayPalScriptProvider>
+        </div>
+      </section>
+      <aside
+        className='p-5 w-2/5 bg-[#f7f7f8]'
+        style={{ height: 'calc(100vh - 85px)' }}
+      >
+        <p className='text-center text-2xl font-bold hidden md:block'>
+          Resumen del pedido
+        </p>
+        <ResumeCart />
+      </aside>
+    </main>
   )
 }

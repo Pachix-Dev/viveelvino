@@ -53,7 +53,7 @@ export function ItemCart({ item }) {
             ></path>
           </svg>
         </button>
-        ${item.price}
+        ${item.price * item.quantity}
       </div>
     </li>
   )
