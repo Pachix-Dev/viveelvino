@@ -5,41 +5,38 @@ import {
 } from '@paypal/react-paypal-js'
 import useCartStore from '../store/cartStore'
 
-// This value is from the props in the UI
-const style = { layout: 'vertical' }
+export function CheckoutPaypal() {
+  const { items, total } = useCartStore()
 
-function createOrder() {
-  // replace this url with your server
-  return fetch(
-    'https://react-paypal-js-storybook.fly.dev/api/paypal/create-order',
-    {
+  const style = { layout: 'vertical' }
+
+  const initialOptions = {
+    clientId:
+      'AUpG-JiDKsOb-czCXvSOr38RrrU3rR9s_1TxOmnjbgdvKNFOdotO42LJb-1-oHG5oSWMfNrKUTFE_Wyf',
+    currency: 'MXN',
+    intent: 'capture',
+  }
+
+  function createOrder() {
+    return fetch('https://hfmexico.mx/viveelvino/backend/create-order', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      // use the "body" param to optionally pass additional order information
-      // like product ids and quantities
       body: JSON.stringify({
-        cart: [
-          {
-            sku: '1blwyeo8',
-            quantity: 2,
-          },
-        ],
+        items,
+        total,
       }),
-    }
-  )
-    .then((response) => response.json())
-    .then((order) => {
-      // Your code here after create the order
-      return order.id
     })
-}
-function onApprove(data) {
-  // replace this url with your server
-  return fetch(
-    'https://react-paypal-js-storybook.fly.dev/api/paypal/capture-order',
-    {
+      .then((response) => response.json())
+      .then((order) => {
+        // Your code here after create the order
+        return order.id
+      })
+  }
+
+  function onApprove(data) {
+    return fetch('https://hfmexico.mx/viveelvino/backend/complete-order', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -47,42 +44,31 @@ function onApprove(data) {
       body: JSON.stringify({
         orderID: data.orderID,
       }),
-    }
-  )
-    .then((response) => response.json())
-    .then((orderData) => {
-      // Your code here after capture the order
     })
-}
+      .then((response) => response.json())
+      .then((orderData) => {
+        console.log(orderData)
+      })
+  }
 
-// Custom component to wrap the PayPalButtons and show loading spinner
-const ButtonWrapper = ({ showSpinner }) => {
-  const [{ isPending }] = usePayPalScriptReducer()
+  const ButtonWrapper = ({ showSpinner }) => {
+    const [{ isPending }] = usePayPalScriptReducer()
 
-  return (
-    <>
-      {showSpinner && isPending && <div className='spinner' />}
-      <PayPalButtons
-        style={style}
-        disabled={false}
-        forceReRender={[style]}
-        fundingSource={undefined}
-        createOrder={createOrder}
-        onApprove={onApprove}
-      />
-    </>
-  )
-}
-
-const initialOptions = {
-  clientId: 'test',
-  currency: 'MXN',
-  intent: 'capture',
-}
-
-export function CheckoutPaypal() {
-  const { items, total } = useCartStore()
-  const newTotal = total.toString()
+    return (
+      <>
+        {showSpinner && isPending && <div className='spinner' />}
+        <PayPalButtons
+          className='paypal-button'
+          style={style}
+          disabled={false}
+          forceReRender={[style]}
+          fundingSource={undefined}
+          createOrder={createOrder}
+          onApprove={onApprove}
+        />
+      </>
+    )
+  }
 
   if (items.length === 0) {
     return (
