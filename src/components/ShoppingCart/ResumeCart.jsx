@@ -1,31 +1,31 @@
-import useCartStore from '../store/cartStore'
+import useCartStore from '../../store/cartStore'
 
 export function ResumeCart() {
   const { items, total } = useCartStore()
 
   return (
-    <div className='flex flex-col min-h-full max-h-screen'>
+    <div
+      className='flex flex-col justify-between'
+      style={{ height: 'calc(100vh - 232px)' }}
+    >
       <p className='py-3 text-gray-500 border-b-2'>
         {items.length} elemento(s)
       </p>
-      <div className='flex-1 overflow-y-scroll py-4 border-b-2 h-full'>
+      <div className='flex-1 overflow-y-scroll border-b-2 h-full'>
         {items.map((item, index) => (
-          <div className='py-2' key={index}>
-            <div className='flex justify-between text-base font-bold leading-tight'>
-              <span>
-                {item.name}
-                <br />
-                <span className='text-gray-500'>x{item.quantity}</span>
-              </span>
+          <div key={index} className='my-4 flex justify-between'>
+            <p className='leading-4'>
+              <span className='font-bold'>{item.name}</span>
+              <br />
               <span className='text-gray-500'>
-                {' '}
-                {item.price * item.quantity} MX$
+                {item.quantity} / {item.id === 4 ? 'bodega (s)' : 'persona(s)'}
               </span>
-            </div>
+            </p>
+            <span>{item.price * item.quantity} MX$</span>
           </div>
         ))}
       </div>
-      <div>
+      <div className='py-3'>
         <div className='flex justify-between text-gray-500 text-md font-bold leading-tight '>
           <span>Subtotal</span>
           <span>{total} MX$</span>

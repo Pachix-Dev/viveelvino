@@ -3,8 +3,8 @@ import {
   PayPalButtons,
   usePayPalScriptReducer,
 } from '@paypal/react-paypal-js'
-import useCartStore from '../store/cartStore'
-import { ResumeCart } from './ResumeCart'
+import useCartStore from '../../store/cartStore'
+import { ResumeCart } from '../ShoppingCart/ResumeCart'
 
 export function CheckoutPaypal() {
   const { items, total } = useCartStore()
@@ -86,12 +86,50 @@ export function CheckoutPaypal() {
   }
 
   return (
-    <main className='mx-auto md:flex grid h-s'>
+    <main className='mx-auto md:flex grid'>
       <section className='p-10 w-3/5'>
-        <p className='font-bold text-2xl'>Sus Productos</p>
+        <div className='flex justify-between'>
+          <p className='font-bold text-2xl'>Registra</p>
+          <nav aria-label='Breadcrumb'>
+            <ol class='flex items-center gap-1 text-sm text-gray-600'>
+              <li>
+                <a
+                  href='/shopping-cart'
+                  class='block transition hover:text-gray-700'
+                >
+                  Carrito
+                </a>
+              </li>
+
+              <li class='rtl:rotate-180'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  class='h-4 w-4'
+                  viewBox='0 0 20 20'
+                  fill='currentColor'
+                >
+                  <path
+                    fill-rule='evenodd'
+                    d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z'
+                    clip-rule='evenodd'
+                  />
+                </svg>
+              </li>
+
+              <li>
+                <a
+                  href='/checkout'
+                  class='block transition hover:text-gray-700'
+                >
+                  Checkout
+                </a>
+              </li>
+            </ol>
+          </nav>
+        </div>
         <hr />
-        <p className='py-4 font-bold'>Mejore Su Experiencia Con Zoom</p>
-        <div className=''>
+
+        <div className='mt-5'>
           <PayPalScriptProvider options={initialOptions}>
             <ButtonWrapper showSpinner={false} />
           </PayPalScriptProvider>
@@ -105,6 +143,9 @@ export function CheckoutPaypal() {
           Resumen del pedido
         </p>
         <ResumeCart />
+        <button className='mt-3 bg-blue-500 text-white text-lg font-bold border rounded-lg w-full p-2'>
+          Pagar
+        </button>
       </aside>
     </main>
   )

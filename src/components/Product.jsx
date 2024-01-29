@@ -2,14 +2,12 @@ import useCartStore from '../store/cartStore'
 import { useState } from 'react'
 
 export function Products({ product }) {
-  const { show, addToCart, showCart } = useCartStore()
+  const { addToCart } = useCartStore()
   const [quantity, setQuantity] = useState(1)
 
   const handleAddToCart = (product) => {
     addToCart(product, quantity)
-    setQuantity(1)
-    document.body.classList.toggle('overflow-hidden')
-    showCart(!show)
+    window.location.href = '/shopping-cart'
   }
   return (
     <>

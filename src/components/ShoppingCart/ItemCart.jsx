@@ -1,4 +1,4 @@
-import useCartStore from '../store/cartStore'
+import useCartStore from '../../store/cartStore'
 
 export function ItemCart({ item }) {
   const { updateQuantity, removeFromCart } = useCartStore()
@@ -6,11 +6,19 @@ export function ItemCart({ item }) {
   const handleQuantity = (e) => {
     updateQuantity(item.id, e)
   }
+  const handleRemove = (e) => {
+    if (item.id === 1) {
+      removeFromCart(item.id)
+      removeFromCart(4)
+    } else {
+      removeFromCart(item.id)
+    }
+  }
 
   return (
     <li className='grid py-8 grid-cols-2 gap-3'>
       <div className='overflow-hidden'>
-        {item.name}
+        <span className='font-bold'>{item.name}</span>
         <div className='mt-2'>
           <button
             onClick={() => handleQuantity(item.quantity - 1)}
@@ -37,7 +45,7 @@ export function ItemCart({ item }) {
         </div>
       </div>
       <div className='items-end flex justify-between flex-col'>
-        <button onClick={() => removeFromCart(item.id)}>
+        <button onClick={() => handleRemove(item.id)}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
