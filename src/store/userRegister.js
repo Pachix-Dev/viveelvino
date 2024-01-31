@@ -1,0 +1,40 @@
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
+
+const userRegister = create(
+  persist(
+    (set) => ({
+      name: '',
+      email: '',
+      phone: '',
+      age: '',
+      company: '',
+      companions: [],
+      setName: (value) => set({ name: value }),
+      setEmail: (value) => set({ email: value }),
+      setPhone: (value) => set({ phone: value }),
+      setAge: (value) => set({ age: value }),
+      setCompany: (value) => set({ company: value }),
+
+      addCompanion: () =>
+        set((state) => ({
+          companions: [...state.companions, { name: '', email: '' }],
+        })),
+      updateCompanion: (index, companionData) =>
+        set((state) => ({
+          companions: state.companions.map((companion, i) =>
+            i === index ? { ...companion, ...companionData } : companion
+          ),
+        })),
+      removeCompanion: (index) =>
+        set((state) => ({
+          companions: state.companions.filter((_, i) => i !== index),
+        })),
+    }),
+    {
+      name: 'user-register',
+    }
+  )
+);
+
+export { userRegister };

@@ -26,27 +26,27 @@ export function Cart() {
         <div className='flex justify-between'>
           <p className='font-bold text-3xl'>Sus Productos</p>
           <nav aria-label='Breadcrumb'>
-            <ol class='flex items-center gap-1 text-sm text-gray-600'>
+            <ol className='flex items-center gap-1 text-sm text-gray-600'>
               <li>
                 <a
                   href='/shopping-cart'
-                  class='block transition hover:text-gray-700'
+                  className='block transition hover:text-gray-700 font-bold'
                 >
                   Carrito
                 </a>
               </li>
 
-              <li class='rtl:rotate-180'>
+              <li className='rtl:rotate-180'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
-                  class='h-4 w-4'
+                  className='h-4 w-4'
                   viewBox='0 0 20 20'
                   fill='currentColor'
                 >
                   <path
-                    fill-rule='evenodd'
+                    fillRule='evenodd'
                     d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z'
-                    clip-rule='evenodd'
+                    clipRule='evenodd'
                   />
                 </svg>
               </li>
@@ -54,7 +54,7 @@ export function Cart() {
               <li>
                 <a
                   href='/checkout'
-                  class='block transition hover:text-gray-700'
+                  className='block transition hover:text-gray-700'
                 >
                   Checkout
                 </a>
