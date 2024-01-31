@@ -11,10 +11,10 @@ export function CheckoutPaypal() {
   const { items, total } = useCartStore()
 
   const style = { layout: 'vertical' }
-
+  //'AUpG-JiDKsOb-czCXvSOr38RrrU3rR9s_1TxOmnjbgdvKNFOdotO42LJb-1-oHG5oSWMfNrKUTFE_Wyf',
   const initialOptions = {
     clientId:
-      'AUpG-JiDKsOb-czCXvSOr38RrrU3rR9s_1TxOmnjbgdvKNFOdotO42LJb-1-oHG5oSWMfNrKUTFE_Wyf',
+      'AWi2C-26r9XKnk49X_ekNYfhybZd7KHYyTsXS-4l37yGRygOxOMc0RJxDvA5eqztGBgttO7Fc8u3Bxk8',
     currency: 'MXN',
     intent: 'capture',
   }
