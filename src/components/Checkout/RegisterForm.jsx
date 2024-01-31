@@ -22,8 +22,11 @@ export function RegisterForm() {
     setValue,
   } = useForm({
     defaultValues: {
-      name: '',
-      email: '',
+      name,
+      email,
+      phone,
+      age,
+      company,
     },
   })
 
