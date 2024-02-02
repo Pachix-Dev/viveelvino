@@ -6,9 +6,11 @@ import {
 import useCartStore from '../../store/cartStore'
 import { ResumeCart } from '../ShoppingCart/ResumeCart'
 import { RegisterForm } from './RegisterForm'
+import { userRegister } from '../../store/userRegister'
 
 export function CheckoutPaypal() {
   const { items, total } = useCartStore()
+  const { completed } = userRegister()
 
   const style = { layout: 'vertical' }
   //'AUpG-JiDKsOb-czCXvSOr38RrrU3rR9s_1TxOmnjbgdvKNFOdotO42LJb-1-oHG5oSWMfNrKUTFE_Wyf',
@@ -60,7 +62,7 @@ export function CheckoutPaypal() {
       <>
         {showSpinner && isPending && <div className='spinner' />}
         <PayPalButtons
-          className='paypal-button'
+          className='py-5'
           style={style}
           disabled={false}
           forceReRender={[style]}
@@ -88,9 +90,9 @@ export function CheckoutPaypal() {
 
   return (
     <main className='mx-auto md:flex grid'>
-      <section className='p-10 w-3/5'>
-        <div className='flex justify-between'>
-          <p className='font-bold text-2xl'>Regístrese</p>
+      <section className='p-10 w-full sm:w-3/5 sm:order-1 '>
+        <div className='flex justify-between items-center'>
+          <p className='font-bold text-2xl'>Finalizar Compra</p>
           <nav aria-label='Breadcrumb'>
             <ol className='flex items-center gap-1 text-sm text-gray-600'>
               <li>
@@ -130,23 +132,18 @@ export function CheckoutPaypal() {
         </div>
         <hr />
         <RegisterForm />
-        <div className='mt-5 mx-auto'>
+        <div className='mt-5 px-7 py-7 mx-auto border rounded-2xl shadow-lg'>
+          <p className='font-bold text-2xl'>Método de pago</p>
           <PayPalScriptProvider options={initialOptions}>
-            <ButtonWrapper showSpinner={false} />
+            {completed && <ButtonWrapper showSpinner={false} />}
           </PayPalScriptProvider>
         </div>
       </section>
-      <aside
-        className='p-5 w-2/5 bg-[#f7f7f8]'
-        style={{ height: 'calc(100vh - 85px)' }}
-      >
+      <aside className='p-5 w-full sm:w-2/5 sm:order-2 bg-[#f7f7f8] h-auto sm:h-full'>
         <p className='text-center text-2xl font-bold hidden md:block'>
           Resumen del pedido
         </p>
         <ResumeCart />
-        <button className='mt-3 bg-blue-500 text-white text-lg font-bold border rounded-lg w-full p-2'>
-          Pagar
-        </button>
       </aside>
     </main>
   )

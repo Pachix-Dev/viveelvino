@@ -10,11 +10,13 @@ const userRegister = create(
       age: '',
       company: '',
       companions: [],
+      completed: false,
       setName: (value) => set({ name: value }),
       setEmail: (value) => set({ email: value }),
       setPhone: (value) => set({ phone: value }),
       setAge: (value) => set({ age: value }),
       setCompany: (value) => set({ company: value }),
+      setCompleted: (value) => set({ completed: value }),
 
       addCompanion: () =>
         set((state) => ({

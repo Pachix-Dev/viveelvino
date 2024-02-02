@@ -4,10 +4,7 @@ export function ResumeCart() {
   const { items, total } = useCartStore()
 
   return (
-    <div
-      className='flex flex-col justify-between'
-      style={{ height: 'calc(100vh - 232px)' }}
-    >
+    <div className='flex flex-col justify-between h-auto sm:h-full'>
       <p className='py-3 text-gray-500 border-b-2'>
         {items.length} elemento(s)
       </p>
