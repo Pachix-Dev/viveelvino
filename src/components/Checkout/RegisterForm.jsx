@@ -17,8 +17,10 @@ export function RegisterForm() {
     setCompany,
     addCompanions,
   } = userRegister()
+
   const {
     register,
+    setValue,
     handleSubmit,
     formState: { errors },
   } = useForm({})
@@ -71,15 +73,13 @@ export function RegisterForm() {
                       value: /^[A-Za-z\s]+$/,
                       message: 'Nombre no válido',
                     },
+                    onChange: (e) => setName(e.target.value),
                   })}
                   name='name'
                   id='name'
                   defaultValue={name}
                   className='w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm'
                   placeholder='Ingresa tu nombre completo'
-                  onChange={(e) => {
-                    setName(e.target.value)
-                  }}
                 />
                 <span className='absolute inset-y-0 end-0 grid place-content-center px-4'>
                   <svg
@@ -112,13 +112,13 @@ export function RegisterForm() {
                       value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                       message: 'Email no válido',
                     },
+                    onChange: (e) => setEmail(e.target.value),
                   })}
                   defaultValue={email}
                   name='email'
                   id='email'
                   className='w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm'
                   placeholder='Enter tu email'
-                  onChange={(e) => setEmail(e.target.value)}
                 />
 
                 <span className='absolute inset-y-0 end-0 grid place-content-center px-4'>
@@ -152,13 +152,13 @@ export function RegisterForm() {
                       value: /^[0-9]+$/,
                       message: 'Teléfono no válido',
                     },
+                    onChange: (e) => setPhone(e.target.value),
                   })}
                   defaultValue={phone}
                   name='phone'
                   id='phone'
                   className='w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm'
                   placeholder='Ingresa tu numero de teléfono'
-                  onChange={(e) => setPhone(e.target.value)}
                 />
                 <span className='absolute inset-y-0 end-0 grid place-content-center px-4'>
                   <svg
@@ -185,13 +185,14 @@ export function RegisterForm() {
               <div className='relative'>
                 <input
                   type='text'
-                  {...register('company')}
+                  {...register('company', {
+                    onChange: (e) => setCompany(e.target.value),
+                  })}
                   name='company'
                   id='company'
                   defaultValue={company}
                   className='w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm'
                   placeholder='Empresa (opcional)'
-                  onChange={(e) => setCompany(e.target.value)}
                 />
                 <span className='absolute inset-y-0 end-0 grid place-content-center px-4'>
                   <svg
