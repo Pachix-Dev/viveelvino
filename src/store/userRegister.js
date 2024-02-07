@@ -17,6 +17,17 @@ const userRegister = create(
       setAge: (value) => set({ age: value }),
       setCompany: (value) => set({ company: value }),
       setCompleted: (value) => set({ completed: value }),
+      
+      // Function to drop the entire state
+      dropState: () => set({
+        name: '',
+        email: '',
+        phone: '',
+        age: '',
+        company: '',
+        companions: [],
+        completed: false,
+      }),
 
       addCompanion: () =>
         set((state) => ({

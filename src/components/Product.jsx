@@ -2,11 +2,12 @@ import useCartStore from '../store/cartStore'
 import { useState } from 'react'
 
 export function Products({ product }) {
-  const { addToCart } = useCartStore()
+  const { addToCart, setcomplete_purchase } = useCartStore()
   const [quantity, setQuantity] = useState(1)
 
   const handleAddToCart = (product) => {
     addToCart(product, quantity)
+    setcomplete_purchase(false)
     window.location.href = '/shopping-cart'
   }
   return (

@@ -6,7 +6,7 @@ const useCartStore = create(
     return {
       items: [],
       total: 0,
-      show: false,
+      complete_purchase: false,
 
       addToCart: (product, quantity = 1) => {
         set((state) => {
@@ -74,9 +74,7 @@ const useCartStore = create(
         });
       },
 
-      showCart: (value) => {
-        set({ show: value });
-      },
+      setcomplete_purchase: (value) => set({ complete_purchase: value }),
     };
   },
   {

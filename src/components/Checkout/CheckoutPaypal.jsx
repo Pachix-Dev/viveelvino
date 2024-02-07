@@ -9,11 +9,11 @@ import { RegisterForm } from './RegisterForm'
 import { userRegister } from '../../store/userRegister'
 
 export function CheckoutPaypal() {
-  const { items, total } = useCartStore()
-  const { completed } = userRegister()
+  const { items, total, clearCart, setcomplete_purchase } = useCartStore()
+  const { name, email, phone, company, completed, dropState } = userRegister()
 
   const style = { layout: 'vertical' }
-  //'AUpG-JiDKsOb-czCXvSOr38RrrU3rR9s_1TxOmnjbgdvKNFOdotO42LJb-1-oHG5oSWMfNrKUTFE_Wyf',
+
   const initialOptions = {
     clientId:
       'AWi2C-26r9XKnk49X_ekNYfhybZd7KHYyTsXS-4l37yGRygOxOMc0RJxDvA5eqztGBgttO7Fc8u3Bxk8',
@@ -34,7 +34,6 @@ export function CheckoutPaypal() {
     })
       .then((response) => response.json())
       .then((order) => {
-        // Your code here after create the order
         return order.id
       })
   }
@@ -47,10 +46,20 @@ export function CheckoutPaypal() {
       },
       body: JSON.stringify({
         orderID: data.orderID,
+        name,
+        email,
+        phone,
+        company,
       }),
     })
       .then((response) => response.json())
       .then((orderData) => {
+        if (orderData.status) {
+          dropState()
+          clearCart()
+          setcomplete_purchase(true)
+          window.location.href = '/thanks-for-your-purchase'
+        }
         console.log(orderData)
       })
   }
