@@ -20,7 +20,6 @@ export function RegisterForm() {
 
   const {
     register,
-    setValue,
     handleSubmit,
     formState: { errors },
   } = useForm({})

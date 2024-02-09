@@ -14,7 +14,7 @@ export function Purchase() {
           <img src='/confetti-purchase.webp' width='150' />
           <p className='mt-5 font-bold text-4xl'>Gracias por tu compra!</p>
           <p className='text-gray-400 text-lg'>
-            Pronto recibiras un confirmación por correo con los detalles de tu
+            Pronto recibiras una confirmación por correo con los detalles de tu
             compra.
           </p>
         </div>

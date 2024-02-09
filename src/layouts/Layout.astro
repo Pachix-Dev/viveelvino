@@ -1,5 +1,6 @@
 ---
-import { Menu } from '../components/Menu'
+import Menu from '../components/Menu.astro'
+import { ViewTransitions } from 'astro:transitions'
 interface Props {
   title: string
   description: string
@@ -19,8 +20,12 @@ const { title, description } = Astro.props
   </head>
   <body>
     <header class='sticky top-0'>
-      <Menu client:only />
+      <Menu />
     </header>
     <slot />
+    <script
+      is:inline
+      src='https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js'
+    ></script>
   </body>
 </html>

@@ -1,0 +1,36 @@
+{
+    "site":{
+        "title":"Agrotech México 2024",
+        "description":"Nuestra exhibición está diseñada para que el sector agroindustrial que comprende toda la cadena de valor, desde la producción, la industrialización y la comercialización de sector agroalimentario, incremente su especialización y competitividad al transitar hacia la Agroindustria mediante la adopción de tecnologías como la Inteligencia Artificial, Big Data, Blockchain, Automatización, Drones, Logística, y muchas más."
+    },
+    "menu":{
+        "aboutUS":{
+            "title":"QUÍENES SOMOS",
+            "subMenu": {
+                "option1":"Acerca de AgroTech Mexico",                
+                "option2":"Acerca de Expo Guadalajara"
+            }
+        },
+        "option2": {
+            "title":"EXPOSITORES",
+            "subMenu": {
+                "option1":"Contacto",                
+                "option2":"Servicios a Expositores",
+                "option3":"Factsheet 2024",
+                "option4":"Plano 2024",
+                "option5":"Contrato 2024",
+                "option6":"Tarifas"                
+            }
+        },        
+        "option3":{
+            "title":"HISTÓRICO",
+            "subMenu":{
+                "option1":"Directorio 2023",
+                "option2":"Reporte de resultados 2023"
+            }
+
+        },
+        "gallery": "GALERÍA",
+        "program": "CONFERENCIAS"     
+    }
+}

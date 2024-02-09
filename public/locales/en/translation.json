@@ -1,0 +1,36 @@
+{
+    "site":{
+        "title":"Agrotech Mexico 2024",
+        "description":"Our exhibition is designed for the agribusiness sector comprising the entire value chain, from production, industrialization and marketing of agricultural products, to increase its specialization and competitiveness by moving towards Agribusiness through the adoption of technologies such as Artificial Intelligence, Big Data, Blockchain, Automation, Drones, Logistics, and many more."
+    },
+    "menu":{
+        "aboutUS":{
+            "title":"ABOUT US",
+            "subMenu": {
+                "option1":"About AgroTech Mexico",                
+                "option2":"About Expo Guadalajara"
+            }
+        },
+        "option2": {
+            "title":"EXHIBITORS",
+            "subMenu": {
+                "option1":"Contact",                
+                "option2":"Exhibitor Services",
+                "option3":"Factsheet 2024",
+                "option4":"Floor plan 2024",
+                "option5":"Contract 2024",
+                "option6":"Rates"                
+            }
+        },        
+        "option3":{
+            "title":"PAST EVENTS",
+            "subMenu":{
+                "option1":"Directory 2023",
+                "option2":"Aftershow report 2023"
+            }
+
+        },
+        "gallery": "GALLERY",
+        "program": "CONFERENCES"
+    }
+}

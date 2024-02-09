@@ -21,47 +21,51 @@ export function CheckoutPaypal() {
     intent: 'capture',
   }
 
-  function createOrder() {
-    return fetch('https://hfmexico.mx/viveelvino/backend/create-order', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        items,
-        total,
-      }),
-    })
-      .then((response) => response.json())
-      .then((order) => {
-        return order.id
-      })
+  async function createOrder() {
+    const response = await fetch(
+      'https://hfmexico.mx/viveelvino/backend/create-order',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          items,
+          total,
+        }),
+      }
+    )
+    const order = await response.json()
+    return order.id
   }
 
-  function onApprove(data) {
-    return fetch('https://hfmexico.mx/viveelvino/backend/complete-order', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        orderID: data.orderID,
-        name,
-        email,
-        phone,
-        company,
-      }),
-    })
-      .then((response) => response.json())
-      .then((orderData) => {
-        if (orderData.status) {
-          dropState()
-          clearCart()
-          setcomplete_purchase(true)
-          window.location.href = '/thanks-for-your-purchase'
-        }
-        console.log(orderData)
-      })
+  async function onApprove(data) {
+    const response = await fetch(
+      'https://hfmexico.mx/viveelvino/backend/complete-order',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          orderID: data.orderID,
+          items,
+          total,
+          name,
+          email,
+          phone,
+          company,
+        }),
+      }
+    )
+    const orderData = await response.json()
+    if (orderData.status) {
+      dropState()
+      clearCart()
+      setcomplete_purchase(true)
+      window.location.href = '/thanks-for-your-purchase'
+    }
+    console.log(orderData)
   }
 
   const ButtonWrapper = ({ showSpinner }) => {
