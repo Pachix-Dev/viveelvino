@@ -1,11 +1,10 @@
 import useCartStore from '../store/cartStore'
 
-export function MenuCart() {
+export function CartButton() {
   const { items } = useCartStore()
 
   return (
     <>
-      {/* Cart */}
       <div className='flex flex-shrink-0 items-center pe-4'>
         <a className='relative' href='shopping-cart'>
           <span className='sr-only'>Open your cart</span>
