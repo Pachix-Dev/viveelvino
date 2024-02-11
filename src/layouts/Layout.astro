@@ -1,6 +1,6 @@
 ---
+import Footer from '../components/Footer.astro'
 import Menu from '../components/Menu.astro'
-import { ViewTransitions } from 'astro:transitions'
 interface Props {
   title: string
   description: string
@@ -19,16 +19,23 @@ const { title, description } = Astro.props
     <link rel='icon' href='/favicon192.png' sizes='192x192' />
     <link rel='apple-touch-icon' href='/favicon180.png' />
     <meta name='msapplication-TileImage' content='/metaImg.png' />
+    <link href='https://unpkg.com/aos@2.3.1/dist/aos.css' rel='stylesheet' />
     <title>{title}</title>
   </head>
   <body>
-    <header class='sticky top-0'>
+    <header class='sticky top-0 z-50'>
       <Menu />
     </header>
     <slot />
+    <Footer />
     <script
       is:inline
       src='https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js'
     ></script>
+
+    <script is:inline src='https://unpkg.com/aos@2.3.1/dist/aos.js'></script>
+    <script is:inline>
+      AOS.init()
+    </script>
   </body>
 </html>

@@ -7,8 +7,8 @@
         "aboutUS":{
             "title":"ABOUT US",
             "subMenu": {
-                "option1":"About AgroTech Mexico",                
-                "option2":"About Expo Guadalajara"
+                "option1":"About Vinotelia",                
+                "option2":"About IGECo"
             }
         },
         "option2": {
@@ -32,6 +32,24 @@
         },
         "gallery": "GALLERY",
         "program": "CONFERENCES",
-        "event_date": "June 8 - 9, 2024,  Distrito León MX (Instalaciones de la Feria de León)"
+        "event_date": "June 8 - 9, 2024,  León MX District (León Fairgrounds)"
+    },
+    "home":{
+        "presale": "Buy your tickets with a special presale price",
+        "presale_button": "Buy now",
+        "main_points": "Event's main points",
+        "why_participate": "Why Exhibit?",
+        "why_participate_1": "Show your product in the second most important consumer region of the country",
+        "why_participate_2": "Learn about the new trends in the sector and participate in the program of conferences and workshops",
+        "why_participate_3": "Expand your business network through B2B and B2C meetings",
+        "why_participate_4": "Promote your brand through the event media coverage",
+        "sponsor": "Strategic Partner",
+        "strategic_allies": "Strategic Allies"
+
+    },
+    "footer":{
+        "contact_exhibitor": "EXHIBITOR CONTACT",
+        "contact": "contact",
+        "privacy_policy": "privacy policy"
     }
 }

@@ -6,7 +6,7 @@ const lang = i18next.language
 const base = lang === 'es' ? '' : `/${lang}`
 ---
 
-<div class='w-full start-0 z-50 bg-white'>
+<div class='relative w-full start-0 z-50 bg-white'>
   <div
     id='sticky-banner'
     tabindex='-1'
@@ -45,7 +45,7 @@ const base = lang === 'es' ? '' : `/${lang}`
         <img
           src='/img/logoVEV.webp'
           width='100'
-          height='60'
+          height='59'
           class='mr-3'
           alt='Logo Agrotech'
         />
@@ -135,12 +135,15 @@ const base = lang === 'es' ? '' : `/${lang}`
                 aria-labelledby='dropdownLargeButton'
               >
                 <li>
-                  <a href={`${base}/about`} class='block px-4 py-2'
+                  <a href={`${base}/acerca-vinotelia`} class='block px-4 py-2'
                     >{t('menu.aboutUS.subMenu.option1')}</a
                   >
                 </li>
                 <li>
-                  <a href={`${base}/tickets`} class='block px-4 py-2'
+                  <a
+                    href='https://igeco.mx/history'
+                    target='_blank'
+                    class='block px-4 py-2'
                     >{t('menu.aboutUS.subMenu.option2')}</a
                   >
                 </li>
