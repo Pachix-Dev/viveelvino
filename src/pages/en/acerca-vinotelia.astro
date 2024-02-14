@@ -1,0 +1,36 @@
+---
+import { changeLanguage, t } from "i18next";
+import Layout from "../../layouts/Layout.astro";
+
+changeLanguage("en");
+---
+
+<Layout
+  title='Vive el Vino 2024 - Acerca de Vinotelia'
+  description='Vinotelia es un proyecto que nace a partir de la necesidad de crecimiento de la entonces Escuela de Vino y Cata de Ana María Arias'
+>
+  <section class='py-10 container mx-auto px-4 text-[#082F5B]'>
+    <div class='grid sm:flex justify-between'>
+      <div>
+        <span class='text-gray-500'> VIVE EL VINO</span>
+        <p class='text-4xl font-bold'>{t('about_vinotelia.title')}</p>
+      </div>
+
+      <img
+        src='/img/VINOTELIA-color.webp'
+        alt='Vinotelia'
+        class='w-64 mx-auto'
+      />
+    </div>
+    <p class='mt-10 text-lg'>
+      {t('about_vinotelia.description')}
+    </p>
+    <p class='mt-10 text-lg font-bold'>{t('about_vinotelia.title_2')}</p>
+    <ul
+      class='mt-5 list-disc ps-10 text-lg'
+      set:html={t('about_vinotelia.list')}
+    />
+    <p class='mt-10 text-lg font-bold'>{t('about_vinotelia.title_3')}</p>
+    <p set:html={t('about_vinotelia.description_2')} />
+  </section>
+</Layout>

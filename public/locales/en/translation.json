@@ -7,31 +7,30 @@
         "aboutUS":{
             "title":"ABOUT US",
             "subMenu": {
-                "option1":"About Vinotelia",                
-                "option2":"About IGECo"
+                "option1":"ABOUT VINOTELIA",                
+                "option2":"ABOUT IGECO"
             }
-        },
+        },              
         "option2": {
-            "title":"EXHIBITORS",
+            "title":"EXPOSITORES",
             "subMenu": {
-                "option1":"Contact",                
-                "option2":"Exhibitor Services",
-                "option3":"Factsheet 2024",
-                "option4":"Floor plan 2024",
-                "option5":"Contract 2024",
-                "option6":"Rates"                
+                "option1":"FACTSHEET 2024",        
+                "option2":"EXHIBITOR'S MANUAL",
+                "option3":"CONTRACT VIVE EL VINO",
+                "option4":"SPONSORSHIPS",
+                "option5":"RATES",
+                "option6":"WHY EXHIBIT?",
+                "option7":"PRODUCT CATEGORIES",    
+                "option8":"CONTACT"
             }
         },        
-        "option3":{
-            "title":"PAST EVENTS",
-            "subMenu":{
-                "option1":"Directory 2023",
-                "option2":"Aftershow report 2023"
-            }
-
+        "option3": "VISITORS",
+        "option4":{
+            "title":"EDITIONS",
+            "vev_2023": "RESULTS REPORT 2023",
+            "directory_2023": "EXHIBITOR DIRECTORY 2023"
         },
-        "gallery": "GALLERY",
-        "program": "CONFERENCES",
+        "gallery": "GALERÍA",
         "event_date": "June 8 - 9, 2024,  León MX District (León Fairgrounds)"
     },
     "home":{
@@ -46,6 +45,14 @@
         "sponsor": "Strategic Partner",
         "strategic_allies": "Strategic Allies"
 
+    },
+    "about_vinotelia":{
+        "title": "About Vinotelia",
+        "description": "Vinotelia is a project that was born out of the need for growth of the then Ana María Arias Wine and Tasting School, which only started with five students. For 7 years, Vinotelia has trained more than 80 sommeliers and more than 1,500 people who have participated in the course to promote the promotion of wine in Guanajuato. They also have several courses focused not only on wine, but also on coffee and beer.",
+        "title_2":"Classes or courses offered",
+        "list": "<li>Diploma in Wines (Sommelier)</li><li>Coffee tasting courses</li> <li>Pairing courses</li><li>Specialty in Wine Tourism</li>",
+        "title_3":"Constant innovation",
+        "description_2": "The courses offered by Vinotelia are aimed at anyone who wants to learn about wine and anyone who wants to professionalize as a sommelier, which is why they are working to be able to offer bachelor's and postgraduate degrees in this specialty in the medium term.<br /><br />Vinotelia has supported the Guanajuato Tourism Secretariat in the design and operation of the national and international Vinum event, which has had a very good response and they have made use of the most advanced technology in augmented reality and virtual reality to be able to reach more people. This year its third edition will take place.<br /><br /> Vinotelia, in alliance with the State Government and the Secretariat of Sustainable Economic Development, has been teaching the free course for 2 years to promote the promotion of wine in Guanajuato, which has benefited several municipalities in the state, becoming the iconic project of the institution."
     },
     "footer":{
         "contact_exhibitor": "EXHIBITOR CONTACT",

@@ -7,31 +7,32 @@
         "aboutUS":{
             "title":"QUÍENES SOMOS",
             "subMenu": {
-                "option1":"Acerca de Vinotelia",                
-                "option2":"Acerca de IGECo"
+                "option1":"ACERCA DE VINOTELIA",                
+                "option2":"ACERCA DE IGECO"
             }
         },
         "option2": {
             "title":"EXPOSITORES",
             "subMenu": {
-                "option1":"Contacto",                
-                "option2":"Servicios a Expositores",
-                "option3":"Factsheet 2024",
-                "option4":"Plano 2024",
-                "option5":"Contrato 2024",
-                "option6":"Tarifas"                
+                "option1":"FACTSHEET 2024",        
+                "option2":"MANUAL DEL EXPOSITOR",
+                "option3":"CONTRATO VIVE EL VINO",
+                "option4":"PATROCINIOS",
+                "option5":"TARIFAS",
+                "option6":"¿POR QUÉ EXPONER?",
+                "option7":"CATEGORÍAS DE PRODUCTOS",    
+                "option8":"CONTACTO",
+                "option9":"TOOLKIT"
+
             }
         },        
-        "option3":{
-            "title":"HISTÓRICO",
-            "subMenu":{
-                "option1":"Directorio 2023",
-                "option2":"Reporte de resultados 2023"
-            }
-
+        "option3": "VISITANTES",
+        "option4":{
+            "title":"EDICIONES",
+            "vev_2023": "REPORTE DE RESULTADOS 2023",
+            "directory_2023": "DIRECTORIO DE EXPOSITORES 2023"
         },
-        "gallery": "GALERÍA",
-        "program": "CONFERENCIAS"    ,
+        "gallery": "GALERÍA",       
         "event_date": "8 y 9 de junio 2024, Distrito León MX (Instalaciones de la Feria de León)" 
     },
     "home":{
@@ -45,6 +46,14 @@
         "why_participate_4": "Promueve tu marca a través de la difusión y la cobertura mediática del evento",
         "sponsor": "Patrocinador",
         "strategic_allies": "Aliados estratégicos"
+    },
+    "about_vinotelia":{
+        "title": "Acerca de Vinotelia",
+        "description": "Vinotelia es un proyecto que nace a partir de la necesidad de crecimiento de la entonces Escuela de Vino y Cata de Ana María Arias, que apenas comenzó con cinco estudiantes. Desde hace 7 años, Vinotelia ha formado a más de 80 sommelier y a más 1,500 personas que han participado en el curso para promover el fomento del vino en Guanajuato. Asimismo, cuentan con varios cursos enfocados no solo en el vino, sino también en el café y la cerveza.",
+        "title_2":"Clases o cursos que ofrecen",
+        "list": "<li>Diplomado en Vinos (Sommelier)</li><li>Cursos de cata de café</li> <li>Cursos de maridaje</li><li>Especialidad en Enoturismo</li>",
+        "title_3":"Innovación constante",
+        "description_2":"Los cursos que ofrece Vinotelia van dirigidos a toda aquella persona que quiere aprender sobre vino y aquella que quiere profesionalizarse como sommelier, por lo que se encuentran trabajando para poder ofrecer en un mediano plazo licenciaturas y posgrados con esta especialidad.<br /><br />Vinotelia ha apoyado a la Secretaría de Turismo de Guanajuato en el diseño y la operación del evento nacional e internacional Vinum, que ha tenido muy buena respuesta y han hecho uso de la más avanzada tecnología en realidad aumentada y realidad virtual para poder llegar a más personas. Este año se llevará a cabo ya su tercera edición.<br /><br /> Vinotelia, en alianza con Gobierno del Estado y Secretaría de Desarrollo Económico Sustentable, imparte desde hace 2 años, el curso gratuito para promover el fomento del vino en Guanajuato, lo que ha beneficiado a varios municipios del estado, convirtiéndose en el proyecto icónico de la institución."
     },
     "footer":{
         "contact_exhibitor": "CONTACTO EXPOSITORES",

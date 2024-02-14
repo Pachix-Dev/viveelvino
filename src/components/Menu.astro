@@ -135,17 +135,18 @@ const base = lang === 'es' ? '' : `/${lang}`
                 aria-labelledby='dropdownLargeButton'
               >
                 <li>
-                  <a href={`${base}/acerca-vinotelia`} class='block px-4 py-2'
-                    >{t('menu.aboutUS.subMenu.option1')}</a
-                  >
+                  <a href={`${base}/acerca-vinotelia`} class='block px-4 py-2'>
+                    {t('menu.aboutUS.subMenu.option1')}
+                  </a>
                 </li>
                 <li>
                   <a
                     href='https://igeco.mx/history'
                     target='_blank'
                     class='block px-4 py-2'
-                    >{t('menu.aboutUS.subMenu.option2')}</a
                   >
+                    {t('menu.aboutUS.subMenu.option2')}
+                  </a>
                 </li>
               </ul>
             </div>
@@ -182,73 +183,70 @@ const base = lang === 'es' ? '' : `/${lang}`
                 aria-labelledby='dropdownLargeButton'
               >
                 <li>
-                  <a href={`${base}/contact`} class='block px-4 py-2'
-                    >{t('menu.option2.subMenu.option1')}</a
-                  >
-                </li>
-                <li>
-                  <a href={`${base}/services`} class='block px-4 py-2'
-                    >{t('menu.option2.subMenu.option2')}</a
-                  >
-                </li>
-                <li>
                   <a
                     href={i18next.language === 'en'
-                      ? '/viveelvino/files/AGROTECH_FACTSHEET_2024_EN_v6_170124.pdf'
-                      : '/viveelvino/files/AGROTECH_FACTSHEET_2024_ES_v6_170124.pdf'}
+                      ? '/files/Factsheet-VEV-2024-AC-ESPv2.pdf'
+                      : '/files/Factsheet-VEV-2024-AC-ENGv2.pdf'}
                     target='_blank'
                     class='block px-4 py-2'
-                    >{t('menu.option2.subMenu.option3')}</a
                   >
+                    {t('menu.option2.subMenu.option1')}
+                  </a>
                 </li>
                 <li>
                   <a
-                    href='/viveelvino/files/AGROTECH-2024-141223-V3-Model.pdf'
+                    href='/files/MANUAL-EXPOSITOR-VIVE-EL-VINO.pdf'
                     target='_blank'
                     class='block px-4 py-2'
-                    >{t('menu.option2.subMenu.option4')}</a
                   >
+                    {t('menu.option2.subMenu.option2')}
+                  </a>
                 </li>
                 <li>
                   <a
-                    href='/viveelvino/files/ASSpaceAgreement-Agrotech-2024.pdf'
+                    href='/files/contrato-vive-el-vino.pdf'
                     target='_blank'
                     class='block px-4 py-2'
-                    >{t('menu.option2.subMenu.option5')}</a
                   >
-                </li>
-                <li>
-                  <a href={`${base}/rates`} class='block px-4 py-2'
-                    >{t('menu.option2.subMenu.option6')}</a
-                  >
-                </li>
-                <li>
-                  <a href={`${base}/toolkit`} class='block px-4 py-2'>Toolkit</a
-                  >
+                    {t('menu.option2.subMenu.option3')}
+                  </a>
                 </li>
                 <li>
                   <a
-                    href={`${base}/special-hotels-rates`}
-                    class='block px-4 py-2'>{t('hotels.title')}</a
+                    href='/files/Patrocinios_VEV-2023.pdf'
+                    target='_blank'
+                    class='block px-4 py-2'
                   >
+                    {t('menu.option2.subMenu.option4')}
+                  </a>
+                </li>
+                <li>
+                  <a href={`${base}/rates`} class='block px-4 py-2'>
+                    {t('menu.option2.subMenu.option5')}
+                  </a>
+                </li>
+                <li>
+                  <a href={`${base}/toolkit`} class='block px-4 py-2'
+                    >TOOLKIT
+                  </a>
                 </li>
               </ul>
             </div>
           </li>
           <li>
             <a
-              href={`${base}/conferences-program`}
+              href={`${base}/visitors`}
               class='block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0'
-              aria-current='page'>{t('menu.program')}</a
+              >{t('menu.option3')}</a
             >
           </li>
           <li>
             <button
-              id='dropdownVisitor'
+              id='dropdownExhibitors3'
               data-dropdown-toggle='dropdownNavbar3'
               class='flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto'
             >
-              {t('menu.option3.title')}
+              {t('menu.option4.title')}
               <svg
                 class='w-2.5 h-2.5 ml-2.5'
                 aria-hidden='true'
@@ -264,7 +262,6 @@ const base = lang === 'es' ? '' : `/${lang}`
                   d='m1 1 4 4 4-4'></path>
               </svg>
             </button>
-            <!-- Dropdown menu -->
             <div
               id='dropdownNavbar3'
               class='dropdown z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44'
@@ -275,20 +272,19 @@ const base = lang === 'es' ? '' : `/${lang}`
               >
                 <li>
                   <a
-                    href='/viveelvino/files/AGROTECH-DIRECTORIO-2023.pdf'
+                    href='/files/AFTERSHOW-REPORT-VEV.pdf'
                     target='_blank'
                     class='block px-4 py-2'
-                    >{t('menu.option3.subMenu.option1')}</a
                   >
+                    {t('menu.option4.vev_2023')}
+                  </a>
                 </li>
                 <li>
                   <a
-                    href={i18next.language === 'en'
-                      ? '/viveelvino/files/AGROTECH-AFTERSHOW-EN-2023.pdf'
-                      : '/viveelvino/files/AGROTECH-AFTERSHOW-2023.pdf'}
+                    href='/files/Directorio-Expositores-VEV.pdf'
                     target='_blank'
                     class='block px-4 py-2'
-                    >{t('menu.option3.subMenu.option2')}</a
+                    >{t('menu.option4.directory_2023')}</a
                   >
                 </li>
               </ul>
@@ -298,8 +294,8 @@ const base = lang === 'es' ? '' : `/${lang}`
             <a
               href={`${base}/gallery`}
               class='block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0'
-              aria-current='page'>{t('menu.gallery')}</a
-            >
+              >{t('menu.gallery')}
+            </a>
           </li>
         </ul>
       </div>

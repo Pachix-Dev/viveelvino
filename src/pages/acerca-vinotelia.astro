@@ -1,10 +1,8 @@
 ---
-import i18next, { changeLanguage, t } from 'i18next'
-import Layout from '../layouts/Layout.astro'
-import { strategic_allies, media_partners } from '../contans_logos.js'
-import { MarqueeLogos } from '../components/MarqueeLogos.jsx'
+import { changeLanguage, t } from "i18next";
+import Layout from "../layouts/Layout.astro";
 
-changeLanguage('es')
+changeLanguage("es");
 ---
 
 <Layout
@@ -15,7 +13,7 @@ changeLanguage('es')
     <div class='grid sm:flex justify-between'>
       <div>
         <span class='text-gray-500'> VIVE EL VINO</span>
-        <p class='text-4xl font-bold'>Acerca de Vinotelia</p>
+        <p class='text-4xl font-bold'>{t('about_vinotelia.title')}</p>
       </div>
 
       <img
@@ -25,36 +23,14 @@ changeLanguage('es')
       />
     </div>
     <p class='mt-10 text-lg'>
-      Vinotelia es un proyecto que nace a partir de la necesidad de crecimiento
-      de la entonces Escuela de Vino y Cata de Ana María Arias, que apenas
-      comenzó con cinco estudiantes. Desde hace 7 años, Vinotelia ha formado a
-      más de 80 sommelier y a más 1,500 personas que han participado en el curso
-      para promover el fomento del vino en Guanajuato. Asimismo, cuentan con
-      varios cursos enfocados no solo en el vino, sino también en el café y la
-      cerveza.
+      {t('about_vinotelia.description')}
     </p>
-    <p class='mt-10 text-lg font-bold'>Clases o cursos que ofrecen</p>
-    <ul class='mt-5 list-disc ps-10 text-lg'>
-      <li>Diplomado en Vinos (Sommelier)</li>
-      <li>Cursos de cata de café</li>
-      <li>Cursos de maridaje</li>
-      <li>Especialidad en Enoturismo</li>
-    </ul>
-    <p class='mt-10 text-lg font-bold'>Innovación constante</p>
-    <p>
-      Los cursos que ofrece Vinotelia van dirigidos a toda aquella persona que
-      quiere aprender sobre vino y aquella que quiere profesionalizarse como
-      sommelier, por lo que se encuentran trabajando para poder ofrecer en un
-      mediano plazo licenciaturas y posgrados con esta especialidad.<br /><br />
-      Vinotelia ha apoyado a la Secretaría de Turismo de Guanajuato en el diseño
-      y la operación del evento nacional e internacional Vinum, que ha tenido muy
-      buena respuesta y han hecho uso de la más avanzada tecnología en realidad aumentada
-      y realidad virtual para poder llegar a más personas. Este año se llevará a
-      cabo ya su tercera edición.<br /><br /> Vinotelia, en alianza con Gobierno
-      del Estado y Secretaría de Desarrollo Económico Sustentable, imparte desde
-      hace 2 años, el curso gratuito para promover el fomento del vino en Guanajuato,
-      lo que ha beneficiado a varios municipios del estado, convirtiéndose en el
-      proyecto icónico de la institución.
-    </p>
+    <p class='mt-10 text-lg font-bold'>{t('about_vinotelia.title_2')}</p>
+    <ul
+      class='mt-5 list-disc ps-10 text-lg'
+      set:html={t('about_vinotelia.list')}
+    />
+    <p class='mt-10 text-lg font-bold'>{t('about_vinotelia.title_3')}</p>
+    <p set:html={t('about_vinotelia.description_2')} />
   </section>
 </Layout>
