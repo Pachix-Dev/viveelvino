@@ -1,0 +1,78 @@
+---
+import { changeLanguage, t } from "i18next";
+import Layout from "../layouts/Layout.astro";
+
+changeLanguage("es");
+---
+
+<Layout
+  title='Vive el Vino 2024 - Tarifas'
+  description='Vive el Vino 2024 - Tarifas'
+>
+  <section class='py-10 container mx-auto px-4 text-[#082F5B]'>
+    <span class='text-gray-500'> VIVE EL VINO</span>
+    <p class='text-4xl font-bold'>{t('rates.title')}</p>
+    <div class='grid grid-cols-1 md:grid-cols-2 gap-20 mt-10'>
+      <div class='bg-[#CA0CA1] text-white p-4 rounded-lg'>
+        <p class='text-2xl font-bold'>{t('rates.card_1_title')}</p>
+        <p class='mt-4' set:html={t('rates.card_1_description')} />
+        <figure class='mt-5'>
+          <img
+            class='h-auto
+            w-full rounded-lg'
+            src='/img/bodegas.webp'
+            alt='Stands para viñedos'
+          />
+          <figcaption class='mt-2 text-sm text-center text-white'>
+            {t('rates.image_ilustrative')}
+          </figcaption>
+        </figure>
+      </div>
+      <div class='bg-[#FEA314] text-white p-4 rounded-lg'>
+        <p class='text-2xl font-bold'>{t('rates.card_2_title')}</p>
+        <p class='mt-4' set:html={t('rates.card_2_description')} />
+        <figure class='mt-5'>
+          <img
+            class='h-auto
+              w-full rounded-lg'
+            src='/img/restaurantes.webp'
+            alt='Stands para viñedos'
+          />
+          <figcaption class='mt-2 text-sm text-center text-white'>
+            {t('rates.image_ilustrative')}
+          </figcaption>
+        </figure>
+      </div>
+      <div class='bg-[#28BA86] text-white p-4 rounded-lg'>
+        <p class='text-2xl font-bold'>{t('rates.card_3_title')}</p>
+        <p class='mt-4' set:html={t('rates.card_3_description')} />
+        <figure class='mt-5'>
+          <img
+            class='h-auto
+                w-full rounded-lg'
+            src='/img/gourmet.webp'
+            alt='Stands para viñedos'
+          />
+          <figcaption class='mt-2 text-sm text-center text-white'>
+            {t('rates.image_ilustrative')}
+          </figcaption>
+        </figure>
+      </div>
+      <div class='bg-[#173A63] text-white p-4 rounded-lg'>
+        <p class='text-2xl font-bold'>{t('rates.card_4_title')}</p>
+        <p class='mt-4' set:html={t('rates.card_4_description')} />
+        <figure class='mt-5'>
+          <img
+            class='h-auto
+                w-full rounded-lg'
+            src='/img/proveedor.webp'
+            alt='Stands para viñedos'
+          />
+          <figcaption class='mt-2 text-sm text-center text-white'>
+            {t('rates.image_ilustrative')}
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+</Layout>

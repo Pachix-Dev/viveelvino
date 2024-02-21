@@ -55,6 +55,18 @@
         "title_3":"Innovación constante",
         "description_2":"Los cursos que ofrece Vinotelia van dirigidos a toda aquella persona que quiere aprender sobre vino y aquella que quiere profesionalizarse como sommelier, por lo que se encuentran trabajando para poder ofrecer en un mediano plazo licenciaturas y posgrados con esta especialidad.<br /><br />Vinotelia ha apoyado a la Secretaría de Turismo de Guanajuato en el diseño y la operación del evento nacional e internacional Vinum, que ha tenido muy buena respuesta y han hecho uso de la más avanzada tecnología en realidad aumentada y realidad virtual para poder llegar a más personas. Este año se llevará a cabo ya su tercera edición.<br /><br /> Vinotelia, en alianza con Gobierno del Estado y Secretaría de Desarrollo Económico Sustentable, imparte desde hace 2 años, el curso gratuito para promover el fomento del vino en Guanajuato, lo que ha beneficiado a varios municipios del estado, convirtiéndose en el proyecto icónico de la institución."
     },
+    "rates":{
+        "title": "Tarifas",                
+        "card_1_title": "Stands para viñedos",
+        "card_1_description": "<strong>Superficie 4m²</strong><br /><br />Precio preventa $9,500.00 MXN + IVA<br />Válido reservando con contrato firmado antes del 08/03/2024<br /><br /><strong>Tarifa regular $11,400.00 MXN + IVA</strong><br />Fecha límite de reserva 17/05/2024<br /><br /><strong>Incluye:</strong> Stand con mobiliario, un contacto eléctrico de 110v espacio para guardado de vino, rótulo en vinil y detalles decorativos, zona lounge y de periqueras compartidas, gafetes de expositor (2) y mención en el directorio. Servicio de hielo, hielera y jarra con agua durante el evento.",
+        "card_2_title": "Stands para restaurantes",
+        "card_2_description": "<strong>Superficie 9m²</strong> <br /><br />Precio preventa $10,450.00 MXN + IVA<br /> Válido reservando con contrato firmado antes del 08/03/2024<br /><br /><strong>Tarifa regular $12,540.00 MXN + IVA<br /></strong>Fecha límite de reserva 17/05/2024<strong><br /><br />Incluye:</strong>: Caseta, un contacto eléctrico de 110v, rótulo en vinil y detalles decorativos, zona lounge y de periqueras compartidas, gafetes de expositor (2) y mención en el directorio. Servicio de hielo, hielera y jarra con agua durante el evento.",
+        "card_3_title": "Stands para productos gourmet",
+        "card_3_description": "<strong>Superficie 2m²</strong><br /><br />Precio preventa $8,850.00 MXN + IVA<br />Válido reservando con contrato firmado antes del 08/03/2024<br /><br /><strong>Tarifa regular $10,620.00 MXN + IVA</strong><br />Fecha límite de reserva 17/05/2024<br /><br /><strong>Incluye:</strong> Stand en zona de pérgola, un contacto eléctrico de 110v, rótulo en vinil y detalles decorativos, zona lounge y de periqueras compartidas en fuente, gafetes de expositor (2) y mención en el directorio.",
+        "card_4_title": "Stands para proveedores de viñedos",
+        "card_4_description": "<strong>Superficie 2m²</strong><br /><br />Precio preventa $38,000.00 MXN + IVA<br />Válido reservando con contrato firmado antes del 08/03/2024<br /><br /><strong>Tarifa regular $45,600.00 MXN + IVA</strong><br />Fecha límite de reserva 17/05/2024<br /><br /><strong>Incluye:</strong> Piso laminado, construcción de stand con impresión de imágenes personalizadas, iluminación, mobiliario confort, un contacto eléctrico de 110v, pantalla SMART de 50”, gafetes de expositor(3) y mención en el directorio.",
+        "image_ilustrative": "Imagen ilustrativa"
+    },
     "footer":{
         "contact_exhibitor": "CONTACTO EXPOSITORES",
         "contact": "contacto",
