@@ -1,0 +1,35 @@
+---
+import Footer from '../components/Footer.astro'
+import Menu from '../components/Menu.astro'
+interface Props {
+  title: string
+  description: string
+}
+
+const { title, description } = Astro.props
+---
+
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content={description} />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/png' href='/favicon32.png' sizes='32x32' />
+    <link rel='icon' href='/favicon192.png' sizes='192x192' />
+    <link rel='apple-touch-icon' href='/favicon180.png' />
+    <meta name='msapplication-TileImage' content='/metaImg.png' />
+    <link href='https://unpkg.com/aos@2.3.1/dist/aos.css' rel='stylesheet' />
+    <title>{title}</title>
+  </head>
+  <body class='md:overflow-hidden'>
+    <header class='sticky top-0 z-50'>
+      <Menu />
+    </header>
+    <slot />
+    <script
+      is:inline
+      src='https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js'
+    ></script>
+  </body>
+</html>

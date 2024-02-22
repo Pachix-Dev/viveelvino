@@ -18,6 +18,12 @@ export function RegisterForm() {
     addCompanions,
   } = userRegister()
 
+  const catasGeneral = [
+    { id: 1, name: 'Cata 1' },
+    { id: 2, name: 'Cata 2' },
+    { id: 3, name: 'Cata 3' },
+    { id: 4, name: 'Cata 4' },
+  ]
   const {
     register,
     handleSubmit,
@@ -53,12 +59,11 @@ export function RegisterForm() {
           </div>
         ) : (
           <>
-            <div className='mx-auto max-w-lg'>
-              <p className='mt-4 text-gray-500 font-bold'>
-                Proporciona la información requerida, por favor revisa que tus
-                datos estén correctos.
-              </p>
-            </div>
+            <p className='mt-4 text-gray-500 font-bold'>
+              Proporciona la información requerida, por favor revisa que tus
+              datos estén correctos.
+            </p>
+
             <form
               onSubmit={handleSubmit(onSubmit)}
               className='mx-auto mb-0 mt-8  space-y-4'
@@ -211,6 +216,63 @@ export function RegisterForm() {
                 </span>
               </div>
 
+              <div className='relative'>
+                <p className='text-gray-500'>
+                  (Opcional - tu acceso general te permite realizar hasta 3
+                  catas / cupo limitado con tiempo de espera )
+                </p>
+                <button
+                  id='dropdownToggleButton'
+                  data-dropdown-toggle='dropdownToggle'
+                  class='mt-5 text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center'
+                  type='button'
+                >
+                  Selecciona tus catas{' '}
+                  <svg
+                    class='w-2.5 h-2.5 ms-3'
+                    aria-hidden='true'
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 10 6'
+                  >
+                    <path
+                      stroke='currentColor'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      stroke-width='2'
+                      d='m1 1 4 4 4-4'
+                    />
+                  </svg>
+                </button>
+
+                <div
+                  id='dropdownToggle'
+                  class='z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-72 '
+                >
+                  <ul
+                    class='p-3 space-y-1 text-sm text-gray-700 '
+                    aria-labelledby='dropdownToggleButton'
+                  >
+                    {catasGeneral.map((cata, index) => (
+                      <li key={index}>
+                        <div class='flex p-2 rounded hover:bg-gray-100 '>
+                          <label class='inline-flex items-center w-full cursor-pointer'>
+                            <input
+                              type='checkbox'
+                              value=''
+                              class='sr-only peer'
+                            />
+                            <div class="relative w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:translate-x-[-100%] peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all  peer-checked:bg-blue-600"></div>
+                            <span class='ms-3 text-sm font-medium text-gray-900 '>
+                              {cata.name}
+                            </span>
+                          </label>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
               <button
                 type='submit'
                 className='w-full inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white'
