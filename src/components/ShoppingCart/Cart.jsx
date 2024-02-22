@@ -22,7 +22,7 @@ export function Cart() {
 
   return (
     <main className='mt-5 mx-auto md:flex grid'>
-      <section className='p-5 w-full sm:w-3/5'>
+      <section className='p-5 w-full md:w-3/5'>
         <div className='flex justify-between items-center'>
           <p className='font-bold text-2xl'>Sus Productos</p>
           <nav aria-label='Breadcrumb'>
@@ -68,7 +68,7 @@ export function Cart() {
         ))}
         {items.find((item) => item.id === 1) && <Addons />}
       </section>
-      <aside className='p-5 w-full sm:w-2/5 bg-[#f7f7f8]'>
+      <aside className='p-5 w-full md:w-2/5 bg-[#f7f7f8]'>
         <p className='text-center text-2xl font-bold hidden md:block'>
           Resumen del pedido
         </p>
