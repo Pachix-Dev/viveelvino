@@ -1,0 +1,67 @@
+---
+import { changeLanguage, t } from "i18next";
+import Layout from "../../layouts/Layout.astro";
+
+changeLanguage("en");
+---
+
+<Layout
+  title='Vive el Vino 2024 | Visitantes'
+  description='Descubre una oportunidad única para destacar tu producto en la segunda región de consumo más relevante del país. Sumérgete en las últimas tendencias del sector participando en nuestro programa de conferencias y talleres. Amplía tu red de negocios mediante encuentros B2B y B2C exclusivos. Aprovecha la oportunidad de promover tu marca a través de la difusión y cobertura mediática del evento. ¡Potencia tu presencia y conecta con oportunidades sin igual!'
+>
+  <section class='py-10 container mx-auto px-4 text-[#082F5B]'>
+    <span class='text-gray-500'> VIVE EL VINO</span>
+    <p class='text-4xl font-bold'>
+      {t('why_exhibit.title')}
+    </p>
+    <img class='mt-5 rounded-lg' src='/img/wine-shop.webp' />
+    <div class='mt-10 grid md:grid-cols-4 gap-6'>
+      <div class='grid place-items-center'>
+        <img
+          src='/img/world_location.webp'
+          alt='Vive el Vino 2024'
+          class='w-32'
+        />
+        <p class='text-lg font-bold mt-4'>
+          {t('why_exhibit.reason_1')}
+        </p>
+      </div>
+      <div class='grid place-items-center'>
+        <img src='/img/cups.webp' alt='Vive el Vino 2024' class='w-32' />
+        <p class='text-lg font-bold mt-4'>
+          {t('why_exhibit.reason_2')}
+        </p>
+      </div>
+      <div class='grid place-items-center'>
+        <img
+          src='/img/networkBusiness.webp'
+          alt='Vive el Vino 2024'
+          class='w-32'
+        />
+        <p class='text-lg font-bold mt-4'>
+          {t('why_exhibit.reason_3')}
+        </p>
+      </div>
+      <div class='grid place-items-center'>
+        <img src='/img/promote.webp' alt='Vive el Vino 2024' class='w-32' />
+        <p class='text-lg font-bold mt-4'>
+          {t('why_exhibit.reason_4')}
+        </p>
+      </div>
+    </div>
+    <p class='mt-20 text-4xl font-bold'>
+      {t('why_exhibit.title_2')}
+    </p>
+    <div class='grid md:grid-cols-2 gap-6 place-items-center'>
+      <img
+        alt='categorias'
+        class='mt-5 rounded-lg'
+        src='/img/categories.webp'
+      />
+      <ul
+        class='mt-10 text-lg list-disc space-y-2 ps-4'
+        set:html={t('why_exhibit.description_2')}
+      />
+    </div>
+  </section>
+</Layout>

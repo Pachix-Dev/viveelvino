@@ -1,0 +1,28 @@
+---
+import { changeLanguage, t } from "i18next";
+import Layout from "../layouts/Layout.astro";
+import LightBox from "../components/LightBox.jsx";
+import { gallery2023_1, gallery2023_2, gallery2023_3, } from "../constans_gallery.js";
+
+changeLanguage("es");
+---
+
+<Layout
+  title='Vive el Vino 2024 | Visitantes'
+  description='Descubre una oportunidad única para destacar tu producto en la segunda región de consumo más relevante del país. Sumérgete en las últimas tendencias del sector participando en nuestro programa de conferencias y talleres. Amplía tu red de negocios mediante encuentros B2B y B2C exclusivos. Aprovecha la oportunidad de promover tu marca a través de la difusión y cobertura mediática del evento. ¡Potencia tu presencia y conecta con oportunidades sin igual!'
+>
+  <section class='container mx-auto pt-10 mb-10'>
+    <h1 class='font-extrabold text-4xl text-agro-green text-center'>
+      {t('gallery.title_1')}
+    </h1>
+    <LightBox images={gallery2023_1} client:visible />
+    <h1 class='mt-20 font-extrabold text-4xl text-agro-green text-center'>
+      {t('gallery.title_2')}
+    </h1>
+    <LightBox images={gallery2023_2} client:visible />
+    <h1 class='mt-20 font-extrabold text-4xl text-agro-green text-center'>
+      {t('gallery.title_3')}
+    </h1>
+    <LightBox images={gallery2023_3} client:visible />
+  </section>
+</Layout>

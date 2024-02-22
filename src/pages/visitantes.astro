@@ -1,0 +1,85 @@
+---
+import { changeLanguage, t } from "i18next";
+import Layout from "../layouts/Layout.astro";
+
+changeLanguage("es");
+---
+
+<Layout
+  title='Vive el Vino 2024 | Visitantes'
+  description='Descubre una oportunidad única para destacar tu producto en la segunda región de consumo más relevante del país. Sumérgete en las últimas tendencias del sector participando en nuestro programa de conferencias y talleres. Amplía tu red de negocios mediante encuentros B2B y B2C exclusivos. Aprovecha la oportunidad de promover tu marca a través de la difusión y cobertura mediática del evento. ¡Potencia tu presencia y conecta con oportunidades sin igual!'
+>
+  <section class='py-10 container mx-auto px-4 text-[#082F5B]'>
+    <span class='text-gray-500'> VIVE EL VINO</span>
+    <p class='text-4xl font-bold'>{t('visitors.title')}</p>
+    <div class='grid sm:grid-cols-2 gap-6 place-items-center'>
+      <img
+        src='/img/perfil-de-visitantes.webp'
+        alt='Vive el Vino 2024'
+        class='mt-5 w-full h-auto rounded-xl'
+      />
+      <div>
+        <ul
+          class='mt-10 text-lg list-disc list-inside'
+          set:html={t('visitors.description')}
+        />
+      </div>
+    </div>
+
+    <p class='mt-10 text-4xl font-bold'>{t('visitors.title_2')}</p>
+    <div class='grid sm:grid-cols-2 gap-6 place-items-center'>
+      <p class='mt-10 text-lg' set:html={t('visitors.description_2')} />
+      <img
+        class='mt-5 rounded-xl'
+        src='/img/Dine-and-Wine.webp'
+        alt='dine and wine'
+      />
+    </div>
+    <div class='grid sm:grid-cols-2 gap-6 place-items-center'>
+      <img
+        class='mt-5 rounded-xl'
+        src='/img/Dine-and-Wine-como-funciona.webp'
+        alt='dine and white'
+      />
+      <p class='mt-10 text-lg' set:html={t('visitors.description_3')} />
+    </div>
+    <div class='grid sm:grid-cols-2 gap-6 place-items-center'>
+      <p class='mt-10 text-lg' set:html={t('visitors.description_4')} />
+      <img
+        class='mt-5 rounded-xl'
+        src='/img/Dine-and-Wine-restaurante.webp'
+        alt='dine and white'
+      />
+    </div>
+    <p class='mt-10 text-4xl font-bold'>{t('visitors.title_3')}</p>
+    <div
+      class='p-8 mt-10 grid lg:grid-cols-4 gap-4 bg-[#37B083] text-white font-bold rounded-xl'
+    >
+      <div class='text-center text-lg grid place-items-center'>
+        <img
+          src='/img/icono-conferencias.webp'
+          class='w-32'
+          alt='conferencias'
+        />
+        <p>{t('visitors.activity_1')}</p>
+      </div>
+      <div class='text-center grid place-items-center'>
+        <img src='/img/Talleres.webp' class='w-32' alt='telleres' />
+        <p>{t('visitors.activity_2')}</p>
+      </div>
+      <div class='text-center grid place-items-center'>
+        <img src='/img/Catas.webp' class='w-32' alt='catas' />
+        <p>{t('visitors.activity_3')}</p>
+      </div>
+      <div class='text-center grid place-items-center'>
+        <img src='/img/degustacion.webp' class='w-32' alt='degustación' />
+        <p>{t('visitors.activity_4')}</p>
+      </div>
+    </div>
+    <img
+      class='mt-10 w-full rounded-xl'
+      src='/img/actividades-paralelas-vive-el-vino.webp'
+      alt='dine and white'
+    />
+  </section>
+</Layout>

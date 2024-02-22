@@ -66,6 +66,33 @@
         "card_4_description": "<strong>Surface area 4sqm</strong><br /><br /><strong>Early Bird $38,000.00 MXN + VAT</strong><br />Valid when booking with a signed contract before 08/03/2024<br /><br /><strong>Regular rate $45,600.00 MXN + VAT</strong><br />Booking deadline 05/17/2024<br /><br /><strong>Incluye:</strong> Laminate flooring, booth construction with customized image printing, lighting, comfort furniture, 1 110v electrical contact, 50\" SMART screen, exhibitor badges(3) and mention in the directory",
         "image_ilustrative": "Ilustrative image"
     },
+    "why_exhibit":{
+        "title": "Why Exhibit?",
+        "reason_1": "Reach the entire industry value chain in one place",
+        "reason_2": "Access the latest trends and participate in the educational program",
+        "reason_3": "Expand your business network through B2B meetings",
+        "reason_4": "Promote your brand through the diffusion and coverage of the event",
+        "title_2": "Product categories",
+        "description_2": "<li>Wines and liquors</li><li>Distillates</li><li>Alternative beverages</li><li>Cider and sparkling wines</li><li>Tequila and mezcal</li><li>Craft beer</li><li>Related gastronomic products</li><li>Equipment for vineyards, gastronomy and points of sale</li><li>Accessories</li><li>Service providers</li>"
+    },
+    "visitor":{
+        "title": "Visitor profile",
+        "description": "<li>Importers and exporters</li><li>International commercial representations</li><li>Distributors and wholesalers of gourmet products</li><li>Specialized gourmet stores</li><li>Supermarkets and department stores</li><li>Restaurants, bistros and cafeterias</li><li>Caterers and chefs Gastronomy schools</li><li>Consumers of gourmet food and beverages</li><li>Logistics and transportation services</li><li>General public</li>",
+        "title_2": "Dine & Wine",
+        "description_2": "<strong>Eat and drink, because life is brief!</strong><br /><br />A program parallel to the fair, which celebrates the culinary culture of the state. It consists of gathering and organizing, through an open call, the community of restaurateurs of the State of Guanajuato, so that during the fair they offer a single menu (food and drink), with a unique and affordable price, with the aim that diners enjoy our extensive gastronomic offerings.",
+        "description_3": "<strong>How does it work?</strong><br /><br />Participating restaurants, will register on the digital platform, choosing one of the three categories, namely:<br /><br />Lunch<br />Three course menu<br />Gourmet tasting menu<br /><br />During the days of the expo, participating restaurants will only offer this menu, which includes food and drink for a single price.",
+        "description_4": "This project has three main objectives:<br /><br />To position the unmissable options for eating and drinking in Guanajuato.<br /><br />To make more people know and have access to new culinary proposals.<br /><br />To serve as a showcase for all that the State of Guanajuato has to offer.<br /><br />In the end, all these objectives converge in the reactivation of the state’s restaurant industry.",
+        "title_3": "Activities during the event",
+        "activity_1": "+15 conferences specialized in the sector",
+        "activity_2": "+12 Workshops over the three days",
+        "activity_3": "+15 Tasting",
+        "activity_4": "Tasting areas open to the public"
+    },
+    "gallery":{
+        "title_1": "Event Launch",
+        "title_2": "Business Brunch CDMX",
+        "title_3": "Roadshow Ensenada"
+    },	
     "footer":{
         "contact_exhibitor": "EXHIBITOR CONTACT",
         "contact": "contact",

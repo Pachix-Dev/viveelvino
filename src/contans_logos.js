@@ -21,4 +21,12 @@ const media_partners = [
     { link: 'https://www.publimetro.com.mx/', src: '/img/LOGO-PUBLIMETRO.webp', alt:'Publimetro', width: 250 },
     { link: 'https://www.radioformula.com.mx/bajio/', src: '/img/radio-formula.webp', alt:'Radio Formula', width: 200 }
 ]
-export { strategic_allies, media_partners}
+
+const toolkit_es = [
+    { id: 0, src: '/img/banner_web_es-1.webp', alt:'Banner web', title:'Banner web', width: 360, height: 225 },    
+    { id: 1, src: '/img/banner-facebook_es.webp', alt:'Facebook', title:'Facebook', width: 360, height: 158 },
+    { id: 2, src: '/img/banner-twitter_es.webp', alt:'Twitter', title:'Twitter', width: 360, height: 120 },
+    { id: 3, src: '/img/banner-Linkedln_es.webp', alt:'Linkedin', title:'Linkedin', width: 360, height: 90 },
+    { id: 4, src: '/img/banner-790x90_es.webp', alt:'Banner', title:'Banner', width: 360, height: 360 }, 
+]
+export { strategic_allies, media_partners, toolkit_es}

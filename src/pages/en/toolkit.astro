@@ -1,0 +1,18 @@
+---
+import i18next, { changeLanguage, t } from "i18next";
+import Layout from "../../layouts/Layout.astro";
+import LightBox from "../../components/LightBox.jsx";
+import { toolkit_es } from "../../contans_logos";
+
+changeLanguage("en");
+---
+
+<Layout
+  title='Vive el Vino 2024'
+  description='Descubre una oportunidad única para destacar tu producto en la segunda región de consumo más relevante del país. Sumérgete en las últimas tendencias del sector participando en nuestro programa de conferencias y talleres. Amplía tu red de negocios mediante encuentros B2B y B2C exclusivos. Aprovecha la oportunidad de promover tu marca a través de la difusión y cobertura mediática del evento. ¡Potencia tu presencia y conecta con oportunidades sin igual!'
+>
+  <section class='container mx-auto lg:w-[1050px] p-8 pt-10 mb-10'>
+    <h1 class='font-extrabold text-4xl text-agro-green text-center'>TOOLKIT</h1>
+    <LightBox images={toolkit_es} client:visible />
+  </section>
+</Layout>

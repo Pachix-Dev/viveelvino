@@ -67,6 +67,33 @@
         "card_4_description": "<strong>Superficie 2m²</strong><br /><br /><strong>Precio preventa $38,000.00 MXN + IVA</strong><br />Válido reservando con contrato firmado antes del 08/03/2024<br /><br /><strong>Tarifa regular $45,600.00 MXN + IVA</strong><br />Fecha límite de reserva 17/05/2024<br /><br /><strong>Incluye:</strong> Piso laminado, construcción de stand con impresión de imágenes personalizadas, iluminación, mobiliario confort, un contacto eléctrico de 110v, pantalla SMART de 50”, gafetes de expositor(3) y mención en el directorio.",
         "image_ilustrative": "Imagen ilustrativa"
     },
+    "why_exhibit":{
+        "title": "¿Por qué exponer?",
+        "reason_1": "Llegue a toda la cadena de valor del sector en un solo lugar",
+        "reason_2": "Acceda a las últimas tendencias y participe del programa educativo",
+        "reason_3": "Amplíe su red de negocios a través de encuentros B2B",
+        "reason_4": "Promueva su marca a través de la difusión y cobertura del evento",
+        "title_2": "Categorías de productos",
+        "description_2": "<li>Vinos y licores</li><li>Destilados</li><li>Bebidas alternativas</li><li>Cidra y vinos espumosos</li><li>Tequila y mezcal</li><li>Cerveza artesanal</li><li>Productos gastronómicos relacionados</li><li>Equipamiento para viñedos, gastronomía y puntos de venta</li><li>Accesorios</li><li>Proveedores de servicios</li>"
+    },
+    "visitors":{
+        "title": "Perfil del visitante",
+        "description": "<li>Importadores y exportadores</li><li>Representaciones comerciales internacionales</li><li>Distribuidores y mayoristas de productos gourmet</li><li>Tiendas especializadas gourmet</li><li>Supermercados y tiendas departamentales</li><li>Restaurantes, bistros y cafeterías</li><li>Banqueteros y chefs Escuelas de gastronomía</li><li>Consumidores de alimentos y bebidas gourmet</li><li>Servicios de logística y transporte</li><li>Público en general</li>",
+        "title_2": "Dine & Wine",
+        "description_2": "<strong>Come y bebe, ¡porque la vida es breve!</strong><br /><br />Un programa paralelo a la feria, que celebra la cultura culinaria del estado. Consiste en reunir y organizar, a través de una convocatoria abierta, a la comunidad de restauranteros del Estado de Guanajuato, para que, durante la feria ofrezcan un solo menú (comida y bebida), con un precio único y asequible, con el objetivo de que los comensales disfruten de nuestra extensa oferta gastronómica",
+        "description_3": "<strong>¿Cómo funciona?</strong><br /><br />Los restaurantes participantes, se inscribirán en la plataforma digital, eligiendo una de las tres categorías, a saber:<br /><br />Comida corrida<br />Menú de tres tiempos<br />Menú de degustación gourmet<br /><br />Durante los días de la expo, los restaurantes participantes solo ofrecerán dicho menú que incluye comida y bebida por un precio único.",
+        "description_4": "Este proyecto busca tres objetivos principales:<br /><br />Posicionar las opciones imperdibles para comer y beber en Guanajuato<br /><br />Que más personas conozcan y accedan a nuevas propuestas culinarias<br /><br />Servir como escaparate de todo lo que el Estado de Guanajuato tiene para ofrecer<br /><br />Al final, todos estos objetivos confluyen en la reactivación restaurantera del estado",
+        "title_3": "Actividades dentro del evento",
+        "activity_1": "+15 conferencias especializadas en el sector",
+        "activity_2": "+12 Talleres durante los tres días",
+        "activity_3": "+15 Catas",
+        "activity_4": "Áreas de degustación abiertas al público"
+    },
+    "gallery":{
+        "title_1": "Lanzamiento de la Feria",
+        "title_2": "Business Brunch CDMX",
+        "title_3": "Roadshow Ensenada"
+    },	
     "footer":{
         "contact_exhibitor": "CONTACTO EXPOSITORES",
         "contact": "contacto",
