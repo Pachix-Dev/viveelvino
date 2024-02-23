@@ -21,7 +21,7 @@ export function CheckoutPaypal() {
     completed,
     dropState,
   } = userRegister()
-  const [proceesing, setProceesing] = useState(true)
+  const [proceesing, setProceesing] = useState(false)
 
   const style = { layout: 'vertical' }
   const initialOptions = {
