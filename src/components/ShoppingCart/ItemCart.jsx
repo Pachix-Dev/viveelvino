@@ -1,15 +1,37 @@
 import useCartStore from '../../store/cartStore'
+import { userRegister } from '../../store/userRegister'
 
 export function ItemCart({ item }) {
-  const { updateQuantity, removeFromCart } = useCartStore()
+  const { items, updateQuantity, removeFromCart } = useCartStore()
+  const { addCompanion, removeCompanion, dropCompanions } = userRegister()
 
   const handleQuantity = (e) => {
     updateQuantity(item.id, e)
+    const currentItem = items.find((i) => i.id === item.id)
+
+    if (e === 1) {
+      dropCompanions()
+      return
+    }
+
+    if (currentItem.id === 1) {
+      if (e > currentItem.quantity) {
+        for (let i = currentItem.quantity; i < e; i++) {
+          addCompanion()
+        }
+      } else {
+        for (let i = currentItem.quantity; i > e; i--) {
+          removeCompanion()
+        }
+      }
+    }
   }
+
   const handleRemove = (e) => {
     if (item.id === 1) {
       removeFromCart(item.id)
       removeFromCart(4)
+      dropCompanions()
     } else {
       removeFromCart(item.id)
     }

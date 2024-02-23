@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { userRegister } from '../../store/userRegister'
+import { useState } from 'react'
 
 export function RegisterForm() {
   const {
@@ -8,6 +9,8 @@ export function RegisterForm() {
     phone,
     age,
     company,
+    catas,
+    companions,
     setName,
     setEmail,
     setPhone,
@@ -15,21 +18,48 @@ export function RegisterForm() {
     setCompleted,
     setAge,
     setCompany,
-    addCompanions,
+    addCata,
+    updateCompanionName,
+    updateCompanionEmail,
   } = userRegister()
 
-  const catasGeneral = [
-    { id: 1, name: 'Cata 1' },
-    { id: 2, name: 'Cata 2' },
-    { id: 3, name: 'Cata 3' },
-    { id: 4, name: 'Cata 4' },
-  ]
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({})
 
+  const [selectedCheckboxes, setSelectedCheckboxes] = useState([])
+
+  const handleCheckboxChange = (value) => {
+    const currentIndex = selectedCheckboxes.indexOf(value)
+    const newChecked = [...selectedCheckboxes]
+
+    if (currentIndex === -1) {
+      // If not already in array, add to array
+      newChecked.push(value)
+    } else {
+      // If already in array, remove from array
+      newChecked.splice(currentIndex, 1)
+    }
+    // Check if more than 3 are selected, and if so, remove the last one
+    if (newChecked.length > 3) {
+      newChecked.shift()
+    }
+    setSelectedCheckboxes(newChecked)
+    addCata(newChecked)
+  }
+
+  const checkboxes = [
+    { value: 1, label: 'Cata 1' },
+    { value: 2, label: 'Cata 2' },
+    { value: 3, label: 'Cata 3' },
+    { value: 4, label: 'Cata 4' },
+    { value: 5, label: 'Cata 5' },
+    { value: 6, label: 'Cata 6' },
+    { value: 7, label: 'Cata 7' },
+    { value: 8, label: 'Cata 8' },
+  ]
   const onSubmit = () => setCompleted(true)
 
   return (
@@ -84,6 +114,7 @@ export function RegisterForm() {
                   defaultValue={name}
                   className='w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm'
                   placeholder='Ingresa tu nombre completo'
+                  autoComplete='name'
                 />
                 <span className='absolute inset-y-0 end-0 grid place-content-center px-4'>
                   <svg
@@ -122,7 +153,8 @@ export function RegisterForm() {
                   name='email'
                   id='email'
                   className='w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm'
-                  placeholder='Enter tu email'
+                  placeholder='Ingresa tu email'
+                  autoComplete='email'
                 />
 
                 <span className='absolute inset-y-0 end-0 grid place-content-center px-4'>
@@ -163,6 +195,7 @@ export function RegisterForm() {
                   id='phone'
                   className='w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm'
                   placeholder='Ingresa tu numero de teléfono'
+                  autoComplete='phone'
                 />
                 <span className='absolute inset-y-0 end-0 grid place-content-center px-4'>
                   <svg
@@ -197,6 +230,7 @@ export function RegisterForm() {
                   defaultValue={company}
                   className='w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm'
                   placeholder='Empresa (opcional)'
+                  autoComplete='company'
                 />
                 <span className='absolute inset-y-0 end-0 grid place-content-center px-4'>
                   <svg
@@ -219,60 +253,91 @@ export function RegisterForm() {
               <div className='relative'>
                 <p className='text-gray-500'>
                   (Opcional - tu acceso general te permite realizar hasta 3
-                  catas / cupo limitado con tiempo de espera )
+                  catas sencillas / cupo limitado con tiempo de espera )
                 </p>
-                <button
-                  id='dropdownToggleButton'
-                  data-dropdown-toggle='dropdownToggle'
-                  class='mt-5 text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center'
-                  type='button'
-                >
-                  Selecciona tus catas{' '}
-                  <svg
-                    class='w-2.5 h-2.5 ms-3'
-                    aria-hidden='true'
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    viewBox='0 0 10 6'
-                  >
-                    <path
-                      stroke='currentColor'
-                      stroke-linecap='round'
-                      stroke-linejoin='round'
-                      stroke-width='2'
-                      d='m1 1 4 4 4-4'
-                    />
-                  </svg>
-                </button>
+                <ul className='mt-5 items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex flex-wrap'>
+                  {checkboxes.map((checkbox, index) => (
+                    <li
+                      key={index}
+                      className='border-b border-gray-200 sm:border-b-0 sm:border-r'
+                    >
+                      <div className='flex items-center ps-3'>
+                        <input
+                          id={checkbox.value}
+                          name={checkbox.value}
+                          type='checkbox'
+                          value={checkbox.value}
+                          checked={selectedCheckboxes.includes(checkbox.label)}
+                          onChange={() => handleCheckboxChange(checkbox.label)}
+                          className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500  focus:ring-2'
+                        />
+                        <label
+                          htmlFor={checkbox.value}
+                          className='w-full py-3 m-2 text-sm font-medium text-gray-900 '
+                        >
+                          {checkbox.label}
+                        </label>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
 
-                <div
-                  id='dropdownToggle'
-                  class='z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-72 '
-                >
-                  <ul
-                    class='p-3 space-y-1 text-sm text-gray-700 '
-                    aria-labelledby='dropdownToggleButton'
-                  >
-                    {catasGeneral.map((cata, index) => (
-                      <li key={index}>
-                        <div class='flex p-2 rounded hover:bg-gray-100 '>
-                          <label class='inline-flex items-center w-full cursor-pointer'>
-                            <input
-                              type='checkbox'
-                              value=''
-                              class='sr-only peer'
-                            />
-                            <div class="relative w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:translate-x-[-100%] peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all  peer-checked:bg-blue-600"></div>
-                            <span class='ms-3 text-sm font-medium text-gray-900 '>
-                              {cata.name}
-                            </span>
-                          </label>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {errors.checkboxes && (
+                  <p style={{ color: 'red' }}>{errors.checkboxes.message}</p>
+                )}
               </div>
+
+              {companions.map((companion, index) => (
+                <div key={index} className='relative'>
+                  <p>Acompañante {index + 1}</p>
+                  <input
+                    type='text'
+                    {...register(`nameCompanion${index}`, {
+                      required: 'Nombre completo  es requerido',
+                      pattern: {
+                        value: /^[A-Za-z\s]+$/,
+                        message: 'Nombre no válido',
+                      },
+                      onChange: (e) =>
+                        updateCompanionName(index, e.target.value),
+                    })}
+                    name={`nameCompanion${index}`}
+                    id={`nameCompanion${index}`}
+                    defaultValue={companion.name}
+                    className='w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm'
+                    placeholder='Ingresa tu nombre completo'
+                    autoComplete={`nameCompanion${index}`}
+                  />
+                  {errors[`nameCompanion${index}`] && (
+                    <p style={{ color: 'red' }}>
+                      {errors[`nameCompanion${index}`].message}
+                    </p>
+                  )}
+                  <input
+                    type='email'
+                    {...register(`emailCompanion${index}`, {
+                      pattern: {
+                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                        message: 'Email no válido',
+                      },
+                      onChange: (e) =>
+                        updateCompanionEmail(index, e.target.value),
+                    })}
+                    defaultValue={companion.email}
+                    name={`emailCompanion${index}`}
+                    id={`emailCompanion${index}`}
+                    className='mt-2 w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm'
+                    placeholder='Ingresa tu email'
+                    autoComplete={`emailCompanion${index}`}
+                  />
+                  {errors[`emailCompanion${index}`] && (
+                    <p style={{ color: 'red' }}>
+                      {errors[`emailCompanion${index}`].message}
+                    </p>
+                  )}
+                </div>
+              ))}
+
               <button
                 type='submit'
                 className='w-full inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white'

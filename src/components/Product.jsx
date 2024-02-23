@@ -1,12 +1,19 @@
 import useCartStore from '../store/cartStore'
+import { userRegister } from '../store/userRegister'
 import { useState } from 'react'
 
 export function Products({ product }) {
   const { addToCart, setcomplete_purchase } = useCartStore()
+  const { addCompanion } = userRegister()
   const [quantity, setQuantity] = useState(1)
 
   const handleAddToCart = (product) => {
     addToCart(product, quantity)
+    if (product.id === 1 && quantity > 1) {
+      for (let i = 1; i < quantity; i++) {
+        addCompanion()
+      }
+    }
     setcomplete_purchase(false)
     window.location.href = '/shopping-cart'
   }
