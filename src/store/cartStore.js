@@ -11,19 +11,8 @@ const useCartStore = create(
       addToCart: (product, quantity = 1) => {
         set((state) => {
           const existingItem = state.items.find((item) => item.id === product.id);
-      
-          if (existingItem) {
-            const newQuantity = Math.min(existingItem.quantity + quantity, 8); // Limit to 8
-            const updatedItems = state.items.map((item) =>
-              item.id === product.id ? { ...item, quantity: newQuantity } : item
-            );
-      
-            const updatedTotal = updatedItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-      
-            return {
-              items: updatedItems,
-              total: updatedTotal,
-            };
+          if (existingItem) {            
+            return state;
           } else {
             const newItem = {
               ...product,

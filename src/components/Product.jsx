@@ -1,19 +1,10 @@
 import useCartStore from '../store/cartStore'
-import { userRegister } from '../store/userRegister'
-import { useState } from 'react'
 
 export function Products({ product }) {
   const { addToCart, setcomplete_purchase } = useCartStore()
-  const { addCompanion } = userRegister()
-  const [quantity, setQuantity] = useState(1)
 
   const handleAddToCart = (product) => {
-    addToCart(product, quantity)
-    if (product.id === 1 && quantity > 1) {
-      for (let i = 1; i < quantity; i++) {
-        addCompanion()
-      }
-    }
+    addToCart(product, 1)
     setcomplete_purchase(false)
     window.location.href = '/shopping-cart'
   }
@@ -72,16 +63,6 @@ export function Products({ product }) {
           ))}
         </ul>
         <div className='flex gap-2'>
-          <input
-            type='number'
-            value={quantity}
-            className='border border-gray-200 rounded-lg px-3 py-2.5 text-gray-900 font-medium text-sm text-center'
-            onChange={(e) =>
-              setQuantity(Math.min(8, parseInt(e.target.value, 10)))
-            }
-            min='1'
-            max='8'
-          />
           <button
             onClick={() => handleAddToCart(product)}
             type='button'

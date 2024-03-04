@@ -1,6 +1,5 @@
 import { useForm } from 'react-hook-form'
 import { userRegister } from '../../store/userRegister'
-import { useState } from 'react'
 
 export function RegisterForm() {
   const {
@@ -9,7 +8,6 @@ export function RegisterForm() {
     phone,
     age,
     company,
-    catas,
     companions,
     setName,
     setEmail,
@@ -18,7 +16,6 @@ export function RegisterForm() {
     setCompleted,
     setAge,
     setCompany,
-    addCata,
     updateCompanionName,
     updateCompanionEmail,
   } = userRegister()
@@ -29,37 +26,6 @@ export function RegisterForm() {
     formState: { errors },
   } = useForm({})
 
-  const [selectedCheckboxes, setSelectedCheckboxes] = useState([])
-
-  const handleCheckboxChange = (value) => {
-    const currentIndex = selectedCheckboxes.indexOf(value)
-    const newChecked = [...selectedCheckboxes]
-
-    if (currentIndex === -1) {
-      // If not already in array, add to array
-      newChecked.push(value)
-    } else {
-      // If already in array, remove from array
-      newChecked.splice(currentIndex, 1)
-    }
-    // Check if more than 3 are selected, and if so, remove the last one
-    if (newChecked.length > 3) {
-      newChecked.shift()
-    }
-    setSelectedCheckboxes(newChecked)
-    addCata(newChecked)
-  }
-
-  const checkboxes = [
-    { value: 1, label: 'Cata 1' },
-    { value: 2, label: 'Cata 2' },
-    { value: 3, label: 'Cata 3' },
-    { value: 4, label: 'Cata 4' },
-    { value: 5, label: 'Cata 5' },
-    { value: 6, label: 'Cata 6' },
-    { value: 7, label: 'Cata 7' },
-    { value: 8, label: 'Cata 8' },
-  ]
   const onSubmit = () => setCompleted(true)
 
   return (
@@ -248,43 +214,6 @@ export function RegisterForm() {
                     />
                   </svg>
                 </span>
-              </div>
-
-              <div className='relative'>
-                <p className='text-gray-500'>
-                  (Opcional - tu acceso general te permite realizar hasta 3
-                  catas sencillas / cupo limitado con tiempo de espera )
-                </p>
-                <ul className='mt-5 items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex flex-wrap'>
-                  {checkboxes.map((checkbox, index) => (
-                    <li
-                      key={index}
-                      className='border-b border-gray-200 sm:border-b-0 sm:border-r'
-                    >
-                      <div className='flex items-center ps-3'>
-                        <input
-                          id={checkbox.value}
-                          name={checkbox.value}
-                          type='checkbox'
-                          value={checkbox.value}
-                          checked={selectedCheckboxes.includes(checkbox.label)}
-                          onChange={() => handleCheckboxChange(checkbox.label)}
-                          className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500  focus:ring-2'
-                        />
-                        <label
-                          htmlFor={checkbox.value}
-                          className='w-full py-3 m-2 text-sm font-medium text-gray-900 '
-                        >
-                          {checkbox.label}
-                        </label>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-
-                {errors.checkboxes && (
-                  <p style={{ color: 'red' }}>{errors.checkboxes.message}</p>
-                )}
               </div>
 
               {companions.map((companion, index) => (

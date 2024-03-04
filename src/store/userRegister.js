@@ -44,11 +44,14 @@ const userRegister = create(
           return { catas: newCatas };
       }),
            
-      addCompanion: () =>
+      addCompanion: (newQuantity) =>{
+        if (newQuantity < 1 || newQuantity > 8) { 
+          return;
+        }
         set((state) => ({
           companions: [...state.companions, { name: '', email: '' }],
-        })),
-
+        }));
+      },
       updateCompanionName: (index, name) =>
         set((state) => ({
           companions: state.companions.map((companion, i) =>

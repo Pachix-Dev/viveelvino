@@ -14,8 +14,8 @@ export function ResumeCart() {
             <p className='leading-4'>
               <span className='font-bold'>{item.name}</span>
               <br />
-              <span className='text-gray-500'>
-                {item.quantity} /{' '}
+              <span className='text-gray-500 '>
+                x{item.quantity} /{' '}
                 {item.id === 1 || item.id === 2 ? 'persona(s)' : 'cata (s)'}
               </span>
             </p>

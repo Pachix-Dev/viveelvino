@@ -22,20 +22,19 @@ export function Cart() {
 
   return (
     <main className='mt-5 mx-auto md:flex grid'>
-      <section className='p-5 w-full md:h-screen md:w-3/5 md:overflow-y-scroll'>
+      <section className='pt-5 px-5 md:px-32 w-full md:h-screen md:w-3/5 md:overflow-y-scroll'>
         <div className='flex justify-between items-center'>
           <p className='font-bold text-2xl'>Sus Productos</p>
           <nav aria-label='Breadcrumb'>
             <ol className='flex items-center gap-1 text-sm text-gray-600'>
               <li>
                 <a
-                  href='/shopping-cart'
-                  className='block transition hover:text-gray-700 font-bold'
+                  href='/tickets'
+                  className='block transition hover:text-gray-700 '
                 >
-                  Carrito
+                  Tickets
                 </a>
               </li>
-
               <li className='rtl:rotate-180'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -50,13 +49,12 @@ export function Cart() {
                   />
                 </svg>
               </li>
-
               <li>
                 <a
-                  href='/checkout'
-                  className='block transition hover:text-gray-700'
+                  href='/shopping-cart'
+                  className='block transition hover:text-gray-700 font-bold'
                 >
-                  Checkout
+                  Carrito
                 </a>
               </li>
             </ol>
