@@ -33,7 +33,7 @@ export function CheckoutPaypal() {
 
   async function createOrder() {
     const response = await fetch(
-      'https://hfmexico.mx/viveelvino/backend/create-order',
+      'https://hfmexico.mx/viveelvino.igeco.mx/backend/create-order',
       {
         method: 'POST',
         headers: {
@@ -52,7 +52,7 @@ export function CheckoutPaypal() {
   async function onApprove(data) {
     setProceesing(true)
     const response = await fetch(
-      'https://hfmexico.mx/viveelvino/backend/complete-order',
+      'https://hfmexico.mx/viveelvino.igeco.mx/backend/complete-order',
       {
         method: 'POST',
         headers: {
