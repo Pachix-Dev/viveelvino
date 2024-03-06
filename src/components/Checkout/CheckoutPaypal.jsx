@@ -118,13 +118,13 @@ export function CheckoutPaypal() {
     <main className='relative mx-auto md:flex grid'>
       <section className=' p-10 w-full sm:w-3/5 sm:order-1 '>
         <div className='flex justify-between items-center'>
-          <p className='font-bold text-2xl'>Finalizar Compra</p>
+          <p className='font-bold text-4xl'>Finalizar Compra</p>
           <nav aria-label='Breadcrumb'>
-            <ol className='flex items-center gap-1 text-sm text-gray-600'>
+            <ol className='flex items-center gap-1 text-lg text-gray-600'>
               <li>
                 <a
                   href='/tickets'
-                  className='block transition hover:text-gray-700 '
+                  className='block transition hover:text-gray-700 font-bold'
                 >
                   Tickets
                 </a>
@@ -146,7 +146,7 @@ export function CheckoutPaypal() {
               <li>
                 <a
                   href='/shopping-cart'
-                  className='block transition hover:text-gray-700'
+                  className='block transition hover:text-gray-700 font-bold'
                 >
                   Carrito
                 </a>
@@ -168,12 +168,7 @@ export function CheckoutPaypal() {
               </li>
 
               <li>
-                <a
-                  href='/checkout'
-                  className='block transition hover:text-gray-700 font-bold'
-                >
-                  Checkout
-                </a>
+                <span className='block transition font-bold'>Checkout</span>
               </li>
             </ol>
           </nav>

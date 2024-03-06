@@ -12,7 +12,7 @@ export function Products({ product }) {
     <>
       <div
         key={product.id}
-        className='mt-5 w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8'
+        className='mt-5 w-full md:max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8'
       >
         <h5 className='mb-4 text-xl font-medium text-gray-500 '>
           {product.name}
@@ -22,6 +22,7 @@ export function Products({ product }) {
           <span className='text-5xl font-extrabold tracking-tight'>
             {product.price}
           </span>
+          <span className='font-bold'>MXN</span>
           <span className='ms-1 text-xl font-normal text-gray-500 '>
             / persona
           </span>

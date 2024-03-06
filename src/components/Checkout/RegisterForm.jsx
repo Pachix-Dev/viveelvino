@@ -6,16 +6,12 @@ export function RegisterForm() {
     name,
     email,
     phone,
-    age,
-    company,
     companions,
     setName,
     setEmail,
     setPhone,
     completed,
     setCompleted,
-    setAge,
-    setCompany,
     updateCompanionName,
     updateCompanionEmail,
   } = userRegister()
@@ -185,91 +181,99 @@ export function RegisterForm() {
                 )}
               </div>
 
-              <div className='relative'>
-                <input
-                  type='text'
-                  {...register('company', {
-                    onChange: (e) => setCompany(e.target.value),
-                  })}
-                  name='company'
-                  id='company'
-                  defaultValue={company}
-                  className='w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm'
-                  placeholder='Empresa (opcional)'
-                  autoComplete='company'
-                />
-                <span className='absolute inset-y-0 end-0 grid place-content-center px-4'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    viewBox='0 0 24 24'
-                    strokeWidth={1.5}
-                    stroke='currentColor'
-                    className='h-4 w-4 text-gray-400'
-                  >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      d='M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21'
-                    />
-                  </svg>
-                </span>
-              </div>
-
               {companions.map((companion, index) => (
                 <div key={index} className='relative'>
-                  <p>Acompañante {index + 1}</p>
-                  <input
-                    type='text'
-                    {...register(`nameCompanion${index}`, {
-                      required: 'Nombre completo  es requerido',
-                      pattern: {
-                        value: /^[A-Za-z\s]+$/,
-                        message: 'Nombre no válido',
-                      },
-                      onChange: (e) =>
-                        updateCompanionName(index, e.target.value),
-                    })}
-                    name={`nameCompanion${index}`}
-                    id={`nameCompanion${index}`}
-                    defaultValue={companion.name}
-                    className='w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm'
-                    placeholder='Ingresa tu nombre completo'
-                    autoComplete={`nameCompanion${index}`}
-                  />
-                  {errors[`nameCompanion${index}`] && (
-                    <p style={{ color: 'red' }}>
-                      {errors[`nameCompanion${index}`].message}
-                    </p>
-                  )}
-                  <input
-                    type='email'
-                    {...register(`emailCompanion${index}`, {
-                      pattern: {
-                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                        message: 'Email no válido',
-                      },
-                      onChange: (e) =>
-                        updateCompanionEmail(index, e.target.value),
-                    })}
-                    defaultValue={companion.email}
-                    name={`emailCompanion${index}`}
-                    id={`emailCompanion${index}`}
-                    className='mt-2 w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm'
-                    placeholder='Ingresa tu email'
-                    autoComplete={`emailCompanion${index}`}
-                  />
-                  {errors[`emailCompanion${index}`] && (
-                    <p style={{ color: 'red' }}>
-                      {errors[`emailCompanion${index}`].message}
-                    </p>
-                  )}
+                  <p className='font-bold'>Acompañante {index + 1}</p>
+                  <div className='mt-2 flex gap-2'>
+                    <div className='relative w-full'>
+                      <input
+                        type='text'
+                        {...register(`nameCompanion${index}`, {
+                          required: 'Nombre completo  es requerido',
+                          pattern: {
+                            value: /^[A-Za-z\s]+$/,
+                            message: 'Nombre no válido',
+                          },
+                          onChange: (e) =>
+                            updateCompanionName(index, e.target.value),
+                        })}
+                        name={`nameCompanion${index}`}
+                        id={`nameCompanion${index}`}
+                        defaultValue={companion.name}
+                        className='w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm'
+                        placeholder='Ingresa tu nombre completo'
+                        autoComplete={`nameCompanion${index}`}
+                      />
+                      <span className='absolute inset-y-0 end-0 grid place-content-center px-4'>
+                        <svg
+                          xmlns='http://www.w3.org/2000/svg'
+                          fill='none'
+                          viewBox='0 0 24 24'
+                          strokeWidth={1.5}
+                          stroke='currentColor'
+                          className='h-4 w-4 text-gray-400'
+                        >
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            d='M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'
+                          />
+                        </svg>
+                      </span>
+                      {errors[`nameCompanion${index}`] && (
+                        <p style={{ color: 'red' }}>
+                          {errors[`nameCompanion${index}`].message}
+                        </p>
+                      )}
+                    </div>
+                    <div className='relative w-full'>
+                      <input
+                        type='email'
+                        {...register(`emailCompanion${index}`, {
+                          required: 'Email  es requerido',
+                          pattern: {
+                            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                            message: 'Email no válido',
+                          },
+                          onChange: (e) =>
+                            updateCompanionEmail(index, e.target.value),
+                        })}
+                        defaultValue={companion.email}
+                        name={`emailCompanion${index}`}
+                        id={`emailCompanion${index}`}
+                        className='w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm'
+                        placeholder='Ingresa tu email'
+                        autoComplete={`emailCompanion${index}`}
+                      />
+                      <span className='absolute inset-y-0 end-0 grid place-content-center px-4'>
+                        <svg
+                          xmlns='http://www.w3.org/2000/svg'
+                          className='h-4 w-4 text-gray-400'
+                          fill='none'
+                          viewBox='0 0 24 24'
+                          stroke='currentColor'
+                        >
+                          <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth='2'
+                            d='M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207'
+                          />
+                        </svg>
+                      </span>
+                      {errors[`emailCompanion${index}`] && (
+                        <p style={{ color: 'red' }}>
+                          {errors[`emailCompanion${index}`].message}
+                        </p>
+                      )}
+                    </div>
+                  </div>
                 </div>
               ))}
 
               <button
                 type='submit'
-                className='w-full inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white'
+                className='w-full inline-block rounded-lg bg-blue-500 px-5 py-3 text-2xl font-bold text-white'
               >
                 Continuar
               </button>

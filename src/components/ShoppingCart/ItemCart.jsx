@@ -1,4 +1,4 @@
-import { useState } from 'react'
+/*import { useState } from 'react'*/
 import useCartStore from '../../store/cartStore'
 import { userRegister } from '../../store/userRegister'
 import './ItemCart.css'
@@ -9,8 +9,8 @@ export function ItemCart({ item }) {
     addCompanion,
     removeCompanion,
     dropCompanions,
-    addCata,
-    catas,
+    /*addCata,
+    catas,*/
     dropState,
   } = userRegister()
 
@@ -18,7 +18,7 @@ export function ItemCart({ item }) {
     updateQuantity(item.id, e)
     const currentItem = items.find((i) => i.id === item.id)
 
-    if (e === 1) {
+    if (currentItem.id === 1 && e === 1) {
       dropCompanions()
       return
     }
@@ -80,7 +80,7 @@ export function ItemCart({ item }) {
   ]*/
 
   return (
-    <li className='mt-5 py-3 flex flex-wrap gap-2  rounded-xl border-2 shadow-xl p-4'>
+    <li className='mt-10 py-3 flex flex-wrap gap-2  rounded-xl border-2 shadow-xl p-4'>
       <div className='flex-1 '>
         <div className='flex items-center text-2xl'>
           {item.id === 1 || item.id === 2 ? (
@@ -179,7 +179,7 @@ export function ItemCart({ item }) {
           </>
               )*/}
       </div>
-      <div className='flex items-start justify-end'>
+      <div className='flex items-center justify-end'>
         <button onClick={() => handleRemove(item.id)}>
           <svg
             xmlns='http://www.w3.org/2000/svg'

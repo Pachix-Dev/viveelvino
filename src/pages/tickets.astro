@@ -1,35 +1,35 @@
 ---
-import { changeLanguage } from "i18next";
-import { Products } from "../components/Product";
-import Layout from "../layouts/Layout.astro";
+import { changeLanguage } from 'i18next'
+import { Products } from '../components/Product'
+import Layout from '../layouts/Layout.astro'
 
-changeLanguage("es");
+changeLanguage('es')
 
 const products = [
-    {
-        id: 1,
-        name: "Acceso General",
-        price: 499,
-        include: [
-            "Acceso a la feria",
-            "Copa de regalo",
-            "Degustaciones de vino",
-            "Cat\u00E1logo de expositores digital",
-            "Acceso a catas y talleres generales",
-        ],
-        notInclude: ["$599/ PRECIO REGULAR", "Catas VIP (costo adicional)"],
-    },
-    {
-        id: 2,
-        name: "Acceso menor de edad",
-        price: 100,
-        include: ["Acceso a la feria"],
-        notInclude: [
-            "$150/ PRECIO REGULAR",
-            "Ludoteca y Actividades especiales para ni\u00F1os (costo adicional)",
-        ],
-    },
-];
+  {
+    id: 1,
+    name: 'Acceso General',
+    price: 499,
+    include: [
+      'Acceso a la feria',
+      'Copa de regalo',
+      'Degustaciones de vino',
+      'Cat\u00E1logo de expositores digital',
+      'Acceso a catas y talleres generales',
+    ],
+    notInclude: ['$599/ PRECIO REGULAR', 'Catas VIP (costo adicional)'],
+  },
+  {
+    id: 2,
+    name: 'Acceso menor de edad',
+    price: 100,
+    include: ['Acceso a la feria'],
+    notInclude: [
+      '$150/ PRECIO REGULAR',
+      'Ludoteca y Actividades especiales para ni\u00F1os (costo adicional)',
+    ],
+  },
+]
 ---
 
 <Layout
@@ -38,9 +38,9 @@ const products = [
 >
   <main>
     <section>
-      <div class='my-10 container mx-auto'>
-        <h2 class='font-bold text-black text-2xl'>Productos</h2>
-        <div class='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
+      <div class='my-10 container mx-auto px-4'>
+        <h2 class='font-bold text-black text-4xl text-center'>Tickets</h2>
+        <div class='pt-5 flex justify-center gap-4'>
           {
             products.map((product) => (
               <Products client:only product={product} />
