@@ -9,60 +9,26 @@ const products = [
     {
         id: 1,
         name: "Acceso General",
-        price: 450,
+        price: 499,
         include: [
             "Acceso a la feria",
-            "Acceso a conferencias y talleres",
-            "Degustaciones",
             "Copa de regalo",
-            "Cat\u00E1logo de expositores",
-            "Estacionamiento gratuito",
+            "Degustaciones de vino",
+            "Cat\u00E1logo de expositores digital",
+            "Acceso a catas y talleres generales",
         ],
-        notInclude: [
-            "Cata VIP",
-            "Eventos especiales",
-            "Networking",
-            "Concierto Black eyed peas",
-        ],
+        notInclude: ["$599/ PRECIO REGULAR", "Catas VIP (costo adicional)"],
     },
     {
         id: 2,
-        name: "Menor de edad",
-        price: 250,
-        include: [
-            "Acceso a la feria",
-            "Acceso a conferencias y talleres",
-            "Degustaciones",
-            "Copa de regalo",
-            "Cat\u00E1logo de expositores",
-            "Estacionamiento gratuito",
-        ],
+        name: "Acceso menor de edad",
+        price: 100,
+        include: ["Acceso a la feria"],
         notInclude: [
-            "Cata VIP",
-            "Eventos especiales",
-            "Networking",
-            "Concierto Black eyed peas",
+            "$150/ PRECIO REGULAR",
+            "Ludoteca y Actividades especiales para ni\u00F1os (costo adicional)",
         ],
     },
-    /*{
-      id: 3,
-      name: 'Invitados especiales',
-      price: 300.0,
-      include: [
-        'Acceso a la feria',
-        'Acceso a conferencias y talleres',
-        'Degustaciones',
-        'Copa de regalo',
-        'Catálogo de expositores',
-        'Estacionamiento gratuito',
-      ],
-      notInclude: [
-        'Cata VIP',
-        'Eventos especiales',
-        'Networking',
-        'Concierto Black eyed peas',
-      ],
-    },*/
 ];
 ---
 
@@ -72,7 +38,7 @@ const products = [
 >
   <main>
     <section>
-      <div class='mt-5 container mx-auto'>
+      <div class='my-10 container mx-auto'>
         <h2 class='font-bold text-black text-2xl'>Productos</h2>
         <div class='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
           {
