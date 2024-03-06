@@ -1,4 +1,5 @@
 import useCartStore from '../../store/cartStore'
+import { CouponDiscount } from './CouponDiscount'
 
 export function ResumeCart() {
   const { items, total } = useCartStore()
@@ -13,7 +14,7 @@ export function ResumeCart() {
     return formattedAmount
   }
   return (
-    <div className='flex flex-col justify-between h-4/6'>
+    <div className='flex flex-col justify-between h-4/5'>
       <p className='py-3 text-gray-500 border-b-2'>
         {items.length} elemento(s)
       </p>
@@ -33,7 +34,8 @@ export function ResumeCart() {
         ))}
       </div>
       <div className='py-3'>
-        <div className='flex justify-between text-gray-500 text-md font-bold leading-tight '>
+        <CouponDiscount />
+        <div className='mt-5 flex justify-between text-gray-500 text-md font-bold leading-tight '>
           <span>Subtotal</span>
           <span>{formatAmountMXN(total)} MXN</span>
         </div>
