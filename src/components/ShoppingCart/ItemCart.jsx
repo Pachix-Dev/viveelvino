@@ -45,7 +45,7 @@ export function ItemCart({ item }) {
     }
   }
 
-  const [selectedCheckboxes, setSelectedCheckboxes] = useState(
+  /*const [selectedCheckboxes, setSelectedCheckboxes] = useState(
     catas.length > 0 ? catas[0] : []
   )
 
@@ -77,7 +77,7 @@ export function ItemCart({ item }) {
     { value: 6, label: 'Cata 6' },
     { value: 7, label: 'Cata 7' },
     { value: 8, label: 'Cata 8' },
-  ]
+  ]*/
 
   return (
     <li className='mt-5 py-3 flex flex-wrap gap-2  rounded-xl border-2 shadow-xl p-4'>
@@ -147,7 +147,7 @@ export function ItemCart({ item }) {
             </button>
           </div>
         </div>
-        {item.id === 1 && (
+        {/*item.id === 1 && (
           <>
             <p className='mt-2 text-gray-500'>
               (Opcional - tu acceso general te permite realizar hasta 3 catas
@@ -177,7 +177,7 @@ export function ItemCart({ item }) {
               ))}
             </ul>
           </>
-        )}
+              )*/}
       </div>
       <div className='flex items-start justify-end'>
         <button onClick={() => handleRemove(item.id)}>

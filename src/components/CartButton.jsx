@@ -6,7 +6,7 @@ export function CartButton() {
   return (
     <>
       <div className='flex flex-shrink-0 items-center pe-4'>
-        <a className='relative' href='shopping-cart'>
+        <a className='relative' href='/shopping-cart'>
           <span className='sr-only'>Open your cart</span>
           <svg
             xmlns='http://www.w3.org/2000/svg'

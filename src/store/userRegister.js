@@ -52,12 +52,14 @@ const userRegister = create(
           companions: [...state.companions, { name: '', email: '' }],
         }));
       },
+
       updateCompanionName: (index, name) =>
         set((state) => ({
           companions: state.companions.map((companion, i) =>
             i === index ? { ...companion, name } : companion
           ),
         })),
+
       updateCompanionEmail: (index, email) =>
         set((state) => ({
           companions: state.companions.map((companion, i) =>
@@ -74,6 +76,7 @@ const userRegister = create(
           }
           return state;
         }),
+        
       dropCompanions: () => set({ companions: [] }),
     }),
     {

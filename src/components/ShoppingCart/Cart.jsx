@@ -64,7 +64,7 @@ export function Cart() {
         {items.map((item, index) => (
           <ItemCart key={index} item={item} />
         ))}
-        {items.find((item) => item.id === 1) && <Addons />}
+        {/*items.find((item) => item.id === 1) && <Addons />*/}
       </section>
       <aside className='p-5 w-full md:h-screen md:w-2/5'>
         <p className='text-center text-2xl font-bold hidden md:block'>
