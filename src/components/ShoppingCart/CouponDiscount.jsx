@@ -13,17 +13,20 @@ export function CouponDiscount() {
 
   const checkCoupon = async () => {
     try {
-      const response = await fetch('/api/check-coupon', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ couponCode }),
-      })
+      const response = await fetch(
+        'https://viveelvino.igeco.mx/backend/check-coupon',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ couponCode }),
+        }
+      )
 
       const data = await response.json()
 
-      if (data.exists && data.isValid) {
+      if (data.status) {
         setCouponStatus('Valid coupon!')
         setIsValidCoupon(true)
       } else {
