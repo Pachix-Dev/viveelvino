@@ -1,9 +1,12 @@
 import { useState } from 'react'
+import useCartStore from '../../store/cartStore'
 
 export function CouponDiscount() {
   const [couponCode, setCouponCode] = useState('')
   const [couponStatus, setCouponStatus] = useState('')
   const [isValidCoupon, setIsValidCoupon] = useState(null)
+
+  const { applyCoupon } = useCartStore()
 
   const handleCouponChange = (e) => {
     setCouponCode(e.target.value)
@@ -29,8 +32,9 @@ export function CouponDiscount() {
       if (data.status) {
         setCouponStatus('Valid coupon!')
         setIsValidCoupon(true)
+        applyCoupon(couponCode)
       } else {
-        setCouponStatus('Invalid coupon.')
+        setCouponStatus('Invalid coupon or used already.')
         setIsValidCoupon(false)
       }
     } catch (error) {

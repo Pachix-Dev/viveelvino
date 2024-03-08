@@ -4,13 +4,14 @@ import {
   usePayPalScriptReducer,
 } from '@paypal/react-paypal-js'
 import useCartStore from '../../store/cartStore'
-import { ResumeCart } from '../ShoppingCart/ResumeCart'
 import { RegisterForm } from './RegisterForm'
 import { userRegister } from '../../store/userRegister'
 import { useState } from 'react'
+import { ResumeCheckout } from './ResumeCheckout'
 
 export function CheckoutPaypal() {
-  const { items, total, clearCart, setcomplete_purchase } = useCartStore()
+  const { items, total, clearCart, setcomplete_purchase, appliedCoupons } =
+    useCartStore()
   const {
     name,
     email,
@@ -175,18 +176,22 @@ export function CheckoutPaypal() {
         </div>
         <hr />
         <RegisterForm />
-        <div className='mt-5 px-7 py-7 mx-auto border rounded-2xl shadow-lg'>
-          <p className='font-bold text-2xl'>Método de pago</p>
-          <PayPalScriptProvider options={initialOptions}>
-            {completed && <ButtonWrapper showSpinner={false} />}
-          </PayPalScriptProvider>
-        </div>
+        {total === 0 && appliedCoupons.length > 0 ? (
+          ''
+        ) : (
+          <div className='mt-5 px-7 py-7 mx-auto border rounded-2xl shadow-lg'>
+            <p className='font-bold text-2xl'>Método de pago</p>
+            <PayPalScriptProvider options={initialOptions}>
+              {completed && <ButtonWrapper showSpinner={false} />}
+            </PayPalScriptProvider>
+          </div>
+        )}
       </section>
       <aside className='fixed right-0 top-0 p-5 w-full sm:w-2/5 sm:order-2 bg-[#f7f7f8] h-auto sm:h-full'>
         <p className='text-center text-2xl font-bold hidden md:block'>
           Resumen del pedido
         </p>
-        <ResumeCart />
+        <ResumeCheckout />
       </aside>
       {proceesing && (
         <div className='absolute top-0 left-0 bg-gray-400 bg-opacity-50 z-[999] w-full h-full'>

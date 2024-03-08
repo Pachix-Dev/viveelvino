@@ -1,7 +1,6 @@
 import useCartStore from '../../store/cartStore'
-import { CouponDiscount } from './CouponDiscount'
 
-export function ResumeCart() {
+export function ResumeCheckout() {
   const { items, total, appliedCoupons } = useCartStore()
 
   function formatAmountMXN(amount) {
@@ -44,7 +43,6 @@ export function ResumeCart() {
         ))}
       </div>
       <div className='py-3'>
-        <CouponDiscount />
         <div className='mt-5 flex justify-between text-gray-500 text-md font-bold leading-tight '>
           <span>Subtotal</span>
           <span>{formatAmountMXN(total)} MXN</span>

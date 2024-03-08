@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { userRegister } from '../../store/userRegister'
+import useCartStore from '../../store/cartStore'
 
 export function RegisterForm() {
   const {
@@ -16,6 +17,8 @@ export function RegisterForm() {
     updateCompanionEmail,
   } = userRegister()
 
+  const { total, appliedCoupons } = useCartStore()
+
   const {
     register,
     handleSubmit,
@@ -24,20 +27,17 @@ export function RegisterForm() {
 
   const onSubmit = () => setCompleted(true)
 
+  const buttonclass = completed
+    ? 'mt-5 w-full inline-block rounded-lg bg-blue-500 px-5 py-3 text-2xl font-bold text-white'
+    : 'mt-5 w-full inline-block rounded-lg bg-gray-500 px-5 py-3 text-2xl font-bold text-white'
   return (
     <>
       <div className='mt-10 px-4 py-7 sm:px-6 lg:px-8 border rounded-2xl shadow-lg'>
         <div className='flex justify-between'>
           <p className='font-bold text-2xl'>Regístrese</p>
-          <button
-            onClick={() => setCompleted(false)}
-            className='text-blue-500 font-bold'
-          >
-            Editar
-          </button>
         </div>
         {completed ? (
-          <div className='mt-4 grid sm:grid-cols-2'>
+          <div className='mt-4 grid sm:grid-cols-3'>
             <div>
               <div className='text-gray-500 font-bold'>Nombre Completo</div>
               <div className='font-bold'>{name}</div>
@@ -48,6 +48,12 @@ export function RegisterForm() {
               </div>
               <div className='font-bold'>{email}</div>
             </div>
+            <button
+              onClick={() => setCompleted(false)}
+              className='text-blue-500 font-bold'
+            >
+              Editar
+            </button>
           </div>
         ) : (
           <>
@@ -279,6 +285,13 @@ export function RegisterForm() {
               </button>
             </form>
           </>
+        )}
+        {total === 0 && appliedCoupons.length > 0 ? (
+          <button type='submit' disabled={!completed} className={buttonclass}>
+            Finalizar
+          </button>
+        ) : (
+          ''
         )}
       </div>
     </>
