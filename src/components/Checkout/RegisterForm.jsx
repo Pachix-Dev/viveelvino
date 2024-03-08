@@ -27,9 +27,17 @@ export function RegisterForm() {
 
   const onSubmit = () => setCompleted(true)
 
+  const freeBuy = () => {
+    if (total === 0 && appliedCoupons.length > 0) {
+      console.log('compra gratis')
+    }
+    return false
+  }
+
   const buttonclass = completed
     ? 'mt-5 w-full inline-block rounded-lg bg-blue-500 px-5 py-3 text-2xl font-bold text-white'
     : 'mt-5 w-full inline-block rounded-lg bg-gray-500 px-5 py-3 text-2xl font-bold text-white'
+
   return (
     <>
       <div className='mt-10 px-4 py-7 sm:px-6 lg:px-8 border rounded-2xl shadow-lg'>
@@ -287,7 +295,12 @@ export function RegisterForm() {
           </>
         )}
         {total === 0 && appliedCoupons.length > 0 ? (
-          <button type='submit' disabled={!completed} className={buttonclass}>
+          <button
+            onClick={freeBuy}
+            type='submit'
+            disabled={!completed}
+            className={buttonclass}
+          >
             Finalizar
           </button>
         ) : (
