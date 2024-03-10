@@ -10,30 +10,20 @@ const base = lang === 'es' ? '' : `/${lang}`
   <div
     id='sticky-banner'
     tabindex='-1'
-    class='flex justify-between p-4 border-b bg-gray-700 border-gray-600'
+    class='flex justify-center p-4 border-b bg-gray-700'
   >
-    <div class='flex items-center mx-auto'>
-      <p
-        class='flex items-center text-sm font-normal text-gray-500 dark:text-gray-400'
-      >
-        <span
-          class='inline-flex p-1 me-3 bg-gray-200 rounded-full w-6 h-6 items-center justify-center flex-shrink-0'
-        >
-          <svg
-            class='w-3 h-3 text-black'
-            aria-hidden='true'
-            xmlns='http://www.w3.org/2000/svg'
-            fill='currentColor'
-            viewBox='0 0 18 19'
-          >
-            <path
-              d='M15 1.943v12.114a1 1 0 0 1-1.581.814L8 11V5l5.419-3.871A1 1 0 0 1 15 1.943ZM7 4H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2v5a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2V4ZM4 17v-5h1v5H4ZM16 5.183v5.634a2.984 2.984 0 0 0 0-5.634Z'
-            ></path>
-          </svg>
-          <span class='sr-only'>Light bulb</span>
-        </span>
-        <i class='text-white font-bold'>{t('menu.event_date')}</i>
+    <div class='bg-[#FDA314] p-3'>
+      <p class='text-white text-2xl font-extrabold uppercase'>
+        {t('menu.event_date')}
       </p>
+    </div>
+    <div class='bg-[#DB00AE] p-3 text-center leading-[0]'>
+      <p class='text-white text-2xl font-extrabold uppercase font-sans'>
+        {t('menu.distric_venue')}
+      </p>
+      <span class='text-white text-[10px] font-extrabold uppercase'
+        >{t('menu.instalations')}</span
+      >
     </div>
   </div>
 
@@ -82,7 +72,7 @@ const base = lang === 'es' ? '' : `/${lang}`
               fill='none'
               viewBox='0 0 24 24'
               stroke-width='1.5'
-              stroke='currentColor'
+              stroke='#DB00AE'
               class='w-7 h-7 sm:w-8 sm:h-8 pointer-events-none'
             >
               <path
@@ -127,18 +117,20 @@ const base = lang === 'es' ? '' : `/${lang}`
             <button
               id='dropdownExhibitors'
               data-dropdown-toggle='dropdownNavbar'
-              class='flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto'
+              class='flex items-center justify-between w-full py-2 pl-3 pr-4 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto'
             >
-              {t('menu.aboutUS.title')}
+              <span class='text-[#DB00AE] font-extrabold'
+                >{t('menu.aboutUS.title')}</span
+              >
               <svg
-                class='w-2.5 h-2.5 ml-2.5'
+                class='w-2.5 h-2.5 ml-2'
                 aria-hidden='true'
                 xmlns='http://www.w3.org/2000/svg'
                 fill='none'
                 viewBox='0 0 10 6'
               >
                 <path
-                  stroke='currentColor'
+                  stroke='#DB00AE'
                   stroke-linecap='round'
                   stroke-linejoin='round'
                   stroke-width='2'
@@ -174,9 +166,11 @@ const base = lang === 'es' ? '' : `/${lang}`
             <button
               id='dropdownExhibitors2'
               data-dropdown-toggle='dropdownNavbar2'
-              class='flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto'
+              class='flex items-center justify-between w-full py-2 pl-3 pr-4 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto'
             >
-              {t('menu.option2.title')}
+              <span class='text-[#FDA314] font-extrabold'
+                >{t('menu.option2.title')}</span
+              >
               <svg
                 class='w-2.5 h-2.5 ml-2.5'
                 aria-hidden='true'
@@ -185,7 +179,7 @@ const base = lang === 'es' ? '' : `/${lang}`
                 viewBox='0 0 10 6'
               >
                 <path
-                  stroke='currentColor'
+                  stroke='#FDA314'
                   stroke-linecap='round'
                   stroke-linejoin='round'
                   stroke-width='2'
@@ -260,17 +254,22 @@ const base = lang === 'es' ? '' : `/${lang}`
           <li>
             <a
               href={`${base}/visitantes`}
-              class='block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0'
-              >{t('menu.option3')}</a
+              class='block py-2 pl-3 pr-4 md:bg-transparent md:p-0'
             >
+              <span class='text-[#21B380] font-extrabold'
+                >{t('menu.option3')}</span
+              >
+            </a>
           </li>
           <li>
             <button
               id='dropdownExhibitors3'
               data-dropdown-toggle='dropdownNavbar3'
-              class='flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto'
+              class='flex items-center justify-between w-full py-2 pl-3 pr-4 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto'
             >
-              {t('menu.option4.title')}
+              <span class='text-[#0E2241] font-extrabold'
+                >{t('menu.option4.title')}</span
+              >
               <svg
                 class='w-2.5 h-2.5 ml-2.5'
                 aria-hidden='true'
@@ -279,7 +278,7 @@ const base = lang === 'es' ? '' : `/${lang}`
                 viewBox='0 0 10 6'
               >
                 <path
-                  stroke='currentColor'
+                  stroke='#0E2241'
                   stroke-linecap='round'
                   stroke-linejoin='round'
                   stroke-width='2'
@@ -318,7 +317,10 @@ const base = lang === 'es' ? '' : `/${lang}`
             <a
               href={`${base}/galeria`}
               class='block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0'
-              >{t('menu.gallery')}
+            >
+              <span class='text-[#DB00AE] font-extrabold'
+                >{t('menu.gallery')}</span
+              >
             </a>
           </li>
         </ul>

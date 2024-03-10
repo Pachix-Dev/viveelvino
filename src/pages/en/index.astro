@@ -3,6 +3,7 @@ import i18next, { changeLanguage, t } from "i18next";
 import Layout from "../../layouts/Layout.astro";
 import { strategic_allies, media_partners } from "../../contans_logos.js";
 import { MarqueeLogos } from "../../components/MarqueeLogos.jsx";
+import { Results_2023 } from "../../components/Results_2023.jsx";
 
 changeLanguage("en");
 ---
@@ -12,102 +13,270 @@ changeLanguage("en");
   description='Descubre una oportunidad única para destacar tu producto en la segunda región de consumo más relevante del país. Sumérgete en las últimas tendencias del sector participando en nuestro programa de conferencias y talleres. Amplía tu red de negocios mediante encuentros B2B y B2C exclusivos. Aprovecha la oportunidad de promover tu marca a través de la difusión y cobertura mediática del evento. ¡Potencia tu presencia y conecta con oportunidades sin igual!'
 >
   <main>
-    <section class='relative h-screen'>
-      <video
-        class='absolute w-screen h-screen object-cover z-[-1]'
-        muted
-        loop
-        autoplay
-        playsinline
+    <section class='relative md:flex h-fit'>
+      <div
+        class='bg-[url(/img/bg-vev-web.webp)] bg-cover bg-no-repeat w-full md:w-8/12 flex flex-col justify-between items-center'
       >
-        <source src='/viveelvino.mp4' type='video/mp4' />
-      </video>
+        <div
+          class='px-4 md:px-20 lg:px-32 py-10 lg:py-20 text-[2.5rem] lg:text-[5.7rem] 2xl:text-[6rem] font-extrabold leading-[0.8] w-fit'
+        >
+          <div
+            data-aos='fade-up'
+            data-aos-duration='1000'
+            class='text-[#283A57]'
+          >
+            {t('home.title_1')}
+          </div>
+          <div
+            data-aos='fade-up'
+            data-aos-duration='1000'
+            data-aos-delay='300'
+            class='text-[#DF1CB7]'
+          >
+            {t('home.title_2')}
+          </div>
+          <div data-aos='fade-up' data-aos-duration='1000' data-aos-delay='400'>
+            <span class='text-[#DF1CB7]'>{t('home.title_3')}</span>
+            <span class='text-[#FDAD2E]'>{t('home.title_4')}</span>
+            <span class='text-[#38AE84]'> {t('home.title_5')}</span>
+          </div>
+
+          <p
+            data-aos='fade-up'
+            data-aos-duration='1000'
+            data-aos-delay='500'
+            class='text-end text-[#38AE84]'
+          >
+            {t('home.title_6')}
+          </p>
+          <div
+            data-aos='fade-up'
+            data-aos-duration='1000'
+            data-aos-delay='600'
+            class='text-[#283A57]'
+          >
+            {t('home.title_7')}
+          </div>
+        </div>
+        <img src='/img/vev-cinta.jpg' class='w-full' alt='Vive el Vino 2024' />
+      </div>
+      <img
+        src='/img/img-vev-homev1.jpg'
+        class='w-full h-auto md:w-1/3 md:object-cover md:object-center'
+        alt='Vive el vino 2024 cata'
+      />
+    </section>
+    <section class='container mx-auto p-4'>
       <div
         data-aos='fade-up'
         data-aos-duration='1000'
-        class='container mx-auto px-4 h-full grid place-items-center content-center'
+        class='bg-[#EFEFEF] md:w-3/6 rounded-xl shadow-xl mx-auto'
       >
-        <p
-          class='text-white font-bold text-4xl text-center'
-          style='text-shadow: 4px 4px 4px black'
-        >
-          {t('home.presale')}
-        </p>
         <a
           href='/tickets'
-          class='mt-10 bg-gray-800 hover:bg-slate-600 text-white text-xl rounded-lg p-3'
-          >{t('home.presale_button')}</a
+          class='mt-10 flex items-center gap-3 py-3 px-10 text-2xl font-extrabold uppercase leading-[0.8]'
         >
+          <img
+            src='/img/tickets_icon.webp'
+            width='80'
+            alt='tickets vive el vino'
+          />
+          <p>
+            <span class='text-[#263855]'>{t('home.presale')}</span>
+            <span class='text-[#DF1CB7]'>{t('home.presale_2')}</span>
+          </p>
+        </a>
       </div>
     </section>
-    <section class='container mx-auto p-4'>
+    <section>
       <p
         data-aos='fade-up'
         data-aos-duration='500'
-        class='mt-10 font-bold text-4xl text-center text-[#082F5B]'
+        class='mt-20 font-extrabold text-4xl text-center text-[#DF1CB7]'
       >
         {t('home.main_points')}
       </p>
-      <img
-        class='w-full mt-10'
-        data-aos='fade-up'
-        data-aos-duration='1000'
-        src={i18next.language === 'es'
-          ? '/img/ejes_es.webp'
-          : '/img/ejes_en.webp'}
-      />
+      <div class='mt-10 grid sm:grid-cols-3 md:grid-cols-6 text-center'>
+        <div
+          data-aos='fade-up'
+          data-aos-delay='300'
+          data-aos-duration='500'
+          class='bg-[#0E2242] text-white font-extrabold px-2 py-8 grid place-items-center'
+        >
+          {t('home.point_1')}
+          <img
+            src='/img/find_icon1.webp'
+            width='100'
+            class='mt-10'
+            alt='equipamiento vive el vino'
+          />
+        </div>
+        <div
+          data-aos='fade-up'
+          data-aos-delay='400'
+          data-aos-duration='500'
+          class='bg-[#20A475] text-white font-extrabold px-2 py-8 grid place-items-center'
+        >
+          {t('home.point_2')}
+          <img
+            src='/img/find_icon2.webp'
+            width='50'
+            class='mt-10'
+            alt='equipamiento vive el vino'
+          />
+        </div>
+        <div
+          data-aos='fade-up'
+          data-aos-delay='500'
+          data-aos-duration='500'
+          class='bg-[#FF8210] text-white font-extrabold px-2 py-8 grid place-items-center'
+        >
+          {t('home.point_3')}
+          <img
+            src='/img/find_icon3.webp'
+            width='100'
+            class='mt-10'
+            alt='equipamiento vive el vino'
+          />
+        </div>
+        <div
+          data-aos='fade-up'
+          data-aos-delay='600'
+          data-aos-duration='500'
+          class='bg-[#0E2242] text-white font-extrabold px-2 py-8 grid place-items-center'
+        >
+          {t('home.point_4')}
+          <img
+            src='/img/find_icon4.webp'
+            width='100'
+            class='mt-10'
+            alt='equipamiento vive el vino'
+          />
+        </div>
+        <div
+          data-aos='fade-up'
+          data-aos-delay='700'
+          data-aos-duration='500'
+          class='bg-[#DB00AE] text-white font-extrabold px-2 py-8 grid place-items-center'
+        >
+          {t('home.point_5')}
+          <img
+            src='/img/find_icon5.webp'
+            width='100'
+            class='mt-10'
+            alt='equipamiento vive el vino'
+          />
+        </div>
+        <div
+          data-aos='fade-up'
+          data-aos-delay='800'
+          data-aos-duration='500'
+          class='bg-[#FDA314] text-white font-extrabold px-2 py-8 grid place-items-center'
+        >
+          {t('home.point_6')}
+          <img
+            src='/img/find_icon6.webp'
+            width='100'
+            class='mt-10'
+            alt='equipamiento vive el vino'
+          />
+        </div>
+      </div>
+    </section>
+    <section class='container mx-auto px-4'>
       <video
         src='/ResultadosViveElVino2023Cortinilla.mp4'
         class='my-20 w-full'
         controls></video>
+      <div
+        data-aos='fade-up'
+        data-aos-duration='1000'
+        class='mt-10 font-extrabold text-2xl md:text-6xl bg-[#DB00AE] text-white text-center py-10'
+      >
+        {t('home.why_participate')}
+      </div>
       <p
         data-aos='fade-up'
         data-aos-duration='1000'
-        class='mt-10 font-bold text-4xl text-[#082F5B]'
+        class='text-2xl md:text-6xl text-[#DB00AE] font-extrabold mt-10 text-center leading-[0.8]'
       >
-        {t('home.why_participate')}
+        {t('home.week')}<br />
+        <span class='text-[#FDA314] text-3xl'>{t('home.week_2')}</span>
       </p>
-      <div class='mt-5 grid sm:grid-cols-2 gap-20'>
-        <div
-          data-aos='fade-right'
-          data-aos-duration='1000'
-          class='flex items-center gap-3'
-        >
-          <img src='/img/iconwhy-participe1.webp' width='100' />
-          <p class='text-[#082F5B] text-xl font-semibold'>
-            {t('home.why_participate_1')}
-          </p>
-        </div>
-        <div
-          data-aos='fade-left'
-          data-aos-duration='1000'
-          class='flex items-center gap-3'
-        >
-          <img src='/img/iconwhy-participe2.webp' width='100' />
-          <p class='text-[#082F5B] text-xl font-semibold'>
-            {t('home.why_participate_2')}
-          </p>
-        </div>
-        <div
-          data-aos='fade-right'
-          data-aos-duration='1000'
-          class='flex items-center gap-3'
-        >
-          <img src='/img/iconwhy-participe3.webp' width='100' />
-          <p class='text-[#082F5B] text-xl font-semibold'>
-            {t('home.why_participate_3')}
-          </p>
-        </div>
-        <div
-          data-aos='fade-left'
-          data-aos-duration='1000'
-          class='flex items-center gap-3'
-        >
-          <img src='/img/iconwhy-participe4.webp' width='100' />
-          <p class='text-[#082F5B] text-xl font-semibold'>
-            {t('home.why_participate_4')}
-          </p>
-        </div>
+    </section>
+    <section class='mt-10 p-5 bg-[#0E2241] py-5 grid place-items-center'>
+      <img
+        src='/img/semanavinologo.webp'
+        class='sm:w-96 w-full'
+        alt='Vive el Vino 2024'
+      />
+      <span
+        class='bg-[#DB00AE] text-white font-extrabold px-4 mb-[-30px] text-xl'
+        >{t('menu.event_date')}</span
+      >
+    </section>
+    <section
+      class='mt-40 container mx-auto px-4 grid md:grid-cols-3 md:gap-4 gap-10'
+    >
+      <div class='bg-[#DB00AE] p-5'>
+        <img
+          src='/img/concurso_icon.webp'
+          width='320'
+          class='mt-[-100px] mx-auto'
+          alt='Vive el Vino 2024'
+        />
+        <p class='text-white font-bold text-2xl'>
+          {t('home.description_1')}
+        </p>
+      </div>
+      <div class='bg-[#FD9B13] p-5'>
+        <img
+          width='250'
+          src='/img/logovev_v2.webp'
+          class='mt-[-110px] mx-auto'
+          alt='Vive el Vino 2024'
+        />
+        <p class='text-white font-bold text-2xl'>
+          {t('home.description_2')}
+        </p>
+      </div>
+      <div class='bg-[#0E2241] p-5'>
+        <img
+          src='/img/tercercongresovinicola.webp'
+          width='300'
+          class='mt-[-80px] mx-auto'
+          alt='Vive el Vino 2024'
+        />
+        <p class='text-white font-bold text-2xl'>
+          {t('home.description_3')}
+        </p>
+      </div>
+    </section>
+    <Results_2023
+      exhibitor_int={t('home.exhibitor_int')}
+      visitors_int={t('home.visitors_int')}
+      food_options={t('home.food_options')}
+      tags={t('home.tags')}
+      exp={t('home.exp')}
+      media={t('home.media')}
+      client:only
+    />
+    <section
+      class='bg-[#DB00AE] text-white px-4 py-10 font-extrabold text-2xl md:text-4xl text-center'
+    >
+      {t('home.be_exhibitor')}
+      <div
+        class='bg-[#EFEFEF] flex items-center gap-4 w-fit rounded-xl shadow-xl mx-auto py-5 px-20 mt-10'
+      >
+        <img
+          src='/img/exhibitor_icon.webp'
+          class='w-full'
+          alt='Vive el Vino 2024'
+        />
+        <p class='uppercase'>
+          <span class='text-[#263855]'>{t('home.exhibitor_button')}</span><br />
+          <span class='text-[#DB00AE]'>{t('home.exhibitor_button2')}</span>
+        </p>
       </div>
     </section>
     <section class='mt-20 container mx-auto px-4 grid place-items-center'>

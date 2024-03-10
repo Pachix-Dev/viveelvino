@@ -75,7 +75,11 @@ const base = lang === 'es' ? '' : `/${lang}`
         <div class='px-4 grid align-middle justify-center content-center pt-5'>
           <p class='text-white font-bold'>VIVE EL VINO</p>
           <address>
-            <p class='text-white' set:html={t('menu.event_date')} />
+            <p class='text-white'>
+              {t('menu.event_date')}
+              {t('menu.distric_venue')}
+              {t('menu.instalations')}
+            </p>
           </address>
           <p class='mt-10 text-white font-bold'>
             {t('footer.contact_exhibitor')}
