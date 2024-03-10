@@ -66,8 +66,6 @@ export function CheckoutPaypal() {
           name,
           email,
           phone,
-          company,
-          catas,
           companions,
         }),
       }
@@ -194,9 +192,9 @@ export function CheckoutPaypal() {
         <ResumeCheckout />
       </aside>
       {proceesing && (
-        <div className='absolute top-0 left-0 bg-gray-400 bg-opacity-50 z-[999] w-full h-full'>
+        <div className='absolute top-0 left-0 bg-gray-400 bg-opacity-85 z-[999] w-full h-screen'>
           <div role='status' className='grid place-items-center w-full h-full'>
-            <p className='text-center'>
+            <p className='text-center flex gap-2'>
               <svg
                 aria-hidden='true'
                 className='w-8 h-8 text-gray-200 animate-spin fill-blue-600'
@@ -213,7 +211,9 @@ export function CheckoutPaypal() {
                   fill='currentFill'
                 />
               </svg>
-              <span>Procesando...</span>
+              <span className='font-bold text-white text-2xl'>
+                Procesando...
+              </span>
             </p>
           </div>
         </div>
