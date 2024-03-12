@@ -10,18 +10,10 @@ import { useState } from 'react'
 import { ResumeCheckout } from './ResumeCheckout'
 
 export function CheckoutPaypal() {
-  const { items, total, clearCart, setcomplete_purchase, appliedCoupons } =
-    useCartStore()
-  const {
-    name,
-    email,
-    phone,
-    company,
-    catas,
-    companions,
-    completed,
-    dropState,
-  } = userRegister()
+  const { items, total, clearCart, setcomplete_purchase } = useCartStore()
+  const { name, email, phone, companions, completed, dropState } =
+    userRegister()
+
   const [proceesing, setProceesing] = useState(false)
 
   const style = { layout: 'vertical' }
@@ -67,6 +59,7 @@ export function CheckoutPaypal() {
           email,
           phone,
           companions,
+          appliedCoupons,
         }),
       }
     )
@@ -174,7 +167,7 @@ export function CheckoutPaypal() {
         </div>
         <hr />
         <RegisterForm />
-        {total === 0 && appliedCoupons.length > 0 ? (
+        {total === 0 ? (
           ''
         ) : (
           <div className='mt-5 px-7 py-7 mx-auto border rounded-2xl shadow-lg'>

@@ -22,7 +22,7 @@ const useCartStore = create(
           const newItems = [...state.items, newItem];
           return {
             items: newItems,
-            total: calculateTotalWithDiscounts(newItems, state.appliedCoupons),
+            total: state.total + newItem.price * newItem.quantity,
           };
         }
       });
@@ -39,7 +39,7 @@ const useCartStore = create(
 
         return {
           items: updatedItems,
-          total: calculateTotalWithDiscounts(updatedItems, state.appliedCoupons),
+          total: state.total + (newQuantity - state.items.find((item) => item.id === productId).quantity) * state.items.find((item) => item.id === productId).price,
         };
       });
     },
@@ -49,7 +49,7 @@ const useCartStore = create(
         const updatedItems = state.items.filter((item) => item.id !== productId);
         return {
           items: updatedItems,
-          total: calculateTotalWithDiscounts(updatedItems, state.appliedCoupons),
+          total: state.total - state.items.find((item) => item.id === productId).price * state.items.find((item) => item.id === productId).quantity,
         };
       });
     },
@@ -64,7 +64,21 @@ const useCartStore = create(
 
     setcomplete_purchase: (value) => set({ complete_purchase: value }),
 
-    applyCoupon: (couponCode) => {
+    addDiscount: (product, quantity = 1) => {
+      set((state) => {        
+        const newItem = {
+          ...product,
+          quantity: Math.min(quantity, 8), // Limit to 8
+        };
+
+        const newItems = [...state.items, newItem];
+        return {
+          items: newItems,
+          total: state.total + newItem.price * newItem.quantity,
+        };        
+      });
+    },
+    /*applyCoupon: (couponCode) => {
       set((state) => {
         // Check if the coupon has already been applied
         if (state.appliedCoupons.includes(couponCode)) {
@@ -77,14 +91,14 @@ const useCartStore = create(
           appliedCoupons: newAppliedCoupons,
         };
       });
-    },
+    },*/
   }),
   {
     name: 'cart-storage',
   })
 );
 
-// Helper function to calculate total with discounts applied
+/*// Helper function to calculate total with discounts applied
 function calculateTotalWithDiscounts(items, appliedCoupons) {
   let total = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
   
@@ -94,6 +108,6 @@ function calculateTotalWithDiscounts(items, appliedCoupons) {
   });
   
   return total;
-}
+}*/
 
 export default useCartStore;

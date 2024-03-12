@@ -17,7 +17,7 @@ export function RegisterForm() {
     updateCompanionEmail,
   } = userRegister()
 
-  const { total, appliedCoupons } = useCartStore()
+  const { total } = useCartStore()
 
   const {
     register,
@@ -28,7 +28,7 @@ export function RegisterForm() {
   const onSubmit = () => setCompleted(true)
 
   const freeBuy = () => {
-    if (total === 0 && appliedCoupons.length > 0) {
+    if (total === 0) {
       console.log('compra gratis')
     }
     return false
@@ -294,7 +294,7 @@ export function RegisterForm() {
             </form>
           </>
         )}
-        {total === 0 && appliedCoupons.length > 0 ? (
+        {total === 0 ? (
           <button
             onClick={freeBuy}
             type='submit'

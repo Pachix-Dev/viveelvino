@@ -26,13 +26,13 @@ export function ResumeCart() {
               <br />
               <span className='text-gray-500 '>
                 x{item.quantity} /{' '}
-                {item.id === 1 || item.id === 2 ? 'persona(s)' : 'cata (s)'}
+                {item.id === 1 || item.id === 2 ? 'persona(s)' : 'descuento'}
               </span>
             </p>
             <span>{formatAmountMXN(item.price * item.quantity)} MXN</span>
           </div>
         ))}
-        {appliedCoupons.map((coupon, index) => (
+        {/*{appliedCoupons.map((coupon, index) => (
           <div key={index} className='my-4 flex justify-between'>
             <p className='leading-4'>
               <span className='font-bold'>{coupon}</span>
@@ -41,7 +41,7 @@ export function ResumeCart() {
             </p>
             <span>- {formatAmountMXN(499)} MXN</span>
           </div>
-        ))}
+        ))}*/}
       </div>
       <div className='py-3'>
         <CouponDiscount />

@@ -6,7 +6,7 @@ export function CouponDiscount() {
   const [couponStatus, setCouponStatus] = useState('')
   const [isValidCoupon, setIsValidCoupon] = useState(null)
 
-  const { applyCoupon } = useCartStore()
+  const { addDiscount } = useCartStore()
 
   const handleCouponChange = (e) => {
     setCouponCode(e.target.value)
@@ -32,7 +32,7 @@ export function CouponDiscount() {
       if (data.status) {
         setCouponStatus('Valid coupon!')
         setIsValidCoupon(true)
-        applyCoupon(couponCode)
+        addDiscount({ id: 0, name: couponCode, price: -499, quantity: 1 })
       } else {
         setCouponStatus('Invalid coupon or used already.')
         setIsValidCoupon(false)

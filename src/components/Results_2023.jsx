@@ -46,7 +46,7 @@ export function Results_2023({
               alt='Vive el Vino 2024'
             />
             <div className='bg-[#DB00AE] text-[#71085F] text-center font-extrabold p-10 h-full'>
-              <Bullets number='15' duration='5' />
+              <Bullets number='15' duration='4' />
               {food_options}
             </div>
           </div>
@@ -68,7 +68,7 @@ export function Results_2023({
               alt='Vive el Vino 2024'
             />
             <div className=' text-[#283A57] text-center font-extrabold p-10 h-full'>
-              <Bullets number='35' duration='5' />
+              <Bullets number='35' duration='4' />
               {exp}
             </div>
           </div>
@@ -79,7 +79,7 @@ export function Results_2023({
               alt='Vive el Vino 2024'
             />
             <div className=' text-[#38AE84] text-center font-extrabold p-10 h-full'>
-              <Bullets number='150' duration='5' />
+              <Bullets number='150' duration='4' />
               {media}
             </div>
           </div>
