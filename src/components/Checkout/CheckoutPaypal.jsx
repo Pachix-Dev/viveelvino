@@ -17,6 +17,7 @@ export function CheckoutPaypal() {
   const [proceesing, setProceesing] = useState(false)
 
   const style = { layout: 'vertical' }
+
   const initialOptions = {
     clientId:
       'AWi2C-26r9XKnk49X_ekNYfhybZd7KHYyTsXS-4l37yGRygOxOMc0RJxDvA5eqztGBgttO7Fc8u3Bxk8',
@@ -59,7 +60,6 @@ export function CheckoutPaypal() {
           email,
           phone,
           companions,
-          appliedCoupons,
         }),
       }
     )
@@ -167,7 +167,7 @@ export function CheckoutPaypal() {
         </div>
         <hr />
         <RegisterForm />
-        {total === 0 ? (
+        {total <= 0 ? (
           ''
         ) : (
           <div className='mt-5 px-7 py-7 mx-auto border rounded-2xl shadow-lg'>

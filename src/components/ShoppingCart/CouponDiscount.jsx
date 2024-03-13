@@ -30,9 +30,12 @@ export function CouponDiscount() {
       const data = await response.json()
 
       if (data.status) {
-        setCouponStatus('Valid coupon!')
+        setCouponStatus(
+          'Cupon valido!, solo aplica para acceso general limitado a 1 solo uso!'
+        )
         setIsValidCoupon(true)
         addDiscount({ id: 0, name: couponCode, price: -499, quantity: 1 })
+        setCouponCode('')
       } else {
         setCouponStatus('Invalid coupon or used already.')
         setIsValidCoupon(false)

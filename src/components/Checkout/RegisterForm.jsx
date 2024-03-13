@@ -294,7 +294,7 @@ export function RegisterForm() {
             </form>
           </>
         )}
-        {total === 0 ? (
+        {total <= 0 ? (
           <button
             onClick={freeBuy}
             type='submit'

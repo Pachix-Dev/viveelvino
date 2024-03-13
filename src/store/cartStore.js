@@ -36,13 +36,26 @@ const useCartStore = create(
         const updatedItems = state.items.map((item) =>
           item.id === productId ? { ...item, quantity: newQuantity } : item
         );
-
+    
+        let newTotal = state.total;
+        const existingItem = state.items.find((item) => item.id === productId);
+    
+        if (existingItem) {
+          newTotal += (newQuantity - existingItem.quantity) * existingItem.price;
+        }
+    
+        // Validate total is not less than 0
+        if (newTotal < 0) {
+          return state;
+        }
+    
         return {
           items: updatedItems,
-          total: state.total + (newQuantity - state.items.find((item) => item.id === productId).quantity) * state.items.find((item) => item.id === productId).price,
+          total: newTotal,
         };
       });
     },
+    
 
     removeFromCart: (productId) => {
       set((state) => {
@@ -64,20 +77,23 @@ const useCartStore = create(
 
     setcomplete_purchase: (value) => set({ complete_purchase: value }),
 
-    addDiscount: (product, quantity = 1) => {
-      set((state) => {        
-        const newItem = {
-          ...product,
-          quantity: Math.min(quantity, 8), // Limit to 8
-        };
+    addDiscount: (product) => {
+      set((state) => {
+        const existingItem = state.items.find((item) => item.name === product.name);
+        const onlyGeneral = state.items.find((item) => item.id === 1);
 
-        const newItems = [...state.items, newItem];
-        return {
-          items: newItems,
-          total: state.total + newItem.price * newItem.quantity,
-        };        
+        if (!onlyGeneral || existingItem || state.total === 0 || state.total < 499) {                      
+          return state;
+        } else {
+          const newItems = [...state.items, product]; // removed spread operator from product
+          return {
+            items: newItems,
+            total: state.total + product.price * product.quantity, // changed newItem to product
+          };
+        }
       });
     },
+    
     /*applyCoupon: (couponCode) => {
       set((state) => {
         // Check if the coupon has already been applied
