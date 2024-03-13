@@ -1,6 +1,7 @@
 ---
 import Footer from '../components/Footer.astro'
 import Menu from '../components/Menu.astro'
+import Whatsapp from '../components/Whatsapp.astro'
 interface Props {
   title: string
   description: string
@@ -23,6 +24,7 @@ const { title, description } = Astro.props
     <title>{title}</title>
   </head>
   <body>
+    <Whatsapp />
     <header class='sticky top-0 z-50'>
       <Menu />
     </header>

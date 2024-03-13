@@ -14,6 +14,7 @@ export function Products() {
       id: 1,
       name: 'Acceso General',
       price: 499,
+      regularPrice: 599,
       include: [
         'Acceso a la feria',
         'Copa de regalo',
@@ -21,15 +22,15 @@ export function Products() {
         'Cat\u00E1logo de expositores digital',
         'Acceso a catas y talleres generales',
       ],
-      notInclude: ['$599/ PRECIO REGULAR', 'Catas VIP (costo adicional)'],
+      notInclude: ['Catas VIP (costo adicional)'],
     },
     {
       id: 2,
       name: 'Acceso menor de edad',
       price: 100,
+      regularPrice: 150,
       include: ['Acceso a la feria'],
       notInclude: [
-        '$150/ PRECIO REGULAR',
         'Ludoteca y Actividades especiales para ni\u00F1os (costo adicional)',
       ],
     },
@@ -55,6 +56,10 @@ export function Products() {
               / persona
             </span>
           </div>
+          <p className='text-gray-500'>
+            <span className='line-through'>$ {product.regularPrice} </span> MXN
+            precio regular
+          </p>
           <ul role='list' className='space-y-5 my-7'>
             {product.include.map((list, index) => (
               <li key={index} className='flex items-center'>
@@ -95,7 +100,7 @@ export function Products() {
             <button
               onClick={() => handleAddToCart(product)}
               type='button'
-              className='text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200  font-medium rounded-lg text-sm px-5 py-2.5 text-center'
+              className='text-white bg-[#374151] hover:bg-[#941E81] focus:ring-4 focus:outline-none focus:ring-blue-200  font-medium rounded-lg text-sm px-5 py-2.5 text-center'
             >
               Add to cart
             </button>

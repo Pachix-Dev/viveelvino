@@ -252,14 +252,50 @@ const base = lang === 'es' ? '' : `/${lang}`
             </div>
           </li>
           <li>
-            <a
-              href={`${base}/visitantes`}
-              class='block py-2 pl-3 pr-4 md:bg-transparent md:p-0'
+            <button
+              id='dropdownExhibitors3'
+              data-dropdown-toggle='dropdownNavbar3'
+              class='flex items-center justify-between w-full py-2 pl-3 pr-4 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto'
             >
-              <span class='text-[#21B380] font-extrabold'
-                >{t('menu.option3')}</span
+              <span class='text-[#21B380] font-extrabold'>
+                {t('menu.option3.title')}
+              </span>
+              <svg
+                class='w-2.5 h-2.5 ml-2.5'
+                aria-hidden='true'
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 10 6'
               >
-            </a>
+                <path
+                  stroke='#0E2241'
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  stroke-width='2'
+                  d='m1 1 4 4 4-4'></path>
+              </svg>
+            </button>
+            <div
+              id='dropdownNavbar3'
+              class='dropdown z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44'
+            >
+              <ul
+                class='py-2 text-sm text-gray-700'
+                aria-labelledby='dropdownLargeButton'
+              >
+                <li>
+                  <a href={`${base}/visitantes`} class='block px-4 py-2'>
+                    {t('menu.option3.visitor_profile')}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={`${base}/hoteles-tarifa-preferencial`}
+                    class='block px-4 py-2'>{t('menu.option3.hotels_rates')}</a
+                  >
+                </li>
+              </ul>
+            </div>
           </li>
           <li>
             <button

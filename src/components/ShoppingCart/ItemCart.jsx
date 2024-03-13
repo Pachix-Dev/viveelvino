@@ -193,7 +193,7 @@ export function ItemCart({ item }) {
                 viewBox='0 0 24 24'
                 strokeWidth='1.5'
                 stroke='currentColor'
-                className='w-8 h-8'
+                className='w-8 h-8 hover:stroke-[#941E81]'
               >
                 <path
                   strokeLinecap='round'

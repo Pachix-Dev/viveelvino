@@ -194,7 +194,7 @@ changeLanguage("en");
     <section class='container mx-auto px-4'>
       <video
         src='/ResultadosViveElVino2023Cortinilla.mp4'
-        class='my-20 w-full'
+        class='my-20 w-full md:w-4/5 md:mx-auto'
         controls></video>
       <div
         data-aos='fade-up'
@@ -273,19 +273,25 @@ changeLanguage("en");
       class='bg-[#DB00AE] text-white px-4 py-10 font-extrabold text-2xl md:text-4xl text-center'
     >
       {t('home.be_exhibitor')}
-      <div
-        class='bg-[#EFEFEF] flex items-center gap-4 w-fit rounded-xl shadow-xl mx-auto py-5 px-20 mt-10'
+      <a
+        href='https://wa.me/5214771807314?text=Hola%20quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20Vive%20el%20Vino'
+        target='_blank'
       >
-        <img
-          src='/img/exhibitor_icon.webp'
-          class='w-full'
-          alt='Vive el Vino 2024'
-        />
-        <p class='uppercase'>
-          <span class='text-[#263855]'>{t('home.exhibitor_button')}</span><br />
-          <span class='text-[#DB00AE]'>{t('home.exhibitor_button2')}</span>
-        </p>
-      </div>
+        <div
+          class='bg-[#EFEFEF] flex items-center gap-4 w-fit rounded-xl shadow-xl mx-auto py-5 px-20 mt-10'
+        >
+          <img
+            src='/img/exhibitor_icon.webp'
+            class='w-full'
+            alt='Vive el Vino 2024'
+          />
+          <p class='uppercase'>
+            <span class='text-[#263855]'>{t('home.exhibitor_button')}</span><br
+            />
+            <span class='text-[#DB00AE]'>{t('home.exhibitor_button2')}</span>
+          </p>
+        </div>
+      </a>
     </section>
     <section class='mt-20 container mx-auto px-4 grid place-items-center'>
       <p class='text-4xl font-bold text-[#082F5B]'>

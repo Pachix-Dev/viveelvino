@@ -14,7 +14,7 @@ export function CheckoutPaypal() {
   const { name, email, phone, companions, completed, dropState } =
     userRegister()
 
-  const [proceesing, setProceesing] = useState(false)
+  const [processing, setProcessing] = useState(false)
 
   const style = { layout: 'vertical' }
 
@@ -44,7 +44,7 @@ export function CheckoutPaypal() {
   }
 
   async function onApprove(data) {
-    setProceesing(true)
+    setProcessing(true)
     const response = await fetch(
       'https://viveelvino.igeco.mx/backend/complete-order',
       {
@@ -167,7 +167,7 @@ export function CheckoutPaypal() {
         </div>
         <hr />
         <RegisterForm />
-        {total <= 0 ? (
+        {total === 0 ? (
           ''
         ) : (
           <div className='mt-5 px-7 py-7 mx-auto border rounded-2xl shadow-lg'>
@@ -184,7 +184,7 @@ export function CheckoutPaypal() {
         </p>
         <ResumeCheckout />
       </aside>
-      {proceesing && (
+      {processing && (
         <div className='absolute top-0 left-0 bg-gray-400 bg-opacity-85 z-[999] w-full h-screen'>
           <div role='status' className='grid place-items-center w-full h-full'>
             <p className='text-center flex gap-2'>
@@ -205,7 +205,7 @@ export function CheckoutPaypal() {
                 />
               </svg>
               <span className='font-bold text-white text-2xl'>
-                Procesando...
+                Estamos procesando la información por favor espere...
               </span>
             </p>
           </div>

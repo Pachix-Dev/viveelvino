@@ -30,9 +30,7 @@ export function CouponDiscount() {
       const data = await response.json()
 
       if (data.status) {
-        setCouponStatus(
-          'Cupon valido!, solo aplica para acceso general limitado a 1 solo uso!'
-        )
+        setCouponStatus('Cupon valido!, limitado a 1 solo uso!')
         setIsValidCoupon(true)
         addDiscount({ id: 0, name: couponCode, price: -499, quantity: 1 })
         setCouponCode('')
@@ -44,12 +42,14 @@ export function CouponDiscount() {
       console.error('Error checking coupon:', error)
       setCouponStatus('Failed to check the coupon.')
       setIsValidCoupon(false)
+      setCouponCode('')
     }
+    setCouponCode('')
   }
 
   // Determine button classes based on whether the input is empty
   const buttonClasses = couponCode.trim()
-    ? 'bg-[#3F83F8] text-white font-bold p-2 rounded-xl'
+    ? 'bg-[#941E81] text-white font-bold p-2 rounded-xl'
     : 'bg-gray-400 text-white font-bold p-2 rounded-xl'
 
   // Determine status message class based on validation result
@@ -62,7 +62,7 @@ export function CouponDiscount() {
       <div className='flex gap-4 justify-between pt-5'>
         <input
           type='text'
-          className='w-full border-2 border-gray-300 rounded-lg px-2 py-1'
+          className='w-full border-2 border-gray-300 rounded-lg px-2 py-1 focus:border-[#941E81] focus: focus:ring-[#941E81]'
           placeholder='Código de descuento'
           value={couponCode}
           onChange={handleCouponChange}

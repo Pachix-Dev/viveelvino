@@ -12,7 +12,7 @@ export function Cart() {
         <p className='text-2xl font-bold'>Tu carrito está vacío</p>
         <a
           href='/tickets'
-          className='bg-[#002C5B] text-white rounded-lg p-4 mt-5'
+          className='bg-[#002C5B] hover:bg-[#941E81] text-white rounded-lg p-4 mt-5'
         >
           Volver a la tienda
         </a>
@@ -87,7 +87,7 @@ export function Cart() {
         <ResumeCart />
         <a
           href='/checkout'
-          className='bg-blue-600 text-white text-lg font-bold text-center block border rounded-lg p-2'
+          className='bg-[#941E81] hover:bg-gray-700 text-white text-lg font-bold text-center block border rounded-lg p-2'
         >
           Continuar
         </a>
