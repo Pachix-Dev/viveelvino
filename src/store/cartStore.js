@@ -2,11 +2,11 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 const useCartStore = create(
-  persist((set, get) => ({
+  persist((set) => ({
     items: [],
     total: 0,
     complete_purchase: false,
-    appliedCoupons: [], // Track applied coupon codes
+    appliedCoupons: [],
 
     addToCart: (product, quantity = 1) => {
       set((state) => {
@@ -16,7 +16,7 @@ const useCartStore = create(
         } else {
           const newItem = {
             ...product,
-            quantity: Math.min(quantity, 8), // Limit to 8
+            quantity: Math.min(quantity, 8),
           };
 
           const newItems = [...state.items, newItem];
@@ -71,7 +71,7 @@ const useCartStore = create(
       set({
         items: [],
         total: 0,
-        appliedCoupons: [], // Also clear applied coupons
+        appliedCoupons: [],
       });
     },
 
@@ -85,45 +85,18 @@ const useCartStore = create(
         if (!onlyGeneral || existingItem || state.total === 0 || state.total < 499) {                      
           return state;
         } else {
-          const newItems = [...state.items, product]; // removed spread operator from product
+          const newItems = [...state.items, product];
           return {
             items: newItems,
-            total: state.total + product.price * product.quantity, // changed newItem to product
+            total: state.total + product.price * product.quantity,
           };
         }
       });
-    },
-    
-    /*applyCoupon: (couponCode) => {
-      set((state) => {
-        // Check if the coupon has already been applied
-        if (state.appliedCoupons.includes(couponCode)) {
-          return state; // Coupon already applied, so do nothing
-        }
-        const newAppliedCoupons = [...state.appliedCoupons, couponCode];
-        return {
-          ...state,
-          total: calculateTotalWithDiscounts(state.items, newAppliedCoupons),
-          appliedCoupons: newAppliedCoupons,
-        };
-      });
-    },*/
+    },        
   }),
   {
     name: 'cart-storage',
   })
 );
-
-/*// Helper function to calculate total with discounts applied
-function calculateTotalWithDiscounts(items, appliedCoupons) {
-  let total = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
-  
-  // Apply a fixed discount for each unique coupon applied
-  appliedCoupons.forEach(() => {
-    total = Math.max(0, total - 499); // Ensure total doesn't go below 0
-  });
-  
-  return total;
-}*/
 
 export default useCartStore;
