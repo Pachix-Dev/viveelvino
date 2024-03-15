@@ -19,7 +19,13 @@ export function RegisterForm() {
     dropState,
   } = userRegister()
 
-  const { total, items, clearCart, setcomplete_purchase } = useCartStore()
+  const {
+    total,
+    items,
+    clearCart,
+    setcomplete_purchase,
+    setInvoiceDownToLoad,
+  } = useCartStore()
 
   const {
     register,
@@ -29,6 +35,7 @@ export function RegisterForm() {
 
   const onSubmit = () => setCompleted(true)
   const [processing, setProcessing] = useState(false)
+  const [message, setMessage] = useState('')
 
   const freeBuy = async () => {
     if (total === 0) {
@@ -55,9 +62,12 @@ export function RegisterForm() {
         dropState()
         clearCart()
         setcomplete_purchase(true)
+        setInvoiceDownToLoad(orderData?.invoice)
         window.location.href = '/thanks-for-your-purchase'
+      } else {
+        setProcessing(false)
+        setMessage(orderData?.message)
       }
-      console.log(orderData)
     }
   }
 
@@ -333,6 +343,7 @@ export function RegisterForm() {
         ) : (
           ''
         )}
+        <p className='text-red-600 font-bold text-center'>{message}</p>
       </div>
       {processing && (
         <div className='absolute top-0 left-0 bg-gray-400 bg-opacity-85 z-[999] w-full h-screen'>

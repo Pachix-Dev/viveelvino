@@ -7,6 +7,7 @@ const useCartStore = create(
     total: 0,
     complete_purchase: false,
     appliedCoupons: [],
+    invoiceDownToLoad: '',
 
     addToCart: (product, quantity = 1) => {
       set((state) => {
@@ -92,7 +93,9 @@ const useCartStore = create(
           };
         }
       });
-    },        
+    },
+    
+    setInvoiceDownToLoad: (value) => set({ invoiceDownToLoad: value }),
   }),
   {
     name: 'cart-storage',

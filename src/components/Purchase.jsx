@@ -1,7 +1,7 @@
 import useCartStore from '../store/cartStore.js'
 import Confetti from './Confetti.jsx'
 export function Purchase() {
-  const { complete_purchase } = useCartStore()
+  const { complete_purchase, invoiceDownToLoad } = useCartStore()
   if (!complete_purchase) {
     window.location.href = '/tickets'
   }
@@ -17,6 +17,15 @@ export function Purchase() {
             Pronto recibiras una confirmación por correo con los detalles de tu
             compra.
           </p>
+          {invoiceDownToLoad && (
+            <a
+              className='font-bold bg-[#DB00AE] hover:bg-[#21B380] text-white rounded-lg p-4 mt-5 '
+              href={`https://viveelvino.igeco.mx/backend/files/${invoiceDownToLoad}`}
+              target='_blank'
+            >
+              Descarga tu recibo
+            </a>
+          )}
         </div>
       )}
     </>

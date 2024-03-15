@@ -10,12 +10,18 @@ import { useState } from 'react'
 import { ResumeCheckout } from './ResumeCheckout'
 
 export function CheckoutPaypal() {
-  const { items, total, clearCart, setcomplete_purchase } = useCartStore()
+  const {
+    items,
+    total,
+    clearCart,
+    setcomplete_purchase,
+    setInvoiceDownToLoad,
+  } = useCartStore()
   const { name, email, phone, companions, completed, dropState } =
     userRegister()
 
   const [processing, setProcessing] = useState(false)
-
+  const [message, setMessage] = useState('')
   const style = { layout: 'vertical' }
 
   const initialOptions = {
@@ -68,9 +74,12 @@ export function CheckoutPaypal() {
       dropState()
       clearCart()
       setcomplete_purchase(true)
+      setInvoiceDownToLoad(orderData?.invoice)
       window.location.href = '/thanks-for-your-purchase'
+    } else {
+      setProcessing(false)
+      setMessage(orderData?.message)
     }
-    console.log(orderData)
   }
 
   const ButtonWrapper = ({ showSpinner }) => {
@@ -175,6 +184,7 @@ export function CheckoutPaypal() {
             <PayPalScriptProvider options={initialOptions}>
               {completed && <ButtonWrapper showSpinner={false} />}
             </PayPalScriptProvider>
+            <p className='text-red-600 font-bold text-center'>{message}</p>
           </div>
         )}
       </section>
