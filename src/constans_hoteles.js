@@ -103,6 +103,21 @@ const hotels = [
       code: 'HANNOVER',
       time_walk: '20 min',
       start: 5
+    },
+    {
+      src: '/hoteles/Hotel_Hotsson_smart_Leon.webp',
+      name: 'Hotel Hotsson Smart León',
+      address: 'Blvd. Adolfo López Mateos 2510, Centro Max, 37530 León, Gto.',
+      rate_es: 'Tarifa desde $1,408.00  MXN Incluye imp. en ocupación estándar sencilla sin desayuno',
+      rate_en: 'Rate from $1,408.00  MXN Includes tax in standard single occupancy without breakfast.',
+      phone_international: '',
+      phone_mexico: 'México: 477 719 8010',
+      celular: '',
+      email: 'bloyola@hotssonsmart.com',
+      cc:'',
+      code: 'HANNOVER',
+      time_walk: '32 min',
+      start: 4
     }
   ]
   
