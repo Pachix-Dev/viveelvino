@@ -2,7 +2,9 @@ const strategic_allies = [
     { link: '', src: '/img/tercercongresovinicola.webp', alt:'tercer Congreso vitivinicola', width: 200, height: 127 },
     { link: 'https://cevit.cetys.mx/', src: '/img/CEVIT.webp', alt:'centro de estudios vitivinicola', width: 250, height: 60 },    
     { link: '', src: '/img/AUVG.webp', alt:'Congreso vitivinicola', width: 150  , height: 94},
-    { link: 'https://guanajuato.mx/ruta-del-vino/', src: '/img/LOGO-GTO-VEDA-ALT.webp', alt:'Gobierno de Guanajuato', width: 250, height: 67 },
+    { link: 'https://guanajuato.mx/', src: '/img/GUANAJUATO.webp', alt:'Guanajuato', width: 250,  },
+    { link: 'https://guanajuato.mx/ruta-del-vino/', src: '/img/RUA-DEL-VINO.webp', alt:'Ruta del vino', width: 200, },
+    { link: 'https://guanajuato.mx/', src: '/img/GUANAJUATO200.webp', alt:'CICESE', width: 300,  },
 ]
 
 const media_partners = [
