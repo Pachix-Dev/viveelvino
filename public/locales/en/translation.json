@@ -35,6 +35,7 @@
             "directory_2023": "EXHIBITOR DIRECTORY 2023"
         },
         "gallery": "GALLERY",
+        "tickets": "TICKETS",
         "event_date": "June 8 - 9, 2024",
         "distric_venue": "León MX District",
         "instalations": "León Fairgrounds"
@@ -47,7 +48,8 @@
         "title_5": "",
         "title_6": "WAITING FOR",
         "title_7": "",
-        "presale": "Buy your tickets with a special presale price, until 07/06/2024",
+        "presale": "Buy your tickets with a ",
+        "presale_2":"special presale price, until 07/06/2024",
         "presale_button": "Buy now",
         "main_points": "WHAT YOU WILL FIND",
         "point_1": "EQUIPMENT",
