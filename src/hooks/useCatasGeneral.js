@@ -72,33 +72,36 @@ export function useCatasGeneral() {
                       soldOut: true                  
                   });
                 }
-              });
-              catas_generales_9_junio.salon_catas2.map(cata => {
-                  const available = data.catasGenerales.filter(cataGeneral => cataGeneral.id_cata === cata.id && cataGeneral.date === '9 junio');
-                  if (available.length < 25) {
-                    availableCatas9.salon_catas2.push({
-                        ...cata,                    
-                    });
-                  }else{
-                    availableCatas9.salon_catas2.push({
-                        ...cata,
-                        soldOut: true                  
-                    });
-                  }
-              });
-              catas_generales_9_junio.salon_general.map(cata => {
-                  const available = data.catasGenerales.filter(cataGeneral => cataGeneral.id_cata === cata.id && cataGeneral.date === '9 junio');
-                  if (available.length < 25) {
-                    availableCatas9.salon_general.push({
-                        ...cata,                    
-                    });
-                  }else{
-                    availableCatas9.salon_general.push({
-                        ...cata,
-                        soldOut: true                  
-                    });
-                  }
-              });
+            });
+            catas_generales_9_junio.salon_catas2.map(cata => {
+                const available = data.catasGenerales.filter(cataGeneral => cataGeneral.id_cata === cata.id && cataGeneral.date === '9 junio');
+                if (available.length < 25) {
+                  availableCatas9.salon_catas2.push({
+                      ...cata,                    
+                  });
+                }else{
+                  availableCatas9.salon_catas2.push({
+                      ...cata,
+                      soldOut: true                  
+                  });
+                }
+            });
+            catas_generales_9_junio.salon_general.map(cata => {
+                const available = data.catasGenerales.filter(cataGeneral => cataGeneral.id_cata === cata.id && cataGeneral.date === '9 junio');
+                if (available.length < 25) {
+                  availableCatas9.salon_general.push({
+                      ...cata,                    
+                  });
+                }else{
+                  availableCatas9.salon_general.push({
+                      ...cata,
+                      soldOut: true                  
+                  });
+                }
+            });
+            
+            setCatasAvailability8junio(availableCatas8)
+            setCatasAvailability9junio(availableCatas9)
         }else{
           setCatasAvailability8junio(catas_generales_8_junio)
           setCatasAvailability9junio(catas_generales_9_junio)
@@ -109,8 +112,7 @@ export function useCatasGeneral() {
         // Handle error as needed
       }
 
-      setCatasAvailability8junio(availableCatas8)
-      setCatasAvailability9junio(availableCatas9)
+      
     }
 
     checkAvailable()

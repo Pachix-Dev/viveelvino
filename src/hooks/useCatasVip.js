@@ -16,8 +16,9 @@ export function useCatasVip(){
             `https://viveelvino.igeco.mx/backend/get-catas-vip`
           )
           const data = await response.json()
-          
+          console.log(data)
           if (data.status  && data.catasVip?.length > 0) {
+            console.log('hola')
             catas_vip_8_junio.map(cata => {
                 const available = data.catasVip.filter(cataVip => cataVip.name === cata.name && cataVip.date === '8 junio');
                 if (available.length < 30) {
@@ -45,17 +46,20 @@ export function useCatasVip(){
                     });
                 }
             });
-            console.log(availableCatas8)
-          }else{
+            setCatasVip8junio(availableCatas8)
+            setCatasVip9junio(availableCatas9)
+
+          }else{ 
+
             setCatasVip8junio(catas_vip_8_junio)
             setCatasVip9junio(catas_vip_9_junio)
+            
           }
         } catch (error) {
-            console.error(`Error checking availability for Catas Vip`)
+          console.error(`Error checking availability for Catas Vip`)
           // Handle error as needed
         }
-        setCatasVip8junio(availableCatas8)
-        setCatasVip9junio(availableCatas9)
+        
       }
       
     checkAvailable()
