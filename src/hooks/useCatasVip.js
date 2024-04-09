@@ -16,9 +16,7 @@ export function useCatasVip(){
             `https://viveelvino.igeco.mx/backend/get-catas-vip`
           )
           const data = await response.json()
-          console.log(data)
-           
-          console.log(data)
+          
           if (data.status  && data.catasVip?.length > 0) {
             catas_vip_8_junio.map(cata => {
                 const available = data.catasVip.filter(cataVip => cataVip.name === cata.name && cataVip.date === '8 junio');
@@ -48,6 +46,9 @@ export function useCatasVip(){
                 }
             });
             console.log(availableCatas8)
+          }else{
+            setCatasVip8junio(catas_vip_8_junio)
+            setCatasVip9junio(catas_vip_9_junio)
           }
         } catch (error) {
             console.error(`Error checking availability for Catas Vip`)

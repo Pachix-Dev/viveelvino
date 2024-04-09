@@ -17,7 +17,7 @@ export function useCatasGeneral() {
           `https://viveelvino.igeco.mx/backend/get-catas-general`
         )
         const data = await response.json()        
-        console.log(data)
+        
         if (data.status  && data.catasGenerales?.length > 0) {
             catas_generales_8_junio.salon_catas1.map(cata => {
               const available = data.catasGenerales.filter(cataGeneral => cataGeneral.id_cata === cata.id && cataGeneral.date === '8 junio');
@@ -99,8 +99,11 @@ export function useCatasGeneral() {
                     });
                   }
               });
-        }    
-        console.log(availableCatas9)              
+        }else{
+          setCatasAvailability8junio(catas_generales_8_junio)
+          setCatasAvailability9junio(catas_generales_9_junio)
+        } 
+                    
       } catch (error) {
         console.error(`Error checking availability for Catas Generales`)
         // Handle error as needed

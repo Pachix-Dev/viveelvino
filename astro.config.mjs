@@ -6,7 +6,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://igeco.mx/viveelvino/",  
+  site: "https://viveelvino.igeco.mx",  
   integrations: [tailwind(), astroI18next(), react(), sitemap()],
   i18n: {
     defaultLocale: 'es',
