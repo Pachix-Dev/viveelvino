@@ -31,7 +31,7 @@ export function Products() {
       regularPrice: 150,
       include: ['Acceso a la feria'],
       notInclude: [
-        'Ludoteca y Actividades especiales para ni\u00F1os (con costo adicional dependiento la actividad)',
+        'Ludoteca y Actividades especiales para ni\u00F1os (con costo adicional dependiendo la actividad)',
       ],
     },
   ]
@@ -58,7 +58,7 @@ export function Products() {
           </div>
           <p className='text-gray-500'>
             <span className='line-through'>$ {product.regularPrice} </span> MXN
-            precio regular
+            precio regular en sitio
           </p>
           <ul role='list' className='space-y-5 my-7'>
             {product.include.map((list, index) => (
