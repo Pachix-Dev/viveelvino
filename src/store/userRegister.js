@@ -6,19 +6,15 @@ const userRegister = create(
     (set) => ({
       name: '',
       email: '',
-      phone: '',
-      age: '',
-      company: '',
+      phone: '',      
       catas: [],
       companions: [],
       completed: false,
       setName: (value) => set({ name: value }),
       setEmail: (value) => set({ email: value }),
-      setPhone: (value) => set({ phone: value }),
-      setAge: (value) => set({ age: value }),
-      setCompany: (value) => set({ company: value }),   
+      setPhone: (value) => set({ phone: value }),      
       setCompleted: (value) => set({ completed: value }),
-            
+      
       dropState: () => set({
         name: '',
         email: '',
@@ -30,25 +26,24 @@ const userRegister = create(
         completed: false,
       }),
 
-      addCata: (cata) =>
+      addCata: (cata, user, date, sala) =>
         set((state) => {
           let newCatas;
-          if (state.catas.length < 1) {
-            // If length is less than 3, simply add the new cata
-            newCatas = [...state.catas, cata];
-          } else {
-            // If length is already 3, replace the last item with the new cata
-            newCatas = [...state.catas.slice(0, -1), cata];
+          if (state.catas.length < 2) {
+            // If length is less than 2, simply add the new cata
+            newCatas = [...state.catas, {...cata, user, date, sala}];
+          } else {            
+            newCatas = [...state.catas.slice(-1, -1), {...cata, user, date, sala}];
           }
           return { catas: newCatas };
       }),
            
-      addCompanion: (newQuantity) =>{
+      addCompanion: (newQuantity, user) =>{
         if (newQuantity < 1 || newQuantity > 8) { 
           return;
         }
         set((state) => ({
-          companions: [...state.companions, { name: '', email: '' }],
+          companions: [...state.companions, { name: '', email: '', user, catas: [] }],
         }));
       },
 
@@ -65,7 +60,27 @@ const userRegister = create(
             i === index ? { ...companion, email } : companion
           ),
         })),
-
+        
+      updateCompanionCatas: (cata, user, date, sala) =>
+        set((state) => {
+          const updatedCompanions = state.companions.map((companion) => {
+            if (companion.user === user) {
+              let newCatas;
+              if (companion.catas.length < 2) {
+                // If length is less than 2, simply add the new cata
+                newCatas = [...companion.catas, { ...cata, date, sala }];
+              } else {
+                
+                newCatas = [...companion.catas.slice(-1, -1), { ...cata, date, sala }];
+              }
+              return { ...companion, catas: newCatas };
+            }
+            return companion;
+          });
+      
+          return { companions: updatedCompanions };
+      }),
+      
       removeCompanion: () =>
         set((state) => {
           if (state.companions.length > 0) {

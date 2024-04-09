@@ -1,18 +1,10 @@
-/*import { useState } from 'react'*/
 import useCartStore from '../../store/cartStore'
 import { userRegister } from '../../store/userRegister'
-import './ItemCart.css'
 
 export function ItemCart({ item }) {
   const { items, updateQuantity, removeFromCart, clearCart } = useCartStore()
-  const {
-    addCompanion,
-    removeCompanion,
-    dropCompanions,
-    /*addCata,
-    catas,*/
-    dropState,
-  } = userRegister()
+  const { addCompanion, removeCompanion, dropCompanions, dropState } =
+    userRegister()
 
   const handleQuantity = (e) => {
     updateQuantity(item.id, e)
@@ -26,7 +18,7 @@ export function ItemCart({ item }) {
     if (currentItem.id === 1) {
       if (e > currentItem.quantity) {
         for (let i = currentItem.quantity; i < e; i++) {
-          addCompanion(e)
+          addCompanion(e, i)
         }
       } else {
         for (let i = currentItem.quantity; i > e; i--) {
@@ -45,43 +37,9 @@ export function ItemCart({ item }) {
     }
   }
 
-  /*const [selectedCheckboxes, setSelectedCheckboxes] = useState(
-    catas.length > 0 ? catas[0] : []
-  )
-
-  const handleCheckboxChange = (value) => {
-    const currentIndex = selectedCheckboxes.indexOf(value)
-    const newChecked = [...selectedCheckboxes]
-
-    if (currentIndex === -1) {
-      // If not already in array, add to array
-      newChecked.push(value)
-    } else {
-      // If already in array, remove from array
-      newChecked.splice(currentIndex, 1)
-    }
-    // Check if more than 3 are selected, and if so, remove the last one
-    if (newChecked.length > 3) {
-      newChecked.shift()
-    }
-    setSelectedCheckboxes(newChecked)
-    addCata(newChecked)
-  }
-
-  const checkboxes = [
-    { value: 1, label: 'Cata 1' },
-    { value: 2, label: 'Cata 2' },
-    { value: 3, label: 'Cata 3' },
-    { value: 4, label: 'Cata 4' },
-    { value: 5, label: 'Cata 5' },
-    { value: 6, label: 'Cata 6' },
-    { value: 7, label: 'Cata 7' },
-    { value: 8, label: 'Cata 8' },
-  ]*/
-
   return (
     <>
-      {item.id === 0 ? (
+      {item.id === 0 || item?.vip ? (
         ''
       ) : (
         <li className='mt-10 py-3 flex flex-wrap gap-2  rounded-xl border-2 shadow-xl p-4'>
@@ -103,23 +61,7 @@ export function ItemCart({ item }) {
                   />
                 </svg>
               ) : (
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  className='icon icon-tabler icon-tabler-glass'
-                  width='40'
-                  height='40'
-                  viewBox='0 0 24 24'
-                  strokeWidth='1.5'
-                  stroke='currentColor'
-                  fill='none'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                >
-                  <path stroke='none' d='M0 0h24v24H0z' fill='none' />
-                  <path d='M8 21l8 0' />
-                  <path d='M12 15l0 6' />
-                  <path d='M17 3l1 7c0 3.012 -2.686 5 -6 5s-6 -1.988 -6 -5l1 -7h10z' />
-                </svg>
+                ''
               )}
               <span className='font-bold'>{item.name}</span>
             </div>
@@ -153,37 +95,6 @@ export function ItemCart({ item }) {
                 </button>
               </div>
             </div>
-            {/*item.id === 1 && (
-            <>
-              <p className='mt-2 text-gray-500'>
-                (Opcional - tu acceso general te permite realizar hasta 3 catas
-                sencillas / cupo limitado con tiempo de espera )
-              </p>
-              <ul className='list-catas mt-2 p-3 w-ful h-40 overflow-y-scroll text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-xl *:border-b'>
-                {checkboxes.map((checkbox, index) => (
-                  <li key={index}>
-                    <div className='flex items-center ps-3'>
-                      <input
-                        id={checkbox.value}
-                        name={checkbox.value}
-                        type='checkbox'
-                        value={checkbox.value}
-                        checked={selectedCheckboxes.includes(checkbox.label)}
-                        onChange={() => handleCheckboxChange(checkbox.label)}
-                        className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500  focus:ring-2'
-                      />
-                      <label
-                        htmlFor={checkbox.value}
-                        className='w-full py-1 m-2 text-sm font-medium text-gray-900 '
-                      >
-                        {checkbox.label}
-                      </label>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </>
-                )*/}
           </div>
           <div className='flex items-center justify-end'>
             <button onClick={() => handleRemove(item.id)}>

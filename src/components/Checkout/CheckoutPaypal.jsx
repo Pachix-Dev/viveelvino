@@ -17,7 +17,7 @@ export function CheckoutPaypal() {
     setcomplete_purchase,
     setInvoiceDownToLoad,
   } = useCartStore()
-  const { name, email, phone, companions, completed, dropState } =
+  const { name, email, phone, catas, companions, completed, dropState } =
     userRegister()
 
   const [processing, setProcessing] = useState(false)
@@ -26,7 +26,8 @@ export function CheckoutPaypal() {
 
   const initialOptions = {
     clientId:
-      'AXftdiWOtdPdpICeOzTj98Jv9B6mJEB-vU4Fnc9HUhOJfl48D8Hh5yn0ujxnxgXi2YDonV1oU0swD0rV',
+      //'AXftdiWOtdPdpICeOzTj98Jv9B6mJEB-vU4Fnc9HUhOJfl48D8Hh5yn0ujxnxgXi2YDonV1oU0swD0rV',
+      'AWi2C-26r9XKnk49X_ekNYfhybZd7KHYyTsXS-4l37yGRygOxOMc0RJxDvA5eqztGBgttO7Fc8u3Bxk8',
     currency: 'MXN',
     intent: 'capture',
   }
@@ -65,6 +66,7 @@ export function CheckoutPaypal() {
           name,
           email,
           phone,
+          catas,
           companions,
         }),
       }
@@ -103,11 +105,11 @@ export function CheckoutPaypal() {
 
   if (items.length === 0) {
     return (
-      <div className='flex-1 flex flex-col justify-center items-center'>
+      <div className='flex-1 flex flex-col justify-center items-center h-screen'>
         <p className='text-2xl font-bold'>Tu carrito está vacío</p>
         <a
           href='/tickets'
-          className='bg-[#002C5B] text-white rounded-lg p-4 mt-5'
+          className='bg-[#002C5B] hover:bg-[#941E81] text-white rounded-lg p-4 mt-5'
         >
           Volver a la tienda
         </a>
@@ -117,9 +119,9 @@ export function CheckoutPaypal() {
 
   return (
     <main className='relative mx-auto md:flex grid'>
-      <section className=' p-10 w-full sm:w-3/5 sm:order-1 '>
+      <section className='p-5 sm:p-10 w-full sm:w-3/5 sm:order-1 '>
         <div className='flex justify-between items-center'>
-          <p className='font-bold text-4xl'>Finalizar Compra</p>
+          <p className='font-bold text-2xl md:text-4xl'>Finalizar Compra</p>
           <nav aria-label='Breadcrumb'>
             <ol className='flex items-center gap-1 text-lg text-gray-600'>
               <li>
@@ -169,7 +171,7 @@ export function CheckoutPaypal() {
               </li>
 
               <li>
-                <span className='block transition font-bold'>Checkout</span>
+                <span className='block transition font-bold'>Registro</span>
               </li>
             </ol>
           </nav>
@@ -188,7 +190,7 @@ export function CheckoutPaypal() {
           </div>
         )}
       </section>
-      <aside className='fixed right-0 top-0 p-5 w-full sm:w-2/5 sm:order-2 bg-[#f7f7f8] h-auto sm:h-full'>
+      <aside className='sm:fixed right-0 top-0 z-50 p-5 w-full sm:w-2/5 sm:order-2 bg-[#f7f7f8] h-auto sm:h-full'>
         <p className='text-center text-2xl font-bold hidden md:block'>
           Resumen del pedido
         </p>

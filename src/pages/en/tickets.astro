@@ -1,5 +1,5 @@
 ---
-import { changeLanguage } from "i18next";
+import { changeLanguage, t } from "i18next";
 import { Products } from "../../components/Tickets/Products.jsx";
 import Layout from "../../layouts/Layout.astro";
 
@@ -10,17 +10,16 @@ changeLanguage("en");
   title='Vive el Vino | Tickets'
   description='Descubre una oportunidad única para destacar tu producto en la segunda región de consumo más relevante del país. Sumérgete en las últimas tendencias del sector participando en nuestro programa de conferencias y talleres. Amplía tu red de negocios mediante encuentros B2B y B2C exclusivos. Aprovecha la oportunidad de promover tu marca a través de la difusión y cobertura mediática del evento. ¡Potencia tu presencia y conecta con oportunidades sin igual!'
 >
-  {
-    /* <main>
+  <main>
     <section>
       <div class='my-10 container mx-auto px-4'>
-        <h2 class='font-bold text-black text-4xl text-center'>Preventa</h2>
-        <div class='pt-5 flex justify-center gap-4'>
+        <h2 class='font-bold text-black text-4xl text-center'>
+          {t('tickets.title')}
+        </h2>
+        <div class='pt-5 grid md:flex justify-center gap-4'>
           <Products client:only />
         </div>
       </div>
     </section>
   </main>
-  */
-  }
 </Layout>

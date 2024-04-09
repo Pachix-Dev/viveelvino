@@ -17,12 +17,12 @@ export function Products() {
       regularPrice: 599,
       include: [
         'Acceso a la feria',
-        'Copa de regalo',
+        'Copa conmemorativa',
         'Degustaciones de vino',
         'Cat\u00E1logo de expositores digital',
-        'Acceso a catas y talleres generales',
+        'Registro a catas y talleres generales *sujeto a disponibilidad',
       ],
-      notInclude: ['Catas VIP (costo adicional)'],
+      notInclude: ['Catas VIP (con costo adicional)'],
     },
     {
       id: 2,
@@ -31,7 +31,7 @@ export function Products() {
       regularPrice: 150,
       include: ['Acceso a la feria'],
       notInclude: [
-        'Ludoteca y Actividades especiales para ni\u00F1os (costo adicional)',
+        'Ludoteca y Actividades especiales para ni\u00F1os (con costo adicional dependiento la actividad)',
       ],
     },
   ]
@@ -80,7 +80,7 @@ export function Products() {
           </ul>
           <ul role='list' className='space-y-5 my-7'>
             {product.notInclude.map((list, index) => (
-              <li key={index} className='flex line-through decoration-gray-500'>
+              <li key={index} className='flex  decoration-gray-500'>
                 <svg
                   className='flex-shrink-0 w-4 h-4 text-gray-400 '
                   aria-hidden='true'
@@ -102,7 +102,7 @@ export function Products() {
               type='button'
               className='text-white bg-[#374151] hover:bg-[#941E81] focus:ring-4 focus:outline-none focus:ring-blue-200  font-medium rounded-lg text-sm px-5 py-2.5 text-center'
             >
-              Add to cart
+              Agregar al carrito
             </button>
           </div>
         </div>

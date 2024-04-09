@@ -1,0 +1,58 @@
+.list-catas{
+    display: flex;                    
+    gap: 1rem;
+}
+
+.scrollstyle::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;   
+    background-color: #f5f5f5;
+}
+
+.scrollstyle::-webkit-scrollbar-thumb {
+    background-color: #6b7280;
+}
+
+.scrollstyle::-webkit-scrollbar-track {
+    -webkit-box-shadow: transparent;
+}
+.menuFecha > button:first-child{
+    background-color: #DB00AE;
+    color: white;
+}
+.menuFecha > button:first-child:hover{
+    background-color: #38AE84;    
+}
+.menuFecha > button:last-child{
+    background-color: #001E42;
+    color: white;
+}
+.menuFecha > button:last-child:hover{
+    background-color: #FF8201;    
+}
+
+.submenuFecha > button:first-child{
+    background-color: #01A573;
+    color: white;
+}
+.submenuFecha > button:nth-child(2){
+    background-color: #FF8201;
+    color: white;
+}
+.submenuFecha > button:nth-child(3){
+    background-color: #001E42;
+    color: white;
+}
+
+.submenuFecha > button:first-child:hover{
+    background-color: #001E42;
+    color: white;
+}
+.submenuFecha > button:nth-child(2):hover{
+    background-color: #DB00AE;
+    color: white;
+}
+.submenuFecha > button:nth-child(3):hover{
+    background-color: #01A573;
+    color: white;
+}

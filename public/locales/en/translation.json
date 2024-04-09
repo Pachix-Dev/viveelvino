@@ -47,7 +47,7 @@
         "title_5": "",
         "title_6": "WAITING FOR",
         "title_7": "",
-        "presale": "Buy your tickets with a special presale price",
+        "presale": "Buy your tickets with a special presale price, until 07/06/2024",
         "presale_button": "Buy now",
         "main_points": "WHAT YOU WILL FIND",
         "point_1": "EQUIPMENT",
@@ -127,6 +127,10 @@
         "title": "Special Hotel Rates",
         "description": "We are pleased to announce that we have secured preferential rates at quality hotels to make your experience even more comfortable and affordable.<br /><br />Strategically located around the event venue, these hotels offer not only comfort, but also the opportunity to fully immerse yourself in the atmosphere of the event. We have negotiated special rates for our attendees, ensuring that your stay will be as unforgettable as the event itself.",
         "code_reservation": "Reservation code"
+    },
+    "tickets":{
+        "title": "Online pre-sale until 7 June 2024.",
+        "description": "Buy your tickets at a special pre-sale price"        
     },
     "footer":{
         "contact_exhibitor": "EXHIBITOR CONTACT",

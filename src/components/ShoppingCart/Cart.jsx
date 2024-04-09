@@ -1,7 +1,7 @@
 import useCartStore from '../../store/cartStore'
 import { ResumeCart } from './ResumeCart'
 import { ItemCart } from './ItemCart'
-/*import { Addons } from './Addons'*/
+import { Products } from '../Tickets/Products'
 
 export function Cart() {
   const { items } = useCartStore()
@@ -24,7 +24,7 @@ export function Cart() {
     <main className='mt-5 mx-auto md:flex grid'>
       <section className='pt-5 px-5 md:px-32 w-full md:h-screen md:w-3/5 md:overflow-y-scroll'>
         <div className='flex justify-between items-center'>
-          <p className='font-bold text-4xl'>Sus Productos</p>
+          <p className='font-bold text-2xl md:text-4xl'>Sus Productos</p>
           <nav aria-label='Breadcrumb'>
             <ol className='flex items-center gap-1 text-lg text-gray-600'>
               <li>
@@ -69,7 +69,7 @@ export function Cart() {
                 </svg>
               </li>
               <li>
-                <span className='block transition'>Checkout</span>
+                <span className='block transition'>Registro</span>
               </li>
             </ol>
           </nav>
@@ -78,7 +78,9 @@ export function Cart() {
         {items.map((item, index) => (
           <ItemCart key={index} item={item} />
         ))}
-        {/*items.find((item) => item.id === 1) && <Addons />*/}
+        <div className='pt-5 grid md:flex justify-center gap-4'>
+          <Products />
+        </div>
       </section>
       <aside className='p-5 w-full md:h-screen md:w-2/5'>
         <p className='text-center text-2xl font-bold hidden md:block'>

@@ -2,7 +2,7 @@ import useCartStore from '../../store/cartStore'
 import { CouponDiscount } from './CouponDiscount'
 
 export function ResumeCart() {
-  const { items, total, appliedCoupons } = useCartStore()
+  const { items, total } = useCartStore()
 
   function formatAmountMXN(amount) {
     const formattedAmount = new Intl.NumberFormat('es-MX', {
@@ -14,7 +14,7 @@ export function ResumeCart() {
     return formattedAmount
   }
   return (
-    <div className='flex flex-col justify-between h-4/5'>
+    <div className='flex flex-col justify-between lg:h-4/5'>
       <p className='py-3 text-gray-500 border-b-2'>
         {items.length} elemento(s)
       </p>
@@ -26,22 +26,14 @@ export function ResumeCart() {
               <br />
               <span className='text-gray-500 '>
                 x{item.quantity} /{' '}
-                {item.id === 1 || item.id === 2 ? 'persona(s)' : 'descuento'}
+                {item.id === 0 ? 'codigo de descuento' : 'persona(s)'}
               </span>
             </p>
-            <span>{formatAmountMXN(item.price * item.quantity)} MXN</span>
+            <span className='min-w-fit'>
+              {formatAmountMXN(item.price * item.quantity)} MXN
+            </span>
           </div>
         ))}
-        {/*{appliedCoupons.map((coupon, index) => (
-          <div key={index} className='my-4 flex justify-between'>
-            <p className='leading-4'>
-              <span className='font-bold'>{coupon}</span>
-              <br />
-              <span className='text-gray-500 '>Cupon de descuento</span>
-            </p>
-            <span>- {formatAmountMXN(499)} MXN</span>
-          </div>
-        ))}*/}
       </div>
       <div className='py-3'>
         <CouponDiscount />
