@@ -19,7 +19,7 @@ export function Catas({ user }) {
         <strong>IMPORTANTE</strong> - tu acceso general te permite
         pre-registrarte hasta 2 experiencias de cata o taller / cupo limitado
         con tiempo de espera, sujeto a disponibilidad. A continuación, elige tus
-        opciones preferidas, identifica el dia, horario y sala de tu
+        opciones preferidas, identifica el día, horario y sala de tu
         preferencia.
       </p>
 
