@@ -23,7 +23,7 @@ export function Purchase() {
               href={`https://viveelvino.igeco.mx/invoices/${invoiceDownToLoad}`}
               target='_blank'
             >
-              Descarga tu recibo
+              DESCARGA TUS BOLETOS
             </a>
           )}
         </div>
