@@ -73,8 +73,8 @@ const catas_generales_8_junio = {
         },
         {
             id: 'CATA 6',
-            name: 'MARIDAJE DULCE',
-            description:'Cavas Manchón',
+            name: 'MARIDAJE GRAN PADRE',
+            description:'Viñedo Gran Padre',
             hora: '18:30 - 19:30'
         }
     ],
@@ -180,8 +180,8 @@ const catas_generales_9_junio = {
         },
         {
             id: 'CATA 23',
-            name: 'MARIDAJE GRAN PADRE ',
-            description:'Viñedo Gran Padre',
+            name: 'MARIDAJE DULCE',
+            description:'Cavas Manchón',
             hora: '17:00 - 18:00'
         },
         {

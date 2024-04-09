@@ -12,16 +12,19 @@ const base = lang === 'es' ? '' : `/${lang}`
     tabindex='-1'
     class='flex justify-center p-4 border-b bg-gray-700'
   >
-    <div class='bg-[#FDA314] p-3'>
+    <div class='bg-[#FDA314] p-3 text-center leading-3'>
       <p class='text-white text-2xl font-extrabold uppercase'>
-        {t('menu.event_date')}
+        {t('menu.event_date')}<br />
       </p>
+      <span class='text-white text-[15px] font-extrabold uppercase'
+        >11:00 AM - 9:00 PM</span
+      >
     </div>
-    <div class='bg-[#DB00AE] p-3 text-center leading-[0]'>
+    <div class='bg-[#DB00AE] p-3 text-center leading-3'>
       <p class='text-white text-2xl font-extrabold uppercase font-sans'>
         {t('menu.distric_venue')}
       </p>
-      <span class='text-white text-[10px] font-extrabold uppercase'
+      <span class='text-white text-[15px] font-extrabold uppercase'
         >{t('menu.instalations')}</span
       >
     </div>
@@ -64,10 +67,8 @@ const base = lang === 'es' ? '' : `/${lang}`
         />
       </div>
       <div class='md:order-3'>
-        <div
-          data-tooltip-target='tooltip-default'
-          class='flex flex-shrink-0 items-center pe-4'
-        >
+        <div class='flex flex-shrink-0 items-center pe-4'>
+          <span class='text-[#DB00AE] font-extrabold'>BOLETOS</span>
           <a class='relative' href={`${base}/shopping-cart`}>
             <span class='sr-only'>Open your cart</span>
             <svg
@@ -86,14 +87,6 @@ const base = lang === 'es' ? '' : `/${lang}`
             </svg>
             <CartButton client:only />
           </a>
-          <div
-            id='tooltip-default'
-            role='tooltip'
-            class='absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip'
-          >
-            Compra tus boletos
-            <div class='tooltip-arrow' data-popper-arrow></div>
-          </div>
         </div>
       </div>
       <button
