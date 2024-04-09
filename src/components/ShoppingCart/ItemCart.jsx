@@ -3,8 +3,13 @@ import { userRegister } from '../../store/userRegister'
 
 export function ItemCart({ item }) {
   const { items, updateQuantity, removeFromCart, clearCart } = useCartStore()
-  const { addCompanion, removeCompanion, dropCompanions, dropState } =
-    userRegister()
+  const {
+    addCompanion,
+    removeCompanion,
+    dropCompanions,
+    dropState,
+    setCompleted,
+  } = userRegister()
 
   const handleQuantity = (e) => {
     updateQuantity(item.id, e)
@@ -19,10 +24,12 @@ export function ItemCart({ item }) {
       if (e > currentItem.quantity) {
         for (let i = currentItem.quantity; i < e; i++) {
           addCompanion(e, i)
+          setCompleted(false)
         }
       } else {
         for (let i = currentItem.quantity; i > e; i--) {
           removeCompanion()
+          setCompleted(false)
         }
       }
     }

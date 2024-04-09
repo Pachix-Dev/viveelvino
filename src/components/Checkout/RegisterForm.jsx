@@ -120,8 +120,9 @@ export function RegisterForm() {
                   {...register('name', {
                     required: 'Nombre completo  es requerido',
                     pattern: {
-                      value: /^[A-Za-z\s]+$/,
-                      message: 'Nombre no válido',
+                      value: /^[A-Za-zÀ-ÖØ-öø-ÿ]+(\s[A-Za-zÀ-ÖØ-öø-ÿ]+)*$/,
+                      message:
+                        'No se aceptan espacios en blanco al inicio o final del nombre, ni simbolos',
                     },
                     onChange: (e) => setName(e.target.value),
                   })}
@@ -252,8 +253,10 @@ export function RegisterForm() {
                         {...register(`nameCompanion${index}`, {
                           required: 'Nombre completo  es requerido',
                           pattern: {
-                            value: /^[A-Za-z\s]+$/,
-                            message: 'Nombre no válido',
+                            value:
+                              /^[A-Za-zÀ-ÖØ-öø-ÿ]+(\s[A-Za-zÀ-ÖØ-öø-ÿ]+)*$/,
+                            message:
+                              'No se aceptan espacios en blanco al inicio o final del nombre, ni simbolos',
                           },
                           onChange: (e) =>
                             updateCompanionName(index, e.target.value),
