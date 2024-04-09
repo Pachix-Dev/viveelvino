@@ -26,8 +26,8 @@ export function CheckoutPaypal() {
 
   const initialOptions = {
     clientId:
-      //'AXftdiWOtdPdpICeOzTj98Jv9B6mJEB-vU4Fnc9HUhOJfl48D8Hh5yn0ujxnxgXi2YDonV1oU0swD0rV',
-      'AWi2C-26r9XKnk49X_ekNYfhybZd7KHYyTsXS-4l37yGRygOxOMc0RJxDvA5eqztGBgttO7Fc8u3Bxk8',
+      'AXftdiWOtdPdpICeOzTj98Jv9B6mJEB-vU4Fnc9HUhOJfl48D8Hh5yn0ujxnxgXi2YDonV1oU0swD0rV',
+    //'AWi2C-26r9XKnk49X_ekNYfhybZd7KHYyTsXS-4l37yGRygOxOMc0RJxDvA5eqztGBgttO7Fc8u3Bxk8',
     currency: 'MXN',
     intent: 'capture',
   }
