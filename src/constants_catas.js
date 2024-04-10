@@ -86,7 +86,7 @@ const catas_generales_8_junio = {
         },
         {
             id: 'CATA 8',
-            name: 'CATA POTENCIA ZACATECAS',
+            name: '',
             description:'Cuna de Plata',         
             hora: '12:30 - 13:30',
         },
