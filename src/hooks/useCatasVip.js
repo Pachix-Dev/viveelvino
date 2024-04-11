@@ -13,7 +13,7 @@ export function useCatasVip(){
         try {
           
           const response = await fetch(
-            `https://viveelvino.igeco.mx/backend/get-catas-vip`
+            `http://localhost:3002/get-catas-vip`
           )
           const data = await response.json()
           console.log(data)

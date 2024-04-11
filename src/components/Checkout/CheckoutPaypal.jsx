@@ -33,44 +33,38 @@ export function CheckoutPaypal() {
   }
 
   async function createOrder() {
-    const response = await fetch(
-      'https://viveelvino.igeco.mx/backend/create-order',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          items,
-          total,
-        }),
-      }
-    )
+    const response = await fetch('http://localhost:3002/create-order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        items,
+        total,
+      }),
+    })
     const order = await response.json()
     return order.id
   }
 
   async function onApprove(data) {
     setProcessing(true)
-    const response = await fetch(
-      'https://viveelvino.igeco.mx/backend/complete-order',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          orderID: data.orderID,
-          items,
-          total,
-          name,
-          email,
-          phone,
-          catas,
-          companions,
-        }),
-      }
-    )
+    const response = await fetch('http://localhost:3002/complete-order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        orderID: data.orderID,
+        items,
+        total,
+        name,
+        email,
+        phone,
+        catas,
+        companions,
+      }),
+    })
     const orderData = await response.json()
     if (orderData.status) {
       dropState()
