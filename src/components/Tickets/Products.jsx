@@ -16,8 +16,8 @@ export function Products() {
       price: 499,
       regularPrice: 599,
       include: [
-        'Acceso a la feria',
-        'Copa conmemorativa',
+        'Acceso a la feria ambos días',
+        'Una copa conmemorativa ',
         'Degustaciones de vino',
         'Cat\u00E1logo de expositores digital',
         'Registro a catas y talleres generales *sujeto a disponibilidad',
@@ -26,7 +26,7 @@ export function Products() {
     },
     {
       id: 2,
-      name: 'Acceso menor de edad',
+      name: 'Acceso menor de edad ambos días',
       price: 100,
       regularPrice: 150,
       include: ['Acceso a la feria'],
