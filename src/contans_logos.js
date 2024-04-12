@@ -19,7 +19,8 @@ const media_partners = [
     { link: 'https://www.am.com.mx/temas/revista-cerro-gordo-12675.html?true', src: '/img/Cerro-Gordo_logo.webp', alt:'Cerro Gordo', width: 150 },
     { link: 'https://www.elsoldeleon.com.mx/', src: '/img/El-Sol-de-Leon.webp', alt:'El sol de Leon', width: 250 },
     { link: 'https://heraldodemexico.com.mx/', src: '/img/heraldoHorizontal.webp', alt:'Heraldo Media Group', width: 250 },
-    { link: 'https://www.globalindustrial.com/', src: '/img/logo-global-industries.webp', alt:'global industries', width: 250 },
+    { link: 'https://www.globalindustrial.com/', src: '/img/global-industries_v2.webp', alt:'global industries', width: 250 },
+    { link: 'https://globalenergy.mx/', src: '/img/global-energy-v2.webp', alt:'global Energy', width: 250 },
     { link: 'https://www.publimetro.com.mx/', src: '/img/LOGO-PUBLIMETRO.webp', alt:'Publimetro', width: 250 },
     { link: 'https://www.radioformula.com.mx/bajio/', src: '/img/radio-formula.webp', alt:'Radio Formula', width: 200 }
 ]
