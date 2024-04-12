@@ -373,11 +373,10 @@ app.get('/user-ticket-verification/:uuid', async (req, res) => {
             res.json({ // Using res.json for setting appropriate Content-Type
                 status: true,
                 message: 'User ticket is valid',
-                data
+                data: data?.item !== null ? data.item=JSON.parse(data.items) : null
             });
         } else {
-            // Using 404 Not Found as an example; adjust based on your application's needs
-            res.status(404).json({
+            res.json({
                 status: false,
                 message: 'User ticket used already'
             });

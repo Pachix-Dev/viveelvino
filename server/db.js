@@ -23,7 +23,7 @@ export class RegisterModel {
       if (result.affectedRows === 0) {        
         return null;
       }else{        
-        const [updatedRecords] = await connection.query('SELECT * FROM users WHERE uuid = ?', [uuid]);                         
+        const [updatedRecords] = await connection.query('SELECT * FROM users LEFT JOIN orders ON users.id = orders.user_id WHERE uuid = ? ', [uuid]);                         
         return updatedRecords[0];    
       }
       
