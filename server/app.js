@@ -373,7 +373,11 @@ app.get('/user-ticket-verification/:uuid', async (req, res) => {
             res.json({ // Using res.json for setting appropriate Content-Type
                 status: true,
                 message: 'User ticket is valid',
-                data: data?.item !== null ? data.item=JSON.parse(data.items) : null
+                data: {
+                    ...data,
+                    items: data?.items !== null ? JSON.parse(data.items) : null
+                }
+
             });
         } else {
             res.json({
