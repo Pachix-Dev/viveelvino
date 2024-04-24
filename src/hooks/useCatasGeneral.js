@@ -14,7 +14,7 @@ export function useCatasGeneral() {
       const availableCatas9 = {salon_catas1: [], salon_catas2: [], salon_general: []}
       try {
         const response = await fetch(
-          `http://localhost:3002/get-catas-general`
+          `http://localhost:3005/get-catas-general`
         )
         const data = await response.json()        
         

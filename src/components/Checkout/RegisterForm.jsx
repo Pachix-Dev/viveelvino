@@ -44,7 +44,7 @@ export function RegisterForm() {
     if (total === 0) {
       setProcessing(true)
       const response = await fetch(
-        'https://viveelvino.igeco.mx/backend/complete-order-free',
+        'http://localhost:3005/complete-order-free',
         {
           method: 'POST',
           headers: {

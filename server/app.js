@@ -28,6 +28,7 @@ app.use(cors({
   }
 }))
 
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 const PORT = process.env.PORT || 3002
 const environment = process.env.ENVIRONMENT || 'sandbox';
 const client_id = process.env.CLIENT_ID;
@@ -153,7 +154,7 @@ app.post('/complete-order', async (req, res) => {
                 
                 const paypal_id_order = json.id;
                 const paypal_id_transaction = json.purchase_units[0].payments.captures[0].id;                     
-                await RegisterModel.save_order(paypal_id_order, paypal_id_transaction, insertId, body.items);
+                await RegisterModel.save_order(paypal_id_order, paypal_id_transaction, insertId, body.items, body.total);
                 
                 // Check if there are any coupons to use
                 const newArray = body.items.filter(item => item.id === 0).map(item => item.name);
@@ -335,10 +336,11 @@ app.post('/check-coupon', async (req, res) => {
     const { couponCode } = req.body;    
     try{
         const data = await RegisterModel.checkCoupon({ couponCode });
-        if(data){
+        if(data.length > 0){
             res.send({
                 status: true,
-                message: 'Coupon is valid'
+                message: 'Coupon is valid',
+                couponCode: data[0]
             });
         } else {
             res.send({
@@ -373,14 +375,11 @@ app.get('/user-ticket-verification/:uuid', async (req, res) => {
             res.json({ // Using res.json for setting appropriate Content-Type
                 status: true,
                 message: 'User ticket is valid',
-                data: {
-                    ...data,
-                    items: data?.items !== null ? JSON.parse(data.items) : null
-                }
-
+                data
             });
         } else {
-            res.json({
+            // Using 404 Not Found as an example; adjust based on your application's needs
+            res.status(404).json({
                 status: false,
                 message: 'User ticket used already'
             });

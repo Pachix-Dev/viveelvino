@@ -33,7 +33,7 @@ export function CheckoutPaypal() {
   }
 
   async function createOrder() {
-    const response = await fetch('http://localhost:3002/create-order', {
+    const response = await fetch('http://localhost:3005/create-order', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ export function CheckoutPaypal() {
 
   async function onApprove(data) {
     setProcessing(true)
-    const response = await fetch('http://localhost:3002/complete-order', {
+    const response = await fetch('http://localhost:3005/complete-order', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

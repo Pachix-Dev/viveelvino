@@ -13,12 +13,11 @@ export function useCatasVip(){
         try {
           
           const response = await fetch(
-            `http://localhost:3002/get-catas-vip`
+            `http://localhost:3005/get-catas-vip`
           )
           const data = await response.json()
           console.log(data)
-          if (data.status  && data.catasVip?.length > 0) {
-            console.log('hola')
+          if (data.status  && data.catasVip?.length > 0) {            
             catas_vip_8_junio.map(cata => {
                 const available = data.catasVip.filter(cataVip => cataVip.name === cata.name && cataVip.date === '8 junio');
                 if (available.length < 30) {

@@ -23,7 +23,7 @@ export class RegisterModel {
       if (result.affectedRows === 0) {        
         return null;
       }else{        
-        const [updatedRecords] = await connection.query('SELECT * FROM users LEFT JOIN orders ON users.id = orders.user_id WHERE uuid = ? ', [uuid]);                         
+        const [updatedRecords] = await connection.query('SELECT * FROM users WHERE uuid = ?', [uuid]);                         
         return updatedRecords[0];    
       }
       
@@ -161,16 +161,17 @@ export class RegisterModel {
     }
   }  
 
-  static async save_order (paypal_id_order,paypal_id_transaction,user_id, items) {
+  static async save_order (paypal_id_order,paypal_id_transaction,user_id, items, total) {
     const connection = await mysql.createConnection(config)
     try {      
       const [registers] = await connection.query(
-        'INSERT INTO orders (paypal_id_order, paypal_id_transaction, user_id, items) VALUES (?,?,?,?)',
+        'INSERT INTO orders (paypal_id_order, paypal_id_transaction, user_id, items, total) VALUES (?,?,?,?,?)',
         [
           paypal_id_order,
           paypal_id_transaction,
           user_id,   
-          JSON.stringify(items)
+          JSON.stringify(items),
+          total
         ]
       )
       return registers
@@ -184,8 +185,8 @@ export class RegisterModel {
   }) {
     const connection = await mysql.createConnection(config)
     try {
-      const [result] = await connection.query('SELECT code FROM coupons WHERE code = ? AND user_id = 0', [couponCode] )
-      return result.length > 0;
+      const [result] = await connection.query('SELECT * FROM coupons WHERE code = ? AND user_id = 0', [couponCode] )           
+      return result;
     } finally {
       await connection.end() // Close the connection
     }
