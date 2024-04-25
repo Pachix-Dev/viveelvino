@@ -252,6 +252,7 @@ export class RegisterModel {
       await connection.end() // Close the connection
     }
   }
+  
   static async getCatasVip () {
     const connection = await mysql.createConnection(config)
     try {

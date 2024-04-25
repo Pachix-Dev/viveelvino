@@ -9,7 +9,6 @@ import {email_template} from './email_Template.js';
 import { v4 as uuidv4 } from 'uuid';
 import { generatePDFInvoice } from './helpers.js';
 
-
 const { json } = pkg
 const app = express()
 app.use(json())
@@ -92,7 +91,6 @@ app.post('/complete-order', async (req, res) => {
             });
         }
 
-        
         // validar si quedan boletos disponibles para las catas vip de los acompañantes
         const companions = body.companions.length > 0
             ? await Promise.all(body.companions.map(async companion => {
@@ -157,7 +155,7 @@ app.post('/complete-order', async (req, res) => {
                 await RegisterModel.save_order(paypal_id_order, paypal_id_transaction, insertId, body.items, body.total);
                 
                 // Check if there are any coupons to use
-                const newArray = body.items.filter(item => item.id === 0).map(item => item.name);
+                const newArray = body.items.filter(item => item.id === 0 || item.id === 99 ).map(item => item.name);
                 if (newArray.length > 0) {
                     await RegisterModel.useCoupon(newArray, insertId);
                 }
@@ -219,16 +217,16 @@ app.post('/complete-order', async (req, res) => {
 
 app.post('/complete-order-free', async (req, res) => {
     const { body } = req;
-    if(body.total !== 0 && body.items.filter(item => item.id === 0).length === 0){
+
+    if(body.total !== 0 && body.items.filter(item => item.id === 0 || item.id === 99).length === 0){
         return res.status(500).send({
             status: false,
             message: 'Error al guardar tu datos, por favor intenta más tarde...'
         });
     }
-    try {
 
-        
-        const mainUser = { uuid: uuidv4(), name: body.name, email: body.email, phone: body.phone, catasVip:[], catas: body.catas};
+    try {
+        const mainUser = { uuid: uuidv4(), name: body.name, email: body.email, phone: body.phone, catasVip: body.items.filter(item => item?.user === 0 ), catas: body.catas};
 
         // validar si quedan espacios disponibles para las catas generales del usuario principal
         if (mainUser.catas.length > 0 && !await checkCataGeneralAvailable(mainUser.catas)) {
@@ -238,10 +236,26 @@ app.post('/complete-order-free', async (req, res) => {
             });
         }
 
-        // validar si quedan lugares disponibles para las catas generales de los acompañantes
+        // validar si quedan boletos disponibles para las catas vip del usuario principal
+        if (mainUser.catasVip.length > 0 && !await checkTicketAvailability(mainUser.catasVip)) {
+            return res.status(400).json({
+                status: false,
+                message: 'Uno o mas catas VIP ya no estan disponibles por favor selecciona otras'
+            });
+        }
+
+        // validar si quedan boletos disponibles para las catas vip de los acompañantes
         const companions = body.companions.length > 0
-            ? await Promise.all(body.companions.map(async companion => {                
+            ? await Promise.all(body.companions.map(async companion => {
+                const companionCatasVip = body.items.filter(item => item?.user === companion.user && item.vip);
                 const companionCatas = companion.catas;
+
+                if (companionCatasVip.length > 0 && !await checkTicketAvailability(companionCatasVip)) {
+                    return res.status(400).json({
+                        status: false,
+                        message: `Una o mas catas VIP ya no estan disponibles por favor selecciona otras`
+                    });
+                }
 
                 if (companionCatas.length > 0 && !await checkCataGeneralAvailable(companionCatas)) {
                     return res.status(400).json({
@@ -250,7 +264,7 @@ app.post('/complete-order-free', async (req, res) => {
                     });
                 }
 
-                return { uuid: uuidv4(), name: companion.name, email: companion.email, catasVip: [], catas: companionCatas };
+                return { uuid: uuidv4(), name: companion.name, email: companion.email, catasVip: companionCatasVip, catas: companionCatas };
             }))
             : [];    
         
@@ -282,7 +296,7 @@ app.post('/complete-order-free', async (req, res) => {
         await RegisterModel.save_order(purchased,purchased, insertId, body.items);
         
         // Check if there are any coupons to use
-        const newArray = body.items.filter(item => item.id === 0).map(item => item.name);
+        const newArray = body.items.filter(item => item.id === 0 || item.id === 99).map(item => item.name);
         if (newArray.length > 0) {
             await RegisterModel.useCoupon(newArray, insertId);
         }
