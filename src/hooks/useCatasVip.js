@@ -18,8 +18,7 @@ export function useCatasVip(){
           const response = await fetch(
             VINOAPI+'/get-catas-vip',
           )
-          const data = await response.json()
-          console.log(data)
+          const data = await response.json()          
           if (data.status  && data.catasVip?.length > 0) {            
             catas_vip_8_junio.map(cata => {
                 const available = data.catasVip.filter(cataVip => cataVip.name === cata.name && cataVip.date === '8 junio');
