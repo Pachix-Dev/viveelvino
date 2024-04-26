@@ -372,8 +372,8 @@ app.post('/check-coupon', async (req, res) => {
     }    
 });
 
-app.get('/user-ticket-verification/:uuid', async (req, res) => {
-    const { uuid } = req.params;
+app.get('/user-ticket-verification/:uuid/:code', async (req, res) => {
+    const { uuid, code } = req.params;
 
      // UUID v4 regex validation
      const uuidV4Regex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -384,7 +384,7 @@ app.get('/user-ticket-verification/:uuid', async (req, res) => {
          });
      }
     try {
-        const data = await RegisterModel.pickUpById({ uuid });
+        const data = await RegisterModel.pickUpById({ uuid, code });
         if (data) {
             res.json({ // Using res.json for setting appropriate Content-Type
                 status: true,
@@ -395,7 +395,7 @@ app.get('/user-ticket-verification/:uuid', async (req, res) => {
             // Using 404 Not Found as an example; adjust based on your application's needs
             res.status(404).json({
                 status: false,
-                message: 'User ticket used already'
+                message: 'User ticket used already or not found'
             });
         }
     } catch (err) {
