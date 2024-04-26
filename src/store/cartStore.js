@@ -142,7 +142,7 @@ const useCartStore = create(
           return state;
         }
     
-        const updatedItems = state.items.filter(item => !(item.id === findItem.id && item.user === findItem.user || item.id === 99));
+        const updatedItems = state.items.filter(item => !(item.id === findItem.id && item.user === findItem.user || item.id === 99  || item.id === 0 || item.id === 66));
         
         const totalToRemove = updatedItems.map((item) => item.price * item.quantity).reduce((acc, item) => acc + item, 0);
     
@@ -157,28 +157,29 @@ const useCartStore = create(
   
     addDiscount_5: () => {      
       set((state) => {
-        const existingItem = state.items.find((item) => item.id === 66);
-        if (existingItem || state.total === 0 ) {                      
-          return state;
-        } else {
-          const newItem = {
-            id: 66,
-            name: 'COPARECORD 5% DESCUENTO',
-            price: -(state.total * 0.05),
-            quantity: 1,
-          };
-
-          const newItems = [...state.items, newItem];
-          const discountAmount = state.total * 0.05;
-          // Subtract the discount amount from the total
-          const newTotal = state.total - discountAmount;
-          return {
-            items: newItems,
-            total: newTotal,
-          };
-        }
+          const existingItem = state.items.find((item) => item.id === 66);
+          if (existingItem || state.total === 0 ) {                      
+              return state;
+          } else {
+              const discountAmount = state.total * 0.05;
+              const formattedDiscountAmount = discountAmount.toFixed(2); // Format discount amount to two decimal places
+              const newItem = {
+                  id: 66,
+                  name: 'COPARECORD 5% DESCUENTO',
+                  price: -parseFloat(formattedDiscountAmount), // Ensure price is negative
+                  quantity: 1,
+              };
+  
+              const newItems = [...state.items, newItem];
+              const newTotal = state.total - parseFloat(formattedDiscountAmount); // Subtract the formatted discount amount from the total
+              return {
+                  items: newItems,
+                  total: newTotal,
+              };
+          }
       });
     }
+  
     
   }),
   {
