@@ -40,7 +40,8 @@
         "tickets": "BOLETOS",      
         "event_date": "8 y 9 de junio 2024",
         "distric_venue": "Distrito León MX",
-        "instalations": "Instalaciones de la Feria"
+        "instalations": "Instalaciones de la Feria",
+        "program": "Programa"
     },
     "home":{
         "title_1": "EL",

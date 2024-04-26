@@ -38,7 +38,8 @@
         "tickets": "TICKETS",
         "event_date": "June 8 - 9, 2024",
         "distric_venue": "León MX District",
-        "instalations": "León Fairgrounds"
+        "instalations": "León Fairgrounds",
+        "program": "Program"
     },
     "home":{
         "title_1": "THE",
