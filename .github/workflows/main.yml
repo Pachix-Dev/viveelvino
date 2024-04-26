@@ -24,6 +24,6 @@ jobs:
           server: '${{ secrets.SERVER }}'
           port: '${{ secrets.SSH_PORT }}'
           local_path: './dist/*'
-          remote_path: '/home/hfmexico/public_html/demo.viveelvino.igeco.mx'
+          remote_path: '/home/hfmexico/public_html/viveelvino.igeco.mx'
           sftp_only: true
           password: '${{ secrets.SFTP_PASSWORD }}'
