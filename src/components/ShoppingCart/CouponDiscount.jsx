@@ -1,8 +1,5 @@
 import { useState } from 'react'
 import useCartStore from '../../store/cartStore'
-const VINOAPI = import.meta.env.PROD
-  ? import.meta.env.PUBLIC_VINOAPI_PROD
-  : import.meta.env.PUBLIC_VINOAPI_DEV
 
 export function CouponDiscount() {
   const [couponCode, setCouponCode] = useState('')
@@ -27,13 +24,16 @@ export function CouponDiscount() {
     }
 
     try {
-      const response = await fetch(VINOAPI + '/check-coupon', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ couponCode }),
-      })
+      const response = await fetch(
+        'https://viveelvino.igeco.mx/backend/check-coupon',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ couponCode }),
+        }
+      )
 
       const data = await response.json()
       if (data.status) {

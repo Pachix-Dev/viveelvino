@@ -9,13 +9,6 @@ import { userRegister } from '../../store/userRegister'
 import { useState } from 'react'
 import { ResumeCheckout } from './ResumeCheckout'
 
-const VINOAPI = import.meta.env.PROD
-  ? import.meta.env.PUBLIC_VINOAPI_PROD
-  : import.meta.env.PUBLIC_VINOAPI_DEV
-const PAYPALAPI = import.meta.env.PROD
-  ? import.meta.env.PUBLIC_PAYPAL_CLIENT_PROD
-  : import.meta.env.PUBLIC_PAYPAL_CLIENT_DEV
-
 export function CheckoutPaypal() {
   const {
     items,
@@ -32,22 +25,26 @@ export function CheckoutPaypal() {
   const style = { layout: 'vertical' }
 
   const initialOptions = {
-    clientId: PAYPALAPI,
+    clientId:
+      'AXftdiWOtdPdpICeOzTj98Jv9B6mJEB-vU4Fnc9HUhOJfl48D8Hh5yn0ujxnxgXi2YDonV1oU0swD0rV',
     currency: 'MXN',
     intent: 'capture',
   }
 
   async function createOrder() {
-    const response = await fetch(VINOAPI + '/create-order', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        items,
-        total,
-      }),
-    })
+    const response = await fetch(
+      'https://viveelvino.igeco.mx/backend/create-order',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          items,
+          total,
+        }),
+      }
+    )
     const order = await response.json()
     return order.id
   }
