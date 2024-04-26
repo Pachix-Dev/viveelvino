@@ -3,7 +3,10 @@ import {
     catas_generales_8_junio,
     catas_generales_9_junio,
   } from '../constants_catas.js'
-
+const VINOAPI = import.meta.env.PROD
+  ? import.meta.env.PUBLIC_VINOAPI_PROD
+  : import.meta.env.PUBLIC_VINOAPI_DEV
+  
 export function useCatasGeneral() {
   const [catasAvailability8junio, setCatasAvailability8junio] = useState([])
   const [catasAvailability9junio, setCatasAvailability9junio] = useState([])
@@ -14,7 +17,7 @@ export function useCatasGeneral() {
       const availableCatas9 = {salon_catas1: [], salon_catas2: [], salon_general: []}
       try {
         const response = await fetch(
-          `https://viveelvino.igeco.mx/backend/get-catas-general`
+          VINOAPI+'/get-catas-general',
         )
         const data = await response.json()        
         

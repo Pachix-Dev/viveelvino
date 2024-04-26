@@ -7,6 +7,7 @@ const useCartStore = create(
     total: 0,
     complete_purchase: false,    
     invoiceDownToLoad: '',
+    
 
     addToCart: (product, quantity = 1) => {
       set((state) => {
@@ -76,20 +77,36 @@ const useCartStore = create(
 
     setcomplete_purchase: (value) => set({ complete_purchase: value }),
 
-    addDiscount: (product) => {
+    addDiscount: (product, type) => {
       set((state) => {
         const existingItem = state.items.find((item) => item.name === product.name);
         const onlyGeneral = state.items.find((item) => item.id === 1);
-
-        if (!onlyGeneral || existingItem || state.total === 0 || state.total < 499) {                      
-          return state;
-        } else {
-          const newItems = [...state.items, product];
-          return {
-            items: newItems,
-            total: state.total + product.price * product.quantity,
-          };
+        const onlyVip = state.items.find((item) => item.id === 3 || item.id === 4 || item.id === 5 || item.id === 6);
+        
+        if(type === 'GENERAL'){
+          if (!onlyGeneral || existingItem || state.total === 0 || state.total < 499) {                      
+            return state;
+          } else {
+            const newItems = [...state.items, product];
+            return {
+              items: newItems,
+              total: state.total + product.price * product.quantity,
+            };
+          }
         }
+
+        if(type === 'VIP'){
+          if (!onlyVip || existingItem || state.total === 0 || state.total < 820) {                      
+            return state;
+          } else {
+            const newItems = [...state.items, product];
+            return {
+              items: newItems,
+              total: state.total + product.price * product.quantity,
+            };
+          }
+        }
+        
       });
     },
     
@@ -125,22 +142,44 @@ const useCartStore = create(
           return state;
         }
     
-        const updatedItems = state.items.filter(item => !(item.id === findItem.id && item.user === findItem.user));
+        const updatedItems = state.items.filter(item => !(item.id === findItem.id && item.user === findItem.user || item.id === 99));
         
-        // Calculate the total by subtracting the price of the item * quantity being removed
-        const itemToRemove = state.items.find((item) => item.id === productId && item.user === userId);
-        const totalToRemove = itemToRemove ? itemToRemove.price * itemToRemove.quantity : 0;
+        const totalToRemove = updatedItems.map((item) => item.price * item.quantity).reduce((acc, item) => acc + item, 0);
     
-        const newTotal = state.total - totalToRemove;
+        
     
         return {
           items: updatedItems,
-          total: newTotal,
+          total: totalToRemove,
         };
       });
     },
-    
+  
+    addDiscount_5: () => {      
+      set((state) => {
+        const existingItem = state.items.find((item) => item.id === 66);
+        if (existingItem || state.total === 0 ) {                      
+          return state;
+        } else {
+          const newItem = {
+            id: 66,
+            name: 'COPARECORD 5% DESCUENTO',
+            price: -(state.total * 0.05),
+            quantity: 1,
+          };
 
+          const newItems = [...state.items, newItem];
+          const discountAmount = state.total * 0.05;
+          // Subtract the discount amount from the total
+          const newTotal = state.total - discountAmount;
+          return {
+            items: newItems,
+            total: newTotal,
+          };
+        }
+      });
+    }
+    
   }),
   {
     name: 'cart-storage',

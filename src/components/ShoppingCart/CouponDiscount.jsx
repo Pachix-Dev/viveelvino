@@ -1,12 +1,15 @@
 import { useState } from 'react'
 import useCartStore from '../../store/cartStore'
+const VINOAPI = import.meta.env.PROD
+  ? import.meta.env.PUBLIC_VINOAPI_PROD
+  : import.meta.env.PUBLIC_VINOAPI_DEV
 
 export function CouponDiscount() {
   const [couponCode, setCouponCode] = useState('')
   const [couponStatus, setCouponStatus] = useState('')
   const [isValidCoupon, setIsValidCoupon] = useState(null)
 
-  const { addDiscount } = useCartStore()
+  const { addDiscount, addDiscount_5 } = useCartStore()
 
   const handleCouponChange = (e) => {
     setCouponCode(e.target.value)
@@ -15,25 +18,41 @@ export function CouponDiscount() {
   }
 
   const checkCoupon = async () => {
+    if (couponCode === 'COPARECORD') {
+      setCouponStatus('Cupon valido, limitado a 1 solo uso!')
+      setIsValidCoupon(true)
+      addDiscount_5()
+      setCouponCode('')
+      return
+    }
+
     try {
-      const response = await fetch(
-        'https://viveelvino.igeco.mx/backend/check-coupon',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ couponCode }),
-        }
-      )
+      const response = await fetch(VINOAPI + '/check-coupon', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ couponCode }),
+      })
 
       const data = await response.json()
-
       if (data.status) {
-        setCouponStatus('Cupon valido!, limitado a 1 solo uso!')
+        setCouponStatus('Cupon valido, limitado a 1 solo uso!')
         setIsValidCoupon(true)
-        addDiscount({ id: 0, name: couponCode, price: -499, quantity: 1 })
-        setCouponCode('')
+        if (data?.couponCode?.discount === 'GENERAL') {
+          addDiscount(
+            { id: 0, name: couponCode, price: -499, quantity: 1 },
+            'GENERAL'
+          )
+          setCouponCode('')
+        }
+        if (data?.couponCode?.discount === 'VIP') {
+          addDiscount(
+            { id: 99, name: couponCode, price: -820, quantity: 1 },
+            'VIP'
+          )
+          setCouponCode('')
+        }
       } else {
         setCouponStatus('Invalid coupon or used already.')
         setIsValidCoupon(false)

@@ -46,7 +46,7 @@ export function ItemCart({ item }) {
 
   return (
     <>
-      {item.id === 0 || item?.vip ? (
+      {item.id === 0 || item?.vip || item.id === 66 || item.id === 99 ? (
         ''
       ) : (
         <li className='mt-10 py-3 flex flex-wrap gap-2  rounded-xl border-2 shadow-xl p-4'>

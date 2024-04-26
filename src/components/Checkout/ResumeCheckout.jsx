@@ -1,4 +1,5 @@
 import useCartStore from '../../store/cartStore'
+import { CouponDiscount } from '../ShoppingCart/CouponDiscount'
 
 export function ResumeCheckout() {
   const { items, total } = useCartStore()
@@ -25,7 +26,9 @@ export function ResumeCheckout() {
               <br />
               <span className='text-gray-500 '>
                 x{item.quantity} /{' '}
-                {item.id === 0 ? 'codigo de descuento' : 'persona(s)'}
+                {item.id === 0 || item.id === 66
+                  ? 'codigo de descuento'
+                  : 'persona(s)'}
               </span>
             </p>
             <span className='min-w-fit'>
@@ -35,6 +38,7 @@ export function ResumeCheckout() {
         ))}
       </div>
       <div className='py-3'>
+        <CouponDiscount />
         <div className='mt-5 flex justify-between text-gray-500 text-md font-bold leading-tight '>
           <span>Subtotal</span>
           <span>{formatAmountMXN(total)} MXN</span>

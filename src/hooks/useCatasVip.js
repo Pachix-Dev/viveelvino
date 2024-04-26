@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react"
 import { catas_vip_8_junio, catas_vip_9_junio } from '../constants_catas.js'
+const VINOAPI = import.meta.env.PROD
+  ? import.meta.env.PUBLIC_VINOAPI_PROD
+  : import.meta.env.PUBLIC_VINOAPI_DEV
 
 export function useCatasVip(){
   const [catasVip8junio, setCatasVip8junio] = useState([])
@@ -13,12 +16,11 @@ export function useCatasVip(){
         try {
           
           const response = await fetch(
-            `https://viveelvino.igeco.mx/backend/get-catas-vip`
+            VINOAPI+'/get-catas-vip',
           )
           const data = await response.json()
           console.log(data)
-          if (data.status  && data.catasVip?.length > 0) {
-            console.log('hola')
+          if (data.status  && data.catasVip?.length > 0) {            
             catas_vip_8_junio.map(cata => {
                 const available = data.catasVip.filter(cataVip => cataVip.name === cata.name && cataVip.date === '8 junio');
                 if (available.length < 30) {

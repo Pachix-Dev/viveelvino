@@ -4,7 +4,9 @@ import useCartStore from '../../store/cartStore'
 import { useState } from 'react'
 
 import { Catas } from './Catas'
-
+const VINOAPI = import.meta.env.PROD
+  ? import.meta.env.PUBLIC_VINOAPI_PROD
+  : import.meta.env.PUBLIC_VINOAPI_DEV
 export function RegisterForm() {
   const {
     name,
@@ -43,24 +45,21 @@ export function RegisterForm() {
   const freeBuy = async () => {
     if (total === 0) {
       setProcessing(true)
-      const response = await fetch(
-        'https://viveelvino.igeco.mx/backend/complete-order-free',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            items,
-            total,
-            name,
-            email,
-            phone,
-            catas,
-            companions,
-          }),
-        }
-      )
+      const response = await fetch(VINOAPI + '/complete-order-free', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          items,
+          total,
+          name,
+          email,
+          phone,
+          catas,
+          companions,
+        }),
+      })
       const orderData = await response.json()
       if (orderData.status) {
         dropState()
