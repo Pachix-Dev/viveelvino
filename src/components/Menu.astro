@@ -10,29 +10,29 @@ const base = lang === 'es' ? '' : `/${lang}`
   <div
     id='sticky-banner'
     tabindex='-1'
-    class='flex justify-center p-4 border-b bg-gray-700'
+    class='flex justify-center sm:p-4 border-b bg-gray-700'
   >
-    <div class='bg-[#FDA314] p-3 text-center leading-3'>
-      <p class='text-white text-2xl font-extrabold uppercase'>
+    <div class='bg-[#FDA314] p-3 text-center leading-4'>
+      <p class='text-white text-md sm:text-2xl font-extrabold uppercase'>
         {t('menu.event_date')}<br />
       </p>
-      <span class='text-white text-[15px] font-extrabold uppercase'
+      <span class='text-white text-sm sm:text-[15px] font-extrabold uppercase'
         >11:00 AM - 9:00 PM</span
       >
     </div>
-    <div class='bg-[#DB00AE] p-3 text-center leading-3'>
-      <p class='text-white text-2xl font-extrabold uppercase font-sans'>
+    <div class='bg-[#DB00AE] p-3 text-center leading-4'>
+      <p class='text-white text-md sm:text-2xl font-extrabold uppercase'>
         {t('menu.distric_venue')}
       </p>
-      <span class='text-white text-[15px] font-extrabold uppercase'
-        >{t('menu.instalations')}</span
-      >
+      <span class='text-white text-sm sm:text-[15px] font-extrabold uppercase'
+        >{t('menu.instalations')}
+      </span>
     </div>
   </div>
 
   <nav class='bg-agro-green border-gray-200'>
     <div
-      class='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'
+      class='max-w-screen-xl flex flex-wrap items-center justify-center gap-2 sm:justify-between mx-auto p-4'
     >
       <a href={`${base}/`} class='flex items-center'>
         <img
