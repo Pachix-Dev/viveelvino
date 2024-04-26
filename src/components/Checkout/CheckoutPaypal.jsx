@@ -41,7 +41,7 @@ export function CheckoutPaypal() {
         },
         body: JSON.stringify({
           items,
-          total,
+          total: total.toFixed(2),
         }),
       }
     )
@@ -59,7 +59,7 @@ export function CheckoutPaypal() {
       body: JSON.stringify({
         orderID: data.orderID,
         items,
-        total,
+        total: total.toFixed(2),
         name,
         email,
         phone,
