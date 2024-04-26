@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import useCartStore from '../../store/cartStore'
+const VINOAPI = import.meta.env.PROD
+  ? import.meta.env.PUBLIC_VINOAPI_PROD
+  : import.meta.env.PUBLIC_VINOAPI_DEV
 
 export function CouponDiscount() {
   const [couponCode, setCouponCode] = useState('')
@@ -24,7 +27,7 @@ export function CouponDiscount() {
     }
 
     try {
-      const response = await fetch('http://localhost:3005/check-coupon', {
+      const response = await fetch(VINOAPI + '/check-coupon', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
