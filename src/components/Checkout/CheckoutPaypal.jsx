@@ -51,22 +51,25 @@ export function CheckoutPaypal() {
 
   async function onApprove(data) {
     setProcessing(true)
-    const response = await fetch(VINOAPI + '/complete-order', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        orderID: data.orderID,
-        items,
-        total: total.toFixed(2),
-        name,
-        email,
-        phone,
-        catas,
-        companions,
-      }),
-    })
+    const response = await fetch(
+      'https://viveelvino.igeco.mx/backend/complete-order',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          orderID: data.orderID,
+          items,
+          total: total.toFixed(2),
+          name,
+          email,
+          phone,
+          catas,
+          companions,
+        }),
+      }
+    )
     const orderData = await response.json()
     if (orderData.status) {
       dropState()
