@@ -13,7 +13,7 @@ export function Products() {
     {
       id: 1,
       name: 'Acceso General',
-      price: 499,
+      price: 5,
       regularPrice: 599,
       include: [
         'Acceso a la feria ambos días',
