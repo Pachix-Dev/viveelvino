@@ -74,7 +74,7 @@ const catas_generales_8_junio = {
         {
             id: 'CATA 6',
             name: 'MARIDAJE GRAN PADRE',
-            description:'Viñedo Gran Padre',
+            description:'Viñedo Gran Padre y Panadería Artesanal el Refugio',
             hora: '18:30 - 19:30'
         }
     ],
@@ -86,7 +86,7 @@ const catas_generales_8_junio = {
         },
         {
             id: 'CATA 8',
-            name: '',
+            name: 'CATA POTENCIA ZACATECAS',
             description:'Cuna de Plata',         
             hora: '12:30 - 13:30',
         },
@@ -157,7 +157,8 @@ const catas_generales_9_junio = {
     salon_catas1: [
         {
             id: 'CATA 19',
-            name: '',            
+            name: 'BLANCOS QUERETANOS',
+            description:'Clúster Vitivinícola de Querétaro',          
             hora: '11:00 - 12:00',
         },
         {
@@ -180,8 +181,8 @@ const catas_generales_9_junio = {
         },
         {
             id: 'CATA 23',
-            name: 'MARIDAJE DULCE',
-            description:'Cavas Manchón',
+            name: 'MARIDAJE ICONOS GTO',
+            description:'Cavas Manchón y Casa Valadez',
             hora: '17:00 - 18:00'
         },
         {
@@ -194,7 +195,8 @@ const catas_generales_9_junio = {
     salon_catas2: [
         {
             id: 'CATA 25',
-            name: '',            
+            name: 'ROSADOS QUERETANOS',
+            description:'Clúster Vitivinícola de Querétaro',            
             hora: '11:00 - 12:00',
         },
         {
@@ -217,13 +219,14 @@ const catas_generales_9_junio = {
         },
         {
             id: 'CATA 29',
-            name: 'CATA SORPRESA',
+            name: 'TINTOS QUERETANOS',
+            description:'Clúster Vitivinícola de Querétaro',
             hora: '17:00 - 18:00'
         },
         {
             id: 'CATA 30',
-            name: 'MARIDAJE DE PASTAS',
-            description:'Castillo Ferrer y Barbolana',
+            name: 'MARIDAJE DEL CASTILLO',
+            description:'Castillo Ferrer',
             hora: '18:30 - 19:30'
         }
     ],
