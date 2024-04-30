@@ -157,7 +157,7 @@ const catas_generales_9_junio = {
     salon_catas1: [
         {
             id: 'CATA 19',
-            name: 'BLANCOS QUERETANOS',
+            name: 'VINOS BLANCOS ANIMADOS Y EXPRESIVOS',
             description:'Clúster Vitivinícola de Querétaro',          
             hora: '11:00 - 12:00',
         },
@@ -195,7 +195,7 @@ const catas_generales_9_junio = {
     salon_catas2: [
         {
             id: 'CATA 25',
-            name: 'ROSADOS QUERETANOS',
+            name: 'EL VINO ROSADO ESTÁ DE MODA',
             description:'Clúster Vitivinícola de Querétaro',            
             hora: '11:00 - 12:00',
         },
@@ -219,7 +219,7 @@ const catas_generales_9_junio = {
         },
         {
             id: 'CATA 29',
-            name: 'TINTOS QUERETANOS',
+            name: 'LOS TINTOS DE QUERÉTARO',
             description:'Clúster Vitivinícola de Querétaro',
             hora: '17:00 - 18:00'
         },
