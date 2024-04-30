@@ -21,8 +21,9 @@ export class RegisterModel {
       const [result] = await connection.query('UPDATE users SET pick_up = 1, updated_at = NOW(), code_relative= ? WHERE uuid = ? AND pick_up IS NULL', [code, uuid]);
       
       // Check if any row was updated
-      if (result.affectedRows === 0) {        
-        return null;
+      if (result.affectedRows === 0) {      
+        const [updatedRecords] = await connection.query('SELECT * FROM users WHERE uuid = ?', [uuid]);
+        return updatedRecords[0] || null;
       }else{        
         const [updatedRecords] = await connection.query('SELECT * FROM users WHERE uuid = ?', [uuid]);                         
         return updatedRecords[0];    
