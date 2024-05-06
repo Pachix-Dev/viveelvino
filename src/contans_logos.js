@@ -12,12 +12,12 @@ const media_partners = [
     { link: 'https://www.chicmagazine.com.mx/', src: '/img/LOGO-CHIC.webp', alt:'Chic Magazine', width: 200 },
     { link: 'https://www.milenio.com/', src: '/img/Logo-Grupo-Milenio.webp', alt:'Grupo Milenio', width: 200 },
     { link: 'https://tvcuatro.tv/', src: '/img/TV-cuatro.webp', alt:'TV cuatro', width: 100 },
-    { link: 'https://www.am.com.mx/', src: '/img/am.webp', alt:'AM', width: 200 },
+    /*{ link: 'https://www.am.com.mx/', src: '/img/am.webp', alt:'AM', width: 200 },*/
     { link: '', src: '/img/Blu-923.webp', alt:'BLU 92.3', width: 200 },
     { link: '', src: '/img/U-983.webp', alt:'U 98.3', width: 200 },
     { link: 'https://www.elsoldelbajio.com.mx/', src: '/img/crinado.webp', alt:'Crinado', width: 150 },
-    { link: 'https://www.am.com.mx/temas/revista-cerro-gordo-12675.html?true', src: '/img/Cerro-Gordo_logo.webp', alt:'Cerro Gordo', width: 150 },
-    { link: 'https://www.elsoldeleon.com.mx/', src: '/img/El-Sol-de-Leon.webp', alt:'El sol de Leon', width: 250 },
+    /*{ link: 'https://www.am.com.mx/temas/revista-cerro-gordo-12675.html?true', src: '/img/Cerro-Gordo_logo.webp', alt:'Cerro Gordo', width: 150 },
+    { link: 'https://www.elsoldeleon.com.mx/', src: '/img/El-Sol-de-Leon.webp', alt:'El sol de Leon', width: 250 },*/
     { link: 'https://heraldodemexico.com.mx/', src: '/img/heraldoHorizontal.webp', alt:'Heraldo Media Group', width: 250 },
     { link: 'https://www.globalindustrial.com/', src: '/img/global-industries_v2.webp', alt:'global industries', width: 250 },
     { link: 'https://globalenergy.mx/', src: '/img/global-energy-v2.webp', alt:'global Energy', width: 250 },
