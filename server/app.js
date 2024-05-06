@@ -407,6 +407,45 @@ app.get('/user-ticket-verification/:uuid/:code', async (req, res) => {
     }
 });
 
+app.put('/user-check/:code/:action', async (req, res) => {
+    const { code, action } = req.params;
+
+    try {
+        // Check if the user has already checked in or out
+        const existingAction = await AttendanceModel.getUserActionStatus(code);
+        if (existingAction) {
+            return res.status(400).json({
+                status: false,
+                message: 'User has already checked in or out'
+            });
+        }
+
+        // Perform the check-in or check-out operation in your database
+        // Depending on the action, update the check-in or check-out time for the user
+        if (action === 'check-in') {
+            await AttendanceModel.checkInUser(uuid);
+        } else if (action === 'check-out') {
+            await AttendanceModel.checkOutUser(uuid);
+        } else {
+            return res.status(400).json({
+                status: false,
+                message: 'Invalid action'
+            });
+        }
+
+        res.json({
+            status: true,
+            message: `User ${action} successful`
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({
+            status: false,
+            message: 'Failed to perform user check-in/check-out'
+        });
+    }
+});
+
 app.get('/verify-vip-ticket/:cataVip/:date', async (req, res) => {
     const { cataVip, date } = req.params;
 
