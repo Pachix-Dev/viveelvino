@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - nodeploy
+      - demo
 name: 🚀 Deploy website on push demo branch
 jobs:
   web-deploy:
