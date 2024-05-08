@@ -62,7 +62,7 @@ export function SelectCatas({ user, date, catasgenerales = [], sala }) {
                   ) : (
                     <div className='mt-2'>
                       <span className='bg-gray-500 font-bold p-1 text-white rounded-lg'>
-                        No disponible
+                        Sold out
                       </span>
                     </div>
                   )}
@@ -105,7 +105,7 @@ export function SelectCatas({ user, date, catasgenerales = [], sala }) {
                   ) : (
                     <div className='mt-2'>
                       <span className='bg-gray-500 font-bold p-1 text-white rounded-lg'>
-                        No disponible
+                        Sold out
                       </span>
                     </div>
                   )}
