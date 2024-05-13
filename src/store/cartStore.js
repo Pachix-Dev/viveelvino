@@ -155,7 +155,7 @@ const useCartStore = create(
       });
     },
   
-    addDiscount_5: () => {      
+    addDiscount_5: (code) => {      
       set((state) => {
           const existingItem = state.items.find((item) => item.id === 66);
           if (existingItem || state.total === 0 ) {                      
@@ -165,7 +165,7 @@ const useCartStore = create(
               const formattedDiscountAmount = discountAmount.toFixed(2); // Format discount amount to two decimal places
               const newItem = {
                   id: 66,
-                  name: 'COPARECORD 5% DESCUENTO',
+                  name: code+' 5% DESCUENTO',
                   price: -parseFloat(formattedDiscountAmount), // Ensure price is negative
                   quantity: 1,
               };

@@ -22,7 +22,10 @@ export function Catas({ user }) {
         opciones preferidas, identifica el día, horario y sala de tu
         preferencia.
       </p>
-
+      <p className='mt-2'>
+        * Al inscribirme a las catas y talleres, acepto que mi información sea
+        compartida con la bodega y el restaurante organizador de dichas catas.
+      </p>
       <Tabs
         aria-label='Default tabs'
         style='default'

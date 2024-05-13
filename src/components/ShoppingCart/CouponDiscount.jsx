@@ -15,10 +15,10 @@ export function CouponDiscount() {
   }
 
   const checkCoupon = async () => {
-    if (couponCode === 'COPARECORD') {
+    if (couponCode === 'COPARECORD' || couponCode === 'UNBUENVINO') {
       setCouponStatus('Cupon valido, limitado a 1 solo uso!')
       setIsValidCoupon(true)
-      addDiscount_5()
+      addDiscount_5(couponCode)
       setCouponCode('')
       return
     }
