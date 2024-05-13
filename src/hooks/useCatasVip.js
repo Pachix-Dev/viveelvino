@@ -7,7 +7,7 @@ const VINOAPI = import.meta.env.PROD
 export function useCatasVip(){
   const [catasVip8junio, setCatasVip8junio] = useState([])
   const [catasVip9junio, setCatasVip9junio] = useState([])
-
+   
   useEffect(() => {
     const checkAvailable = async () => {
         const availableCatas8 = []

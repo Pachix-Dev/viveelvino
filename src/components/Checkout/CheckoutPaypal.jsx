@@ -15,7 +15,7 @@ const VINOAPI = import.meta.env.PROD
 const PAYPALAPI = import.meta.env.PROD
   ? import.meta.env.PUBLIC_PAYPAL_CLIENT_PROD
   : import.meta.env.PUBLIC_PAYPAL_CLIENT_DEV
-
+console.log(PAYPALAPI)
 export function CheckoutPaypal() {
   const {
     items,

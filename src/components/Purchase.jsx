@@ -20,7 +20,7 @@ export function Purchase() {
           {invoiceDownToLoad && (
             <a
               className='font-bold bg-[#DB00AE] hover:bg-[#21B380] text-white rounded-lg p-4 mt-5 '
-              href={`https://viveelvino.igeco.mx/invoices/${invoiceDownToLoad}`}
+              href={`https://demo.viveelvino.igeco.mx/invoices/${invoiceDownToLoad}`}
               target='_blank'
             >
               DESCARGA TUS BOLETOS
