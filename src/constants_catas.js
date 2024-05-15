@@ -32,7 +32,7 @@ const catas_vip_9_junio = [
     {
         id: 6,
         name: 'VIP - MARIDAJE DE EXCELENCIA',
-        description: 'Tres Raíces y La Arrocería Guanajuato',
+        description: 'Tres Raíces y Paella de la Arrocería Guanajuato',
         price: 820.0,
         vip: true,
         hora: '12:30 - 13:30',
