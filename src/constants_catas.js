@@ -128,7 +128,7 @@ const catas_generales_8_junio = {
         },
         {
             id: 'CATA 15',
-            name: 'MARIDAJE VINOS Y COPAS',
+            name: 'BAJA CALIFORNIA EXPERIENCIA EN LA COPA',
             description:' Bajalupano y Kristalov',
             hora: '14:00 - 15:00',
         },
