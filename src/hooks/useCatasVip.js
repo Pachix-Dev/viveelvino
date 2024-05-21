@@ -37,7 +37,7 @@ export function useCatasVip(){
                         ...cata,                    
                     });
                 }else{
-                    availableCatas8.push({
+                    availableCatas9.push({
                         ...cata,
                         soldOut: true                  
                     });
