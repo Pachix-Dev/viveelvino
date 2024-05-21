@@ -18,7 +18,7 @@ export function useCatasVip(){
           if (data.status  && data.catasVip?.length > 0) {            
             catas_vip_8_junio.map(cata => {
                 const available = data.catasVip.filter(cataVip => cataVip.name === cata.name && cataVip.date === '8 junio');
-                if (available.length < 30) {
+                if (available.length < 29) {
                     availableCatas8.push({
                         ...cata,                  
                     });
@@ -32,7 +32,7 @@ export function useCatasVip(){
 
             catas_vip_9_junio.map(cata => {
                 const available = data.catasVip.filter(cataVip => cataVip.name === cata.name && cataVip.date === '9 junio');
-                if (available.length < 30) {
+                if (available.length < 29) {
                     availableCatas9.push({
                         ...cata,                    
                     });
