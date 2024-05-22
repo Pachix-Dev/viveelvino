@@ -2,7 +2,7 @@ const catas_vip_8_junio= [
     {
         id: 3,
         name: 'VIP - MARIDAJE DE AUTOR',
-        description: 'Viñedo San Miguel y Restaurante Trasiego',
+        description: 'Viñedo San Miguel y Restaurante Trasiego - Chef David Quevedo',
         price: 820.0,
         vip: true,
         hora: '11:00 - 12:00',
