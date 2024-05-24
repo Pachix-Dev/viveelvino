@@ -23,7 +23,7 @@ const media_partners = [
     { link: 'https://globalenergy.mx/', src: '/img/global-energy-v2.webp', alt:'global Energy', width: 250 },
     { link: 'https://www.publimetro.com.mx/', src: '/img/MWN-PUBLIMETRO-firma.webp', alt:'Publimetro', width: 250 },
     { link: 'https://www.radioformula.com.mx/bajio/', src: '/img/radio-formula.webp', alt:'Radio Formula', width: 200 },
-    { link: 'https://thetravelcitizen.com/', src: '/img/travelcitizen.webp', alt:'Radio Formula', width: 200 }
+    { link: 'https://thetravelcitizen.com/', src: '/img/travelcitizen.webp', alt:'Travel Citizen', width: 120 }
 ]
 
 const toolkit_es = [
