@@ -21,8 +21,9 @@ const media_partners = [
     { link: 'https://heraldodemexico.com.mx/', src: '/img/heraldoHorizontal.webp', alt:'Heraldo Media Group', width: 250 },
     { link: 'https://www.globalindustrial.com/', src: '/img/global-industries_v2.webp', alt:'global industries', width: 250 },
     { link: 'https://globalenergy.mx/', src: '/img/global-energy-v2.webp', alt:'global Energy', width: 250 },
-    { link: 'https://www.publimetro.com.mx/', src: '/img/LOGO-PUBLIMETRO.webp', alt:'Publimetro', width: 250 },
-    { link: 'https://www.radioformula.com.mx/bajio/', src: '/img/radio-formula.webp', alt:'Radio Formula', width: 200 }
+    { link: 'https://www.publimetro.com.mx/', src: '/img/MWN-PUBLIMETRO-firma.webp', alt:'Publimetro', width: 250 },
+    { link: 'https://www.radioformula.com.mx/bajio/', src: '/img/radio-formula.webp', alt:'Radio Formula', width: 200 },
+    { link: 'https://thetravelcitizen.com/', src: '/img/travelcitizen.webp', alt:'Radio Formula', width: 200 }
 ]
 
 const toolkit_es = [
