@@ -36,6 +36,22 @@ export class RegisterModel {
     }
   }
   
+  static async userCatasGeneralVerify({
+     cata , date, code
+  }) {
+    const connection = await mysql.createConnection(config);
+    try {
+      const [result] = await connection.query('SELECT * FROM users u  LEFT JOIN catas_generales c ON u.id = c.id  AND c.id_cata = ?  AND c.date = ? WHERE u.code_relative = ?', [cata, date, code]);
+      return result[0] || null;
+    } catch (error) {
+      throw error; // Rethrow the caught error
+    } finally {
+      await connection.end(); // Close the connection
+    }
+  }
+
+  
+
   static async create_user ({   
     uuid,
     name,

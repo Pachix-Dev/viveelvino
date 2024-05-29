@@ -419,9 +419,7 @@ app.put('/user-check/:code/:action', async (req, res) => {
                 message: 'User has already checked in or out'
             });
         }
-
-        // Perform the check-in or check-out operation in your database
-        // Depending on the action, update the check-in or check-out time for the user
+        
         if (action === 'check-in') {
             await AttendanceModel.checkInUser(uuid);
         } else if (action === 'check-out') {
