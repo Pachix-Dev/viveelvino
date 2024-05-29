@@ -18,15 +18,29 @@ export function useCatasVip(){
           if (data.status  && data.catasVip?.length > 0) {            
             catas_vip_8_junio.map(cata => {
                 const available = data.catasVip.filter(cataVip => cataVip.name === cata.name && cataVip.date === '8 junio');
-                if (available.length < 19) {
+               
+                if(cata.name === 'VIP - MARIDAJE DE AUTOR'){
+                  if (available.length < 19) {
                     availableCatas8.push({
                         ...cata,                  
                     });
-                }else{
+                  }else{
                     availableCatas8.push({
                         ...cata,
                         soldOut: true                  
                     });
+                  }
+                }else{
+                  if (available.length < 29) {
+                      availableCatas8.push({
+                          ...cata,                  
+                      });
+                  }else{
+                      availableCatas8.push({
+                          ...cata,
+                          soldOut: true                  
+                      });
+                  }
                 }
             });
 
