@@ -1,17 +1,17 @@
 import './Catas.css'
 
 import { Tabs } from 'flowbite-react'
-import { SelectCatas } from './SelectCatas'
+//import { SelectCatas } from './SelectCatas'
 import { Addons } from './Addons'
 import useCartStore from '../../store/cartStore'
 
-import { useCatasGeneral } from '../../hooks/useCatasGeneral'
+//import { useCatasGeneral } from '../../hooks/useCatasGeneral'
 import { useCatasVip } from '../../hooks/useCatasVip'
 
 export function Catas({ user }) {
   const { items } = useCartStore()
   const { catasVip8junio, catasVip9junio } = useCatasVip()
-  const { catasAvailability8junio, catasAvailability9junio } = useCatasGeneral()
+  //const { catasAvailability8junio, catasAvailability9junio } = useCatasGeneral()
 
   return (
     <>
