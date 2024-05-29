@@ -20,7 +20,7 @@ export function useCatasVip(){
                 const available = data.catasVip.filter(cataVip => cataVip.name === cata.name && cataVip.date === '8 junio');
                
                 if(cata.name === 'VIP - MARIDAJE DE AUTOR'){
-                  if (available.length < 19) {
+                  if (available.length < 14) {
                     availableCatas8.push({
                         ...cata,                  
                     });
@@ -30,18 +30,21 @@ export function useCatasVip(){
                         soldOut: true                  
                     });
                   }
-                }else{
-                  if (available.length < 29) {
-                      availableCatas8.push({
-                          ...cata,                  
-                      });
+                }
+
+                if(cata.name === 'VIP - MARIDAJE DE FAMOSOS'){
+                  if (available.length < 22) {
+                    availableCatas8.push({
+                        ...cata,                  
+                    });
                   }else{
-                      availableCatas8.push({
-                          ...cata,
-                          soldOut: true                  
-                      });
+                    availableCatas8.push({
+                        ...cata,
+                        soldOut: true                  
+                    });
                   }
                 }
+                
             });
 
             catas_vip_9_junio.map(cata => {
