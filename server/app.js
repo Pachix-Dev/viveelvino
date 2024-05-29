@@ -407,12 +407,11 @@ app.get('/user-ticket-verification/:uuid/:code', async (req, res) => {
     }
 });
 
-app.get('user-catas-talleres-verification/:code/:date/:cata', async (req, res) => {
-    const { code, date, cata } = req.params;
-
+app.get('/user-catas-talleres-verification/:code/:date/:cata', async (req, res) => {
+    const { code, date, cata } = req.params;   
     try {
-        const data = await RegisterModel.verifyGeneralTicket({ code, date, cata });
-        if (data) {
+        const data = await RegisterModel.userCatasGeneralVerify({ code, date, cata });
+        if (data.status) {
             res.json({ // Using res.json for setting appropriate Content-Type
                 status: true,
                 message: 'User ticket is valid',
@@ -422,7 +421,7 @@ app.get('user-catas-talleres-verification/:code/:date/:cata', async (req, res) =
             // Using 404 Not Found as an example; adjust based on your application's needs
             res.status(404).json({
                 status: false,
-                message: 'User ticket used already or not found'
+                message: 'User not found'
             });
         }
     } catch (err) {

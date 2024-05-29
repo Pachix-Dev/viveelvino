@@ -41,8 +41,18 @@ export class RegisterModel {
   }) {
     const connection = await mysql.createConnection(config);
     try {
-      const [result] = await connection.query('SELECT * FROM users u  LEFT JOIN catas_generales c ON u.id = c.id  AND c.id_cata = ?  AND c.date = ? WHERE u.code_relative = ?', [cata, date, code]);
-      return result[0] || null;
+      const [result] = await connection.query('SELECT u.name AS nombre_usuario, u.email, u.phone, u.code_relative, c.id_cata, c.name AS nombre_cata, c.date, c.hora, c.sala FROM users u  LEFT JOIN catas_generales c ON u.id = c.id  AND c.id_cata = ?  AND c.date = ? WHERE u.code_relative = ?', [cata, date, code]);
+      
+      if (result[0].id_cata) {
+        return {
+          status: true,
+          ...result[0]
+        }
+      }else{
+        return {
+          status: false,          
+        }
+      }      
     } catch (error) {
       throw error; // Rethrow the caught error
     } finally {
