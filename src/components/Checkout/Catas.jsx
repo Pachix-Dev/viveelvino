@@ -15,7 +15,7 @@ export function Catas({ user }) {
 
   return (
     <>
-      <p className='mt-2 '>
+      {/*<p className='mt-2 '>
         <strong>IMPORTANTE</strong> - tu acceso general te permite
         pre-registrarte hasta 2 experiencias de cata o taller / cupo limitado
         con tiempo de espera, sujeto a disponibilidad. A continuación, elige tus
@@ -25,14 +25,14 @@ export function Catas({ user }) {
       <p className='mt-2'>
         * Al inscribirme a las catas y talleres, acepto que mi información sea
         compartida con la bodega y el restaurante organizador de dichas catas.
-      </p>
+      </p>*/}
       <Tabs
         aria-label='Default tabs'
         style='default'
         className='mt-2 menuFecha'
       >
         <Tabs.Item active title='SÁBADO 8 JUNIO'>
-          <Tabs
+          {/*<Tabs
             aria-label='Default tabs'
             style='default'
             className='mt-2 submenuFecha'
@@ -67,14 +67,15 @@ export function Catas({ user }) {
                 />
               </div>
             </Tabs.Item>
-          </Tabs>
+          
+          </Tabs>*/}
 
           {items.find((item) => item.id === 1) && (
             <Addons user={user} catas={catasVip8junio} />
           )}
         </Tabs.Item>
         <Tabs.Item title='DOMINGO 9 JUNIO'>
-          <Tabs
+          {/*<Tabs
             aria-label='Default tabs'
             style='default'
             className='mt-2 submenuFecha'
@@ -109,7 +110,7 @@ export function Catas({ user }) {
                 />
               </div>
             </Tabs.Item>
-          </Tabs>
+           </Tabs>*/}
           {items.find((item) => item.id === 1) && (
             <Addons user={user} catas={catasVip9junio} />
           )}

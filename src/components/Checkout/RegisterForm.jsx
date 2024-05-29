@@ -334,7 +334,7 @@ export function RegisterForm() {
                   <Catas user={index + 1} />
                 </div>
               ))}
-              <div className='flex gap-4  mt-10'>
+              {/*<div className='flex gap-4  mt-10'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   fill='none'
@@ -355,7 +355,7 @@ export function RegisterForm() {
                   comenzar, en caso contrario se liberarán los espacios para
                   fila de espera.
                 </p>
-              </div>
+              </div>*/}
               <div className=' flex gap-4 mt-2'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
