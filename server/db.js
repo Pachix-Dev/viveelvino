@@ -18,7 +18,7 @@ export class RegisterModel {
     const connection = await mysql.createConnection(config);
     try {
       // Perform the update only if pick_up is not already 1
-      const [result] = await connection.query('UPDATE users SET pick_up = 1, updated_at = NOW(), code_relative= ? WHERE uuid = ? AND pick_up IS NULL', [code, uuid]);
+      const [result] = await connection.query('UPDATE users SET pick_up = 1, updated_at = NOW(), code_relative= ? WHERE uuid = ?', [code, uuid]);
       
       // Check if any row was updated
       if (result.affectedRows === 0) {      
