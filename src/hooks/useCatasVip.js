@@ -49,7 +49,8 @@ export function useCatasVip(){
 
             catas_vip_9_junio.map(cata => {
                 const available = data.catasVip.filter(cataVip => cataVip.name === cata.name && cataVip.date === '9 junio');
-                if (available.length < 19) {
+                               
+                if (available.length < 27) {
                     availableCatas9.push({
                         ...cata,                    
                     });
