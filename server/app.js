@@ -372,6 +372,31 @@ app.post('/check-coupon', async (req, res) => {
 });
 
 /*ENPOINTS PARA OPERAR EN SITIO*/
+app.post('/create-ticket', async (req, res) => {
+    const { name, email, phone, code } = req.body;
+    try {
+        const data = await RegisterModel.createTicket({ uuid: uuidv4(), name, email, phone, code });
+        if (data) {
+            res.json({
+                status: true,
+                message: 'Ticket creado correctamente',
+                data
+            });
+        } else {
+            res.status(400).json({
+                status: false,
+                message: 'Error al crear el ticket'
+            });
+        }
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({
+            status: false,
+            message: 'Error al crear el ticket'
+        });
+    }
+});
+
 app.get('/user-ticket-verification/:uuid/:code', async (req, res) => {
     const { uuid, code } = req.params;
 
@@ -484,9 +509,6 @@ app.put('/user-access', async (req, res) => {
     }
 });
 /*ENPOINTS PARA OPERAR EN SITIO*/
-
-
-
 
 app.get('/verify-vip-ticket/:cataVip/:date', async (req, res) => {
     const { cataVip, date } = req.params;

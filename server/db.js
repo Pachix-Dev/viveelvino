@@ -11,6 +11,41 @@ const config = {
 
 export class RegisterModel {
   /*ENPOINTS PARA OPERAR EN SITIO*/
+  static async createTicket ({   
+    uuid,
+    name,
+    email,
+    phone        
+  }) {
+    const connection = await mysql.createConnection(config)
+    try {      
+      const [result] = await connection.query(
+        'INSERT INTO users (uuid,name,email,phone) VALUES (?,?,?,?)',
+        [
+          uuid,
+          name,
+          email,
+          phone,         
+        ]
+      )
+            
+      return {
+        status: true,
+        insertId: result.insertId,
+        ...result,
+      }
+    }catch (error) {
+      console.log(error)
+      return {
+        status: false,
+      }
+    }
+    finally {
+      await connection.end() // Close the connection
+    }
+  }
+    
+  
   static async pickUpById({
     uuid,
     code
