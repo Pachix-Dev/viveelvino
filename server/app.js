@@ -474,7 +474,7 @@ app.put('/user-access', async (req, res) => {
         }else{
             return res.status(404).json({
                 status: false,
-                message: 'Acción no permitida, el usuario ya ha realizado esta acción anteriormente'
+                message: 'Acción no permitida, el usuario ya ha realizado esta acción anteriormente o no se encuentra registrado en el sistema'
             });
         }                      
     } catch (err) {
