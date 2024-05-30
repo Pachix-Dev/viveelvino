@@ -15,17 +15,19 @@ export class RegisterModel {
     uuid,
     name,
     email,
-    phone        
+    phone,
+    code        
   }) {
     const connection = await mysql.createConnection(config)
     try {      
       const [result] = await connection.query(
-        'INSERT INTO users (uuid,name,email,phone) VALUES (?,?,?,?)',
+        'INSERT INTO users (uuid,name,email,phone,code) VALUES (?,?,?,?,?)',
         [
           uuid,
           name,
           email,
-          phone,         
+          phone,
+          code         
         ]
       )
             

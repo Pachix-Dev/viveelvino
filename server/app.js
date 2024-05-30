@@ -15,7 +15,7 @@ app.use(json())
 app.use(express.urlencoded({extended: true}));
 app.use(cors({
   origin: (origin, callback) => {
-    const ACCEPTED_ORIGINS = ['http://localhost:4321', 'https://igeco.mx', 'https://viveelvino.igeco.mx', 'https://demo.viveelvino.igeco.mx']
+    const ACCEPTED_ORIGINS = ['http://localhost:4321', 'https://igeco.mx', 'https://viveelvino.igeco.mx', 'https://www.viveelvino.igeco.mx', 'https://demo.viveelvino.igeco.mx']
 
     if (ACCEPTED_ORIGINS.includes(origin)) {
       return callback(null, true)
