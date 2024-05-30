@@ -391,9 +391,8 @@ app.get('/user-ticket-verification/:uuid/:code', async (req, res) => {
                 message: 'User ticket is valid',
                 data
             });
-        } else {
-            // Using 404 Not Found as an example; adjust based on your application's needs
-            res.status(404).json({
+        } else {        
+            res.status(400).json({
                 status: false,
                 message: 'User ticket used already or not found'
             });
@@ -419,7 +418,7 @@ app.get('/user-catas-talleres-verification/:code/:date/:cata', async (req, res) 
             });
         } else {
             // Using 404 Not Found as an example; adjust based on your application's needs
-            res.status(404).json({
+            res.status(400).json({
                 status: false,
                 message: 'No existen registros de este usuario en catas o talleres generales'
             });
@@ -445,7 +444,7 @@ app.get('/user-catas-vip-verification/:code/:date/:cata', async (req, res) => {
             });
         } else {
             // Using 404 Not Found as an example; adjust based on your application's needs
-            res.status(404).json({
+            res.status(400).json({
                 status: false,
                 message: 'No existen registros de este usuario en catas vip'
             });
@@ -471,7 +470,7 @@ app.put('/user-access', async (req, res) => {
                 message: `${action} correctamente`
             });
         }else{
-            return res.status(404).json({
+            return res.status(400).json({
                 status: false,
                 message: 'Acción no permitida, el usuario ya ha realizado esta acción anteriormente o no se encuentra registrado en el sistema'
             });
