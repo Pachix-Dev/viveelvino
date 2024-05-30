@@ -27,7 +27,6 @@ app.use(cors({
   }
 }))
 
-process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 const PORT = process.env.PORT || 3002
 const environment = process.env.ENVIRONMENT || 'sandbox';
 const client_id = process.env.CLIENT_ID;
