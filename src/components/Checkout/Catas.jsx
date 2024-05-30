@@ -31,8 +31,8 @@ export function Catas({ user }) {
         style='default'
         className='mt-2 menuFecha'
       >
-        <Tabs.Item active title='SÁBADO 8 JUNIO'>
-          {/*<Tabs
+        {/*<Tabs.Item active title='SÁBADO 8 JUNIO'>
+          <Tabs
             aria-label='Default tabs'
             style='default'
             className='mt-2 submenuFecha'
@@ -68,12 +68,12 @@ export function Catas({ user }) {
               </div>
             </Tabs.Item>
           
-          </Tabs>*/}
+          </Tabs>
 
           {items.find((item) => item.id === 1) && (
             <Addons user={user} catas={catasVip8junio} />
           )}
-        </Tabs.Item>
+        </Tabs.Item>*/}
         <Tabs.Item title='DOMINGO 9 JUNIO'>
           {/*<Tabs
             aria-label='Default tabs'
