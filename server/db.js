@@ -10,7 +10,7 @@ const config = {
 }
 
 export class RegisterModel {
-
+  /*ENPOINTS PARA OPERAR EN SITIO*/
   static async pickUpById({
     uuid,
     code
@@ -41,9 +41,11 @@ export class RegisterModel {
   }) {
     const connection = await mysql.createConnection(config);
     try {
-      const [result] = await connection.query('SELECT u.name AS nombre_usuario, u.email, u.phone, u.code_relative, c.id_cata, c.name AS nombre_cata, c.date, c.hora, c.sala FROM users u  LEFT JOIN catas_generales c ON u.id = c.id  AND c.id_cata = ?  AND c.date = ? WHERE u.code_relative = ?', [cata, date, code]);
+      const [result] = await connection.query('SELECT u.name AS nombre_usuario, u.email, u.phone, u.code_relative, c.id, c.id_cata, c.name AS nombre_cata, c.date, c.hora, c.sala FROM users u  LEFT JOIN catas_generales c ON u.id = c.user_id  AND c.id_cata = ?  AND c.date = ? WHERE u.code_relative = ?', [cata, date, code]);
       
-      if (result[0].id_cata) {
+      if (result[0]?.id_cata) {
+        await connection.query('UPDATE catas_generales SET check_in = ? WHERE id = ?', [1,result[0].id]);
+
         return {
           status: true,
           ...result[0]
@@ -60,7 +62,58 @@ export class RegisterModel {
     }
   }
 
-  
+  static async userCatasVipVerify({
+    cata , date, code
+ }) {
+   const connection = await mysql.createConnection(config);
+   try {
+     const [result] = await connection.query('SELECT u.name AS nombre_usuario, u.email, u.phone, u.code_relative, c.id, c.name AS nombre_cata_vip, c.date, c.hora, c.user_id FROM users u  LEFT JOIN catas_vip c ON u.id = c.user_id  AND c.name = ?  AND c.date = ? WHERE u.code_relative = ?', [cata, date, code]);     
+     if (result[0]?.user_id) {
+       await connection.query('UPDATE catas_vip SET check_in = ? WHERE id = ?', [1,result[0].id]);
+
+       return {
+         status: true,
+         ...result[0]
+       }
+     }else{
+       return {
+         status: false,          
+       }
+     }      
+   } catch (error) {
+     throw error; // Rethrow the caught error
+   } finally {
+     await connection.end(); // Close the connection
+   }
+  }
+
+  static async userAccess({
+    code,
+    action
+  }) {
+    const connection = await mysql.createConnection(config);
+    try {
+      const [result] = await connection.query('UPDATE users SET action = ? WHERE code_relative= ? AND action != ?', [action, code, action]);
+      console.log(result)
+      if (result.affectedRows === 0) {
+        return {
+          status: false
+        }
+      }else{
+        return {
+          status: true
+        }
+      }           
+    } catch (error) {
+      throw error; // Rethrow the caught error
+    } finally {
+      await connection.end(); // Close the connection
+    }
+  }
+  /*ENPOINTS PARA OPERAR EN SITIO*/
+
+
+
 
   static async create_user ({   
     uuid,

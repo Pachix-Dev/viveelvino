@@ -372,6 +372,7 @@ app.post('/check-coupon', async (req, res) => {
     }    
 });
 
+/*ENPOINTS PARA OPERAR EN SITIO*/
 app.get('/user-ticket-verification/:uuid/:code', async (req, res) => {
     const { uuid, code } = req.params;
 
@@ -402,7 +403,7 @@ app.get('/user-ticket-verification/:uuid/:code', async (req, res) => {
         console.error(err); // It's good practice to log the error
         res.status(500).json({ // Respond with 500 Internal Server Error on exceptions
             status: false,
-            message: 'User ticket verification failed'
+            message: err.sqlState === '23000' ? 'Ya haz asignado este codigo a un usuario' : 'Error al verificar el ticket del usuario'
         });
     }
 });
@@ -414,14 +415,14 @@ app.get('/user-catas-talleres-verification/:code/:date/:cata', async (req, res) 
         if (data.status) {
             res.json({ // Using res.json for setting appropriate Content-Type
                 status: true,
-                message: 'User ticket is valid',
+                message: 'Usuario encontrado en la cata/taller',
                 data
             });
         } else {
             // Using 404 Not Found as an example; adjust based on your application's needs
             res.status(404).json({
                 status: false,
-                message: 'User not found'
+                message: 'No existen registros de este usuario en catas o talleres generales'
             });
         }
     } catch (err) {
@@ -433,42 +434,61 @@ app.get('/user-catas-talleres-verification/:code/:date/:cata', async (req, res) 
     }
 });
 
-app.put('/user-check/:code/:action', async (req, res) => {
-    const { code, action } = req.params;
+app.get('/user-catas-vip-verification/:code/:date/:cata', async (req, res) => {
+    const { code, date, cata } = req.params;   
+    try {
+        const data = await RegisterModel.userCatasVipVerify({ code, date, cata });
+        if (data.status) {
+            res.json({ // Using res.json for setting appropriate Content-Type
+                status: true,
+                message: 'Usuario encontrado en la cata/taller',
+                data
+            });
+        } else {
+            // Using 404 Not Found as an example; adjust based on your application's needs
+            res.status(404).json({
+                status: false,
+                message: 'No existen registros de este usuario en catas vip'
+            });
+        }
+    } catch (err) {
+        console.error(err); 
+        res.status(500).json({
+            status: false,
+            message: 'Fallo conexion con el servidor'
+        });
+    }
+});
+
+app.put('/user-access', async (req, res) => {
+    const { code, action } = req.body;
 
     try {
         // Check if the user has already checked in or out
-        const existingAction = await AttendanceModel.getUserActionStatus(code);
-        if (existingAction) {
-            return res.status(400).json({
-                status: false,
-                message: 'User has already checked in or out'
+        const data = await RegisterModel.userAccess({code, action});
+        if (data.status) {
+            return  res.json({
+                status: true,
+                message: `${action} correctamente`
             });
-        }
-        
-        if (action === 'check-in') {
-            await AttendanceModel.checkInUser(uuid);
-        } else if (action === 'check-out') {
-            await AttendanceModel.checkOutUser(uuid);
-        } else {
-            return res.status(400).json({
+        }else{
+            return res.status(404).json({
                 status: false,
-                message: 'Invalid action'
+                message: 'Acción no permitida, el usuario ya ha realizado esta acción anteriormente'
             });
-        }
-
-        res.json({
-            status: true,
-            message: `User ${action} successful`
-        });
+        }                      
     } catch (err) {
         console.error(err);
         res.status(500).json({
             status: false,
-            message: 'Failed to perform user check-in/check-out'
+            message: 'Error interno al intentar hacer check-in/check-out'
         });
     }
 });
+/*ENPOINTS PARA OPERAR EN SITIO*/
+
+
+
 
 app.get('/verify-vip-ticket/:cataVip/:date', async (req, res) => {
     const { cataVip, date } = req.params;
