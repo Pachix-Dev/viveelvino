@@ -236,7 +236,7 @@ export function RegisterForm() {
                 )}
               </div>
 
-              <Catas user={0} />
+              {/*<Catas user={0} />*/}
 
               {companions.map((companion, index) => (
                 <div key={index} className='pt-5'>
