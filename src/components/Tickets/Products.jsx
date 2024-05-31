@@ -22,7 +22,6 @@ export function Products() {
         'Música en vivo ambos días',
         'Cat\u00E1logo de expositores digital',
       ],
-      notInclude: ['Catas VIP (con costo adicional)'],
     },
     {
       id: 2,
@@ -61,7 +60,7 @@ export function Products() {
             precio regular en sitio
           </p>
           <ul role='list' className='space-y-5 my-7'>
-            {product.include.map((list, index) => (
+            {product?.include?.map((list, index) => (
               <li key={index} className='flex items-center'>
                 <svg
                   className='flex-shrink-0 w-4 h-4 text-blue-600 '
@@ -79,22 +78,23 @@ export function Products() {
             ))}
           </ul>
           <ul role='list' className='space-y-5 my-7'>
-            {product.notInclude.map((list, index) => (
-              <li key={index} className='flex  decoration-gray-500'>
-                <svg
-                  className='flex-shrink-0 w-4 h-4 text-gray-400 '
-                  aria-hidden='true'
-                  xmlns='http://www.w3.org/2000/svg'
-                  fill='currentColor'
-                  viewBox='0 0 20 20'
-                >
-                  <path d='M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z' />
-                </svg>
-                <span className='text-base font-normal leading-tight text-gray-500 ms-3'>
-                  {list}
-                </span>
-              </li>
-            ))}
+            {product.notInclude &&
+              product.notInclude.map((list, index) => (
+                <li key={index} className='flex  decoration-gray-500'>
+                  <svg
+                    className='flex-shrink-0 w-4 h-4 text-gray-400 '
+                    aria-hidden='true'
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='currentColor'
+                    viewBox='0 0 20 20'
+                  >
+                    <path d='M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z' />
+                  </svg>
+                  <span className='text-base font-normal leading-tight text-gray-500 ms-3'>
+                    {list}
+                  </span>
+                </li>
+              ))}
           </ul>
           <div className='flex gap-2'>
             <button
