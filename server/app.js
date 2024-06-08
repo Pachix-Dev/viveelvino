@@ -397,6 +397,42 @@ app.post('/create-ticket', async (req, res) => {
     }
 });
 
+//checar si ya tiene asignado una pulsera
+app.get('/user-ticket-verification/:uuid/', async (req, res) => {
+    const { uuid } = req.params;
+  console.log(uuid);
+     // UUID v4 regex validation
+     const uuidV4Regex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+     if (!uuidV4Regex.test(uuid)) {
+         return res.status(400).json({
+             status: false,
+             message: 'Users uuid is invalid. Please try again.'
+         });
+     }
+    try {
+        const data = await RegisterModel.getPickupID({ uuid });
+        if (data) {
+            res.json({ // Using res.json for setting appropriate Content-Type
+                status: true,
+                message: 'User valido sin asignar pulsera',
+                data
+            });
+        } else {        
+            res.status(400).json({
+                status: false,
+                message: 'Usuario ya tiene asignada una pulsera o no se encuentra en el sistema'
+            });
+        }
+    } catch (err) {
+        console.error(err); // It's good practice to log the error
+        res.status(500).json({ // Respond with 500 Internal Server Error on exceptions
+            status: false,
+            message: err.sqlState === '23000' ? 'Ya haz asignado este codigo a un usuario' : 'Error al verificar el ticket del usuario'
+        });
+    }
+});
+
+//asignar puslera a usuario
 app.get('/user-ticket-verification/:uuid/:code', async (req, res) => {
     const { uuid, code } = req.params;
 
@@ -430,7 +466,7 @@ app.get('/user-ticket-verification/:uuid/:code', async (req, res) => {
         });
     }
 });
-
+ 
 app.get('/user-catas-talleres-verification/:code/:date/:cata', async (req, res) => {
     const { code, date, cata } = req.params;   
     try {
@@ -483,31 +519,57 @@ app.get('/user-catas-vip-verification/:code/:date/:cata', async (req, res) => {
     }
 });
 
-app.put('/user-access', async (req, res) => {
-    const { code, action } = req.body;
-
-    try {
-        // Check if the user has already checked in or out
-        const data = await RegisterModel.userAccess({code, action});
-        if (data.status) {
-            return  res.json({
+app.get('/check-invitation-code/:code', async (req, res) => {
+    const { code } = req.params;    
+    try{
+        const data = await RegisterModel.checkCoupon({ code });
+        if(data.length > 0){
+            res.send({
                 status: true,
-                message: `${action} correctamente`
+                message: 'Coupon valido sin usar aun',
+                couponCode: data[0]
             });
-        }else{
-            return res.status(400).json({
+        } else {
+            res.send({
                 status: false,
-                message: 'Acción no permitida, el usuario ya ha realizado esta acción anteriormente o no se encuentra registrado en el sistema'
+                message: 'Coupon ya usado o no existe en el sistema'
             });
-        }                      
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({
-            status: false,
-            message: 'Error interno al intentar hacer check-in/check-out'
-        });
+        }        
     }
+    catch (err) {
+        console.log(err);
+        res.status(500).send({
+            status: false,
+            message: 'Coupon failed to check'
+        });
+    }    
 });
+
+app.put('/use-invitation-code', async (req, res) => {
+    const { code, id_user } = req.body;    
+    try{
+        const data = await RegisterModel.useCoupon([code], id_user);
+        if(data){
+            res.send({
+                status: true,
+                message: 'Coupon usado correctamente'
+            });
+        } else {
+            res.send({
+                status: false,
+                message: 'Error al usar el coupon'
+            });
+        }        
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).send({
+            status: false,
+            message: 'Coupon failed to use'
+        });
+    }    
+});
+
 /*ENPOINTS PARA OPERAR EN SITIO*/
 
 app.get('/verify-vip-ticket/:cataVip/:date', async (req, res) => {

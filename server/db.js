@@ -47,7 +47,27 @@ export class RegisterModel {
     }
   }
     
-  
+  static async getPickupID({
+    uuid,
+  }) {
+    const connection = await mysql.createConnection(config);
+    try {
+      // Perform the update only if pick_up is not already 1
+      const [result] = await connection.query('SELECT * FROM users WHERE uuid = ? AND pick_up IS NULL', [uuid]);      
+      console.log(result)
+      if (result.length > 0) {
+        return result[0] || null;
+      }else{                                   
+        return null;    
+      }
+      
+    } catch (error) {
+      throw error; // Rethrow the caught error
+    } finally {
+      await connection.end(); // Close the connection
+    }
+  }
+
   static async pickUpById({
     uuid,
     code
