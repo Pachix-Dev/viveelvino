@@ -1,16 +1,16 @@
 ---
-import i18next, { changeLanguage, t } from "i18next";
-import Layout from "../layouts/Layout.astro";
-import { strategic_allies, media_partners } from "../contans_logos.js";
-import { MarqueeLogos } from "../components/MarqueeLogos.jsx";
-import { Results_2023 } from "../components/Results_2023.jsx";
-import LightBox from "../components/LightBox.jsx";
-import { gallery2023_1 } from "../constans_gallery.js";
+import i18next, { changeLanguage, t } from 'i18next'
+import Layout from '../layouts/Layout.astro'
+import { strategic_allies, media_partners } from '../contans_logos.js'
+import { MarqueeLogos } from '../components/MarqueeLogos.jsx'
+import { Results_2023 } from '../components/Results_2023.jsx'
+import LightBox from '../components/LightBox.jsx'
+import { gallery2023_1 } from '../constans_gallery.js'
 
-changeLanguage("es");
+changeLanguage('es')
 
-const lang = i18next.language;
-const base = lang === "es" ? "" : `/${lang}`;
+const lang = i18next.language
+const base = lang === 'es' ? '' : `/${lang}`
 ---
 
 <Layout
@@ -25,7 +25,12 @@ const base = lang === "es" ? "" : `/${lang}`;
         <div
           class='px-4 md:px-20 lg:px-32 py-10 lg:py-20 text-[2.5rem] lg:text-[5.7rem] 2xl:text-[6rem] font-extrabold leading-[0.8] w-fit'
         >
-          <div
+          <span class='text-[#DF1CB7]'>VIVE</span>
+          <span class='text-[#FDAD2E]'>EL VINO</span>
+          <span class='text-[#38AE84]'> PROXIMAMENTE </span>
+          <span class='text-[#283A57]'>2025</span>
+          {
+            /* <div
             data-aos='fade-up'
             data-aos-duration='1000'
             class='text-[#283A57]'
@@ -45,7 +50,7 @@ const base = lang === "es" ? "" : `/${lang}`;
             <span class='text-[#FDAD2E]'>{t('home.title_4')}</span>
             <span class='text-[#38AE84]'> {t('home.title_5')}</span>
           </div>
-
+          
           <p
             data-aos='fade-up'
             data-aos-duration='1000'
@@ -62,6 +67,8 @@ const base = lang === "es" ? "" : `/${lang}`;
           >
             {t('home.title_7')}
           </div>
+          */
+          }
         </div>
         <img
           data-aos='fade-up'
@@ -197,7 +204,8 @@ const base = lang === "es" ? "" : `/${lang}`;
           />
         </div>
       </div>
-      <div class='mt-10 flex justify-center'>
+      {
+        /* <div class='mt-10 flex justify-center'>
         <a href='https://tonic-event.com/' target='_blank'>
           <img
             src='https://tonic-event.com/public/storage/images/events/oovlWCiRlPo5zfAXb9qEBq8cz8hR9jujdmMmHIng.jpg'
@@ -206,7 +214,8 @@ const base = lang === "es" ? "" : `/${lang}`;
       </div>
       <p class='text-center text-xl'>
         5% de descuento usando codigo <span class='font-bold'>VIVEELVINO</span>
-      </p>
+      </p>*/
+      }
     </section>
     <section class='container mx-auto px-4'>
       <video
