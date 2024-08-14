@@ -14,9 +14,9 @@
         "option2": {
             "title":"EXPOSITORES",
             "subMenu": {
-                "option1":"FACTSHEET 2024",        
+                "option1":"CONVOCATION 2025",        
                 "option2":"EXHIBITOR'S MANUAL",
-                "option3":"CONTRACT VIVE EL VINO",
+                "option3":"CONTRACT 2025",
                 "option4":"SPONSORSHIPS",
                 "option5":"RATES",
                 "option6":"WHY EXHIBIT?",
@@ -38,7 +38,7 @@
         },
         "gallery": "GALLERY",
         "tickets": "TICKETS",
-        "event_date": "June 8 - 9, 2024",
+        "event_date": "June 8 - 9",
         "distric_venue": "León MX District",
         "instalations": "León Fairgrounds",
         "program": "Program"
