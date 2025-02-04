@@ -295,19 +295,7 @@ const base = lang === "es" ? "" : `/${lang}`;
       media={t('home.media')}
       client:only
     />
-    <section class='my-20 container mx-auto px-4'>
-      <p class='text-[#DB00AE] font-extrabold text-5xl text-center'>
-        {t('menu.gallery')}
-      </p>
-      <LightBox images={gallery2023_1} client:visible />
 
-      <a
-        href={`${base}/galeria`}
-        class='bg-[#DB00AE] text-white font-extrabold text-xl text-center rounded-lg w-40 py-2 px-4 mt-10 flex items-center justify-center mx-auto'
-      >
-        {t('home.see_more')}
-      </a>
-    </section>
     <section
       class='bg-[#DB00AE] text-white px-4 py-10 font-extrabold text-2xl md:text-4xl text-center'
     >
