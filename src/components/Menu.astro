@@ -155,15 +155,6 @@ const base = lang === 'es' ? '' : `/${lang}`
                     {t('menu.aboutUS.subMenu.option1')}
                   </a>
                 </li>
-                <li>
-                  <a
-                    href='https://igeco.mx/history'
-                    target='_blank'
-                    class='block px-4 py-2'
-                  >
-                    {t('menu.aboutUS.subMenu.option2')}
-                  </a>
-                </li>
               </ul>
             </div>
           </li>
@@ -200,62 +191,9 @@ const base = lang === 'es' ? '' : `/${lang}`
                 class='py-2 text-sm text-gray-700'
                 aria-labelledby='dropdownLargeButton'
               >
-                {
-                   <li>
-                  <a
-                    href={i18next.language === 'en'
-                      ? '/files/Factsheet-VEV-2025-EN_compressed.pdf'
-                      : '/files/Factsheet-VEV-2025-ESP_compressed.pdf'}
-                    target='_blank'
-                    class='block px-4 py-2'
-                  >
-                    {t('menu.option2.subMenu.option1')}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/files/VEV2025-SpaceAgreement-ED.pdf'
-                    target='_blank'
-                    class='block px-4 py-2'
-                  >
-                    {t('menu.option2.subMenu.option3')}
-                  </a>
-                </li> 
-                /*<li>
-                  <a
-                    href='/files/MANUAL-EXPOSITOR-VIVE-EL-VINO.pdf'
-                    target='_blank'
-                    class='block px-4 py-2'
-                  >
-                    {t('menu.option2.subMenu.option2')}
-                  </a>
-                </li>
-                               
-                <li>
-                  <a
-                    href='/files/Patrocinios_VEV-2023.pdf'
-                    target='_blank'
-                    class='block px-4 py-2'
-                  >
-                    {t('menu.option2.subMenu.option4')}
-                  </a>
-                </li>
-                <li>
-                  <a href={`${base}/tarifas`} class='block px-4 py-2'>
-                    {t('menu.option2.subMenu.option5')}
-                  </a>
-                </li>
-                */
-                }
                 <li>
                   <a href={`${base}/porque-exponer`} class='block px-4 py-2'>
                     {t('menu.option2.subMenu.option6')}
-                  </a>
-                </li>
-
-                <li>
-                  <a href={`${base}/toolkit`} class='block px-4 py-2'
-                    >TOOLKIT
                   </a>
                 </li>
               </ul>
@@ -307,89 +245,6 @@ const base = lang === 'es' ? '' : `/${lang}`
               </ul>
             </div>
           </li>
-          <li>
-            <button
-              id='dropdownExhibitors4'
-              data-dropdown-toggle='dropdownNavbar4'
-              class='flex items-center justify-between w-full py-2 pl-3 pr-4 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto'
-            >
-              <span class='text-[#0E2241] font-extrabold'
-                >{t('menu.option4.title')}</span
-              >
-              <svg
-                class='w-2.5 h-2.5 ml-2.5'
-                aria-hidden='true'
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 10 6'
-              >
-                <path
-                  stroke='#0E2241'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
-                  d='m1 1 4 4 4-4'></path>
-              </svg>
-            </button>
-            <div
-              id='dropdownNavbar4'
-              class='dropdown z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44'
-            >
-              <ul
-                class='py-2 text-sm text-gray-700'
-                aria-labelledby='dropdownLargeButton'
-              >
-                <li>
-                  <a
-                    href='/files/DIRECTORIO-VIVE-EL-VINO-2024_compressed.pdf'
-                    target='_blank'
-                    class='block px-4 py-2'
-                  >
-                    {t('menu.option4.directory_2024')}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/files/Aftershow-Report-VEV2024_compressed.pdf'
-                    target='_blank'
-                    class='block px-4 py-2'
-                  >
-                    {t('menu.option4.vev_2024')}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/files/AFTERSHOW-REPORT-VEV.pdf'
-                    target='_blank'
-                    class='block px-4 py-2'
-                  >
-                    {t('menu.option4.vev_2023')}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href='/files/Directorio-Expositores-VEV.pdf'
-                    target='_blank'
-                    class='block px-4 py-2'
-                    >{t('menu.option4.directory_2023')}</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </li>
-          {
-            /* <li>
-            <a
-              href='/files/PROGRAMA-VIVE-EL-VINO-2024_compressed.pdf'
-              target='_blank'
-              class='block py-2 pl-3 pr-4 rounded md:bg-transparent md:p-0'
-            >
-              <span class='text-[#DB00AE] font-extrabold uppercase'
-                >{t('menu.program')}</span
-              >
-            </a>
-          </li>*/
-          }
         </ul>
       </div>
     </div>
